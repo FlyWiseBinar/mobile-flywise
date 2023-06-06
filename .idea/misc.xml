@@ -3,24 +3,40 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/drawable-v24/background_dialog.xml" value="0.1" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/drawable-v24/background_label_destination_favorite.xml" value="0.1" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/drawable/background_border_neutral.xml" value="0.1" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/drawable/background_border_primary_purple.xml" value="0.1" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/drawable/background_home.xml" value="0.1" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.1" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/drawable/ic_button_arrowback.xml" value="0.1" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/drawable/penerbangan.xml" value="0.1" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/drawable/shape_button_primary.xml" value="0.1" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/drawable/wishlist.xml" value="0.1" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_check_bio_penumpang.xml" value="0.14130434782608695" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_checkout.xml" value="0.14130434782608695" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_checkout_biodata.xml" value="0.11614583333333334" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_date_dialog.xml" value="0.16666666666666666" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_detail_non_login.xml" value="0.22" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_hasil_pencarian.xml" value="0.14130434782608695" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_login.xml" value="0.14130434782608695" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_login_sebelum_check_out.xml" value="0.16666666666666666" />
-        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_notifikasi.xml" value="0.11614583333333334" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_notifikasi.xml" value="0.13999999999999999" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_payment.xml" value="0.14130434782608695" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_pilih_destinasi.xml" value="0.16666666666666666" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_profile.xml" value="0.16666666666666666" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_register.xml" value="0.14130434782608695" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_reset_pass.xml" value="0.22" />
-        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_riwayat.xml" value="0.16666666666666666" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_riwayat.xml" value="0.22" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_send_otp.xml" value="0.11614583333333334" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_set_kelas.xml" value="0.11614583333333334" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_set_penumpang.xml" value="0.22" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_splash.xml" value="0.14130434782608695" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_succees.xml" value="0.11614583333333334" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/item_destiantion_fav.xml" value="0.14130434782608695" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/item_destination.xml" value="0.22" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/menu/bottom_nav_menu.xml" value="0.16666666666666666" />
       </map>
     </option>

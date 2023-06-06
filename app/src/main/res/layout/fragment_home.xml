@@ -50,32 +50,35 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginEnd="24dp"
                     android:background="@color/white">
+
                     <LinearLayout
                         android:id="@+id/layoutDeparture"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        >
+                        android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/plane"/>
+                            android:src="@drawable/plane" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="from"
                             android:layout_marginLeft="12dp"
-                            android:textSize="12sp"
-                            android:textColor="#8A8A8A"/>
+                            android:text="from"
+                            android:textColor="#8A8A8A"
+                            android:textSize="12sp" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:lineHeight="24dp"
                             android:text="Jakarta (JKTA)"
                             android:textColor="@color/black"
-                            android:textSize="16sp"
-                            android:lineHeight="24dp"
-                            android:layout_marginStart="20dp"/>
+                            android:textSize="16sp" />
                     </LinearLayout>
                     <View
                         android:id="@+id/gridTop1"
@@ -87,34 +90,37 @@
                         android:layout_marginEnd="32dp"
                         android:background="#D0D0D0"
                         android:layout_below="@id/layoutDeparture"/>
+
                     <LinearLayout
                         android:id="@+id/layoutArrival"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
                         android:layout_below="@id/gridTop1"
-                        >
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/plane"/>
+                            android:src="@drawable/plane" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="to"
                             android:layout_marginLeft="12dp"
-                            android:textSize="12sp"
-                            android:textColor="#8A8A8A"/>
+                            android:text="to"
+                            android:textColor="#8A8A8A"
+                            android:textSize="12sp" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:gravity="center"
+                            android:lineHeight="24dp"
                             android:text="Melbourne (MLB)"
                             android:textColor="@color/black"
-                            android:textSize="16sp"
-                            android:lineHeight="24dp"
-                            android:gravity="center"
-                            android:layout_marginStart="20dp"/>
+                            android:textSize="16sp" />
                     </LinearLayout>
 
                     <ImageButton
@@ -381,8 +387,7 @@
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 
