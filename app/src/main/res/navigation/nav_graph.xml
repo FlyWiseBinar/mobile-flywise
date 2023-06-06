@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.binar.projekakhir.view.ui.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment2"
+        android:name="com.binar.projekakhir.view.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment2_to_pilihDestinasiFragment"
+            app:destination="@id/pilihDestinasiFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_setPenumpangFragment"
+            app:destination="@id/setPenumpangFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_setKelasFragment"
+            app:destination="@id/setKelasFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_hasilPencarianFragment"
+            app:destination="@id/hasilPencarianFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_profileFragment2"
+            app:destination="@id/profileFragment2" />
+        <action
+            android:id="@+id/action_homeFragment2_to_riwayatFragment2"
+            app:destination="@id/riwayatFragment2" />
+        <action
+            android:id="@+id/action_homeFragment2_to_notifikasiFragment2"
+            app:destination="@id/notifikasiFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/pilihDestinasiFragment"
+        android:name="com.binar.projekakhir.view.ui.PilihDestinasiFragment"
+        android:label="fragment_pilih_destinasi"
+        tools:layout="@layout/fragment_pilih_destinasi" />
+    <fragment
+        android:id="@+id/detailNonLoginFragment"
+        android:name="com.binar.projekakhir.view.ui.DetailNonLoginFragment"
+        android:label="fragment_detail_non_login"
+        tools:layout="@layout/fragment_detail_non_login" >
+        <action
+            android:id="@+id/action_detailNonLoginFragment_to_loginSebelumCheckOut"
+            app:destination="@id/loginSebelumCheckOut" />
+        <action
+            android:id="@+id/action_detailNonLoginFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hasilPencarianFragment"
+        android:name="com.binar.projekakhir.view.ui.HasilPencarianFragment"
+        android:label="fragment_hasil_pencarian"
+        tools:layout="@layout/fragment_hasil_pencarian" >
+        <action
+            android:id="@+id/action_hasilPencarianFragment_to_detailNonLoginFragment"
+            app:destination="@id/detailNonLoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginSebelumCheckOut"
+        android:name="com.binar.projekakhir.view.ui.LoginSebelumCheckOut"
+        android:label="fragment_login_sebelum_check_out"
+        tools:layout="@layout/fragment_login_sebelum_check_out" >
+        <action
+            android:id="@+id/action_loginSebelumCheckOut_to_checkoutBioPemesanFragment"
+            app:destination="@id/checkoutBioPemesanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resetPassFragment"
+        android:name="com.binar.projekakhir.view.ui.ResetPassFragment"
+        android:label="fragment_reset_pass"
+        tools:layout="@layout/fragment_reset_pass" />
+    <fragment
+        android:id="@+id/riwayatFragment2"
+        android:name="com.binar.projekakhir.view.ui.RiwayatFragment"
+        android:label="fragment_riwayat"
+        tools:layout="@layout/fragment_riwayat" />
+    <fragment
+        android:id="@+id/checkBioPenumpangFragment"
+        android:name="com.binar.projekakhir.view.ui.CheckBioPenumpangFragment"
+        android:label="fragment_check_bio_penumpang"
+        tools:layout="@layout/fragment_check_bio_penumpang" >
+        <action
+            android:id="@+id/action_checkBioPenumpangFragment_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.binar.projekakhir.view.ui.CheckoutFragment"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_checkout" >
+        <action
+            android:id="@+id/action_checkoutFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.binar.projekakhir.view.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_resetPassFragment"
+            app:destination="@id/resetPassFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notifikasiFragment2"
+        android:name="com.binar.projekakhir.view.ui.NotifikasiFragment"
+        android:label="fragment_notifikasi"
+        tools:layout="@layout/fragment_notifikasi" />
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.binar.projekakhir.view.ui.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" >
+        <action
+            android:id="@+id/action_paymentFragment_to_succeesFragment"
+            app:destination="@id/succeesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment2"
+        android:name="com.binar.projekakhir.view.ui.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.binar.projekakhir.view.ui.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendOtpFragment"
+        android:name="com.binar.projekakhir.view.ui.SendOtpFragment"
+        android:label="fragment_send_otp"
+        tools:layout="@layout/fragment_send_otp" />
+    <fragment
+        android:id="@+id/setKelasFragment"
+        android:name="com.binar.projekakhir.view.ui.SetKelasFragment"
+        android:label="fragment_set_kelas"
+        tools:layout="@layout/fragment_set_kelas" />
+    <fragment
+        android:id="@+id/setPenumpangFragment"
+        android:name="com.binar.projekakhir.view.ui.SetPenumpangFragment"
+        android:label="fragment_set_penumpang"
+        tools:layout="@layout/fragment_set_penumpang" />
+    <fragment
+        android:id="@+id/succeesFragment"
+        android:name="com.binar.projekakhir.view.ui.SucceesFragment"
+        android:label="fragment_succees"
+        tools:layout="@layout/fragment_succees" />
+    <fragment
+        android:id="@+id/checkoutBioPemesanFragment"
+        android:name="com.binar.projekakhir.view.ui.CheckoutBioPemesanFragment"
+        android:label="fragment_checkout_biodata"
+        tools:layout="@layout/fragment_checkout_biodata" >
+        <action
+            android:id="@+id/action_checkoutBioPemesanFragment_to_checkBioPenumpangFragment"
+            app:destination="@id/checkBioPenumpangFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "542541130570",
+    "project_id": "fly-wise-binar",
+    "storage_bucket": "fly-wise-binar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:542541130570:android:4e43ac4efeb67abab2afb3",
+        "android_client_info": {
+          "package_name": "com.binar.projekakhir"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "542541130570-pv0hgqn7pahvrcs4j6cl7eo07ohbqq27.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.binar.projekakhir",
+            "certificate_hash": "5ede9973742f5ab00a367496f1c038c8e05d5c3b"
+          }
+        },
+        {
+          "client_id": "542541130570-c35bf34h820j8392p7ckec2t32ielf2l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlWXMBRYVxVrVXR82XnSWpCTSzT9Z6Ibs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "542541130570-c35bf34h820j8392p7ckec2t32ielf2l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
