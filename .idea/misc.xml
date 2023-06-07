@@ -36,7 +36,7 @@
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_set_kelas.xml" value="0.16666666666666666" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_set_penumpang.xml" value="0.22" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_splash.xml" value="0.14130434782608695" />
-        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_succees.xml" value="0.11614583333333334" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_succees.xml" value="0.22" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/item_destiantion_fav.xml" value="0.14130434782608695" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/item_destination.xml" value="0.22" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/item_notif.xml" value="0.1" />
@@ -44,17 +44,10 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17_PREVIEW" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.14666666666666667" />
-      </ProjectState>
-    </option>
   </component>
 </project>

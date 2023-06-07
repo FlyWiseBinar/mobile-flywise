@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".view.ui.HomeFragment">
 
     <!--add scrollview-->
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,8 +38,7 @@
             android:layout_marginStart="12dp"
             android:textColor="#151515"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent" />
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -376,8 +385,8 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="379dp"
-        android:layout_height="199dp"
+        android:layout_width="388dp"
+        android:layout_height="197dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
@@ -387,6 +396,9 @@
         app:layout_constraintTop_toBottomOf="@id/TitleDestinationFavorite"
         tools:listitem="@layout/item_destiantion_fav" />
     <!--add scrollview-->
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 
 
@@ -395,4 +407,4 @@
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
