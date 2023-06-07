@@ -119,7 +119,6 @@
         android:gravity="top"
         android:lineSpacingExtra="0sp"
         android:text="Email / Nomor Telepon"
-        android:textAppearance="Email / Nomor Telepon"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_signin"

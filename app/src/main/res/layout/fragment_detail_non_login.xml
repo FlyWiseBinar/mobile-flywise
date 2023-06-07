@@ -83,7 +83,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/background_border_primary_purple_one"
+            android:background="@drawable/background_border_primary_purple"
             android:layout_below="@id/layoutFlightDestination">
             <!--            jadwal pemberangkatan-->
             <RelativeLayout
