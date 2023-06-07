@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class NotifikasiFragment : Fragment() {
 
     private lateinit var binding : FragmentNotifikasiBinding
-    private lateinit var navController: NavController
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,8 +30,7 @@ class NotifikasiFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        navController = Navigation.findNavController(requireActivity(), R.id.fragmentcontainer)
-        NavigationUI.setupWithNavController(binding.bottomNavigation, navController)
+
     }
 
 

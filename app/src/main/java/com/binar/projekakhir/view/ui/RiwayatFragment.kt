@@ -15,8 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class RiwayatFragment : Fragment() {
     private lateinit var binding : FragmentRiwayatBinding
-    //nav
-    private lateinit var navController: NavController
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,8 +29,7 @@ class RiwayatFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        navController = Navigation.findNavController(requireActivity(), R.id.fragmentcontainer)
-        NavigationUI.setupWithNavController(binding.bottomNavigation, navController)
+
 
     }
 
