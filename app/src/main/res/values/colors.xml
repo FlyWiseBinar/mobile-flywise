@@ -38,4 +38,6 @@
     <color name="NEUTRAL01">#FFFFFF</color>
 
     <color name="background">#E4E4E4</color>
+    <color name="primaryPurple">#7126B5</color>
+    <color name="blue">#2196F3</color>
 </resources>
