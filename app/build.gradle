@@ -96,6 +96,9 @@ dependencies {
     //static circle image
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    //pin view otp
+    implementation 'io.github.chaosleung:pinview:1.4.4'
+
 
 
 

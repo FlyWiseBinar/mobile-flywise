@@ -78,7 +78,7 @@
         android:layout_marginTop="72dp"
         android:layout_marginRight="30dp"
         android:backgroundTint="@color/primaryPurple"
-        android:text="@string/masuk"
+        android:text="masuk"
         android:textSize="25sp"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"

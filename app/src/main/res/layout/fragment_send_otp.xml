@@ -1,14 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.ui.SendOtpFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/iv_iconback"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/ic_button_arrowback"
+        tools:ignore="ContentDescription" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tv_inOtp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:text="Masukkan OTP"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:layout_below="@id/iv_iconback"
+        app:layout_constraintTop_toBottomOf="@id/iv_iconback" />
+
+    <TextView
+        android:id="@+id/tv_contentOtp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Ketik 6 digit kode yang dikirimkan"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_below="@id/tv_inOtp"/>
+
+
+    <com.chaos.view.PinView
+        android:id="@+id/pinview"
+        style="@style/PinWidget.PinView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_ContentOtp2"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:cursorVisible="true"
+        android:inputType="number"
+        android:itemBackground="@color/white"
+        android:padding="5dp"
+        app:hideLineWhenFilled="false"
+        app:itemCount="6"
+        app:itemHeight="50dp"
+        app:itemRadius="16dp"
+        app:itemWidth="50dp"
+        app:lineColor="@color/NEUTRAL02"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/tv_ContentOtp2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="ke xxxx"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_below="@id/tv_contentOtp" />
+
+    <TextView
+        android:id="@+id/tv_contentOtp3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="45dp"
+        android:layout_marginTop="30dp"
+        android:text="Kirim Ulang OTP dalam xx"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_below="@id/pinview" />
+
+    <TextView
+        android:id="@+id/tv_contentOtp4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Minta kode baru via Email"
+        android:textColor="@color/DARKBLUE04"
+        android:textSize="18sp"
+        android:layout_below="@id/tv_contentOtp3" />
+
+</RelativeLayout>
