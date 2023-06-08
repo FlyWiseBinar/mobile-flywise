@@ -37,7 +37,7 @@
                 android:layout_toEndOf="@id/btnBack"
                 android:fontFamily="@font/poppinsmedium"
                 android:lineHeight="20dp"
-                android:text="Pilihan Penerbangan"
+                android:text="Rician Penerbangan"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp" />
         </RelativeLayout>
@@ -211,7 +211,25 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppinsregular"
                         android:lineHeight="20dp"
-                        android:text="Baggage 20 kg\nCabin baggage 7 kg\nIn Flight Entertainment"
+                        android:text="Baggage 20 kg"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsregular"
+                        android:lineHeight="20dp"
+                        android:text="Cabin Baggage 7 kg"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsregular"
+                        android:lineHeight="20dp"
+                        android:text="In Flight Entertainment"
                         android:textColor="#000000"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -435,7 +453,7 @@
             android:id="@+id/btnSelectFlight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pilih"
+            android:text="Lanjut Penerbangan"
             android:fontFamily="@font/poppinsmedium"
             android:lineHeight="24dp"
             android:textSize="16sp"

@@ -213,7 +213,25 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppinsregular"
                         android:lineHeight="20dp"
-                        android:text="Baggage 20 kg\nCabin baggage 7 kg\nIn Flight Entertainment"
+                        android:text="Baggage 20 kg"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsregular"
+                        android:lineHeight="20dp"
+                        android:text="Cabin Baggage 7 kg"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppinsregular"
+                        android:lineHeight="20dp"
+                        android:text="In Flight Entertainment"
                         android:textColor="#000000"
                         android:textSize="14sp" />
                 </LinearLayout>
