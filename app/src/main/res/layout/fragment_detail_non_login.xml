@@ -76,15 +76,16 @@
                 android:lineHeight="24dp"
                 android:textColor="#222222"/>
         </LinearLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_below="@id/layoutFlightDestination"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/background_border_primary_purple"
-            android:layout_below="@id/layoutFlightDestination">
+            android:background="@drawable/background_border_primary_purple">
             <!--            jadwal pemberangkatan-->
             <RelativeLayout
                 android:id="@+id/layoutDepartureSchedule"
@@ -147,31 +148,33 @@
                     android:textColor="#A06ECE"
                     android:textSize="12sp" />
             </RelativeLayout>
+
             <View
                 android:id="@+id/grid1"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/NEUTRAL02"
+                android:layout_below="@id/layoutDepartureSchedule"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
-                android:layout_below="@id/layoutDepartureSchedule"/>
+                android:background="@color/NEUTRAL02" />
             <!--            informasi airline/maskapai -->
             <RelativeLayout
                 android:id="@+id/layoutInfoAirline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/grid1"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
-                android:layout_below="@id/grid1">
+                android:layout_marginBottom="8dp">
+
                 <ImageView
                     android:id="@+id/imgAirline"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_airline"
                     android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_airline" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -236,74 +239,78 @@
                         android:textSize="14sp" />
                 </LinearLayout>
             </RelativeLayout>
+
             <View
                 android:id="@+id/grid2"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#D0D0D0"
+                android:layout_below="@id/layoutInfoAirline"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
-                android:layout_below="@id/layoutInfoAirline"/>
+                android:background="#D0D0D0" />
             <!--            info kedatangan-->
             <RelativeLayout
                 android:id="@+id/layoutArriveSchedule"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="16dp"
                 android:layout_below="@id/grid2"
-                >
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp">
                 <!--                tanggal dan jam keberangkatan-->
                 <LinearLayout
                     android:id="@+id/layoutTimeArrive"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/tvTimeArrive"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="11:00"
                         android:fontFamily="@font/poppinsbold"
-                        android:textSize="16sp"
                         android:lineHeight="24dp"
-                        android:textColor="#000000"/>
+                        android:text="11:00"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
                     <TextView
                         android:id="@+id/tvDateArrive"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3 Maret 2023"
                         android:fontFamily="@font/poppinsmedium"
-                        android:textSize="14sp"
                         android:lineHeight="24dp"
-                        android:textColor="#000000"/>
+                        android:text="3 Maret 2023"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/tvArriveAirport"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Melbourne International Airport"
-                    android:textSize="14sp"
-                    android:lineHeight="20dp"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:textColor="#000000"
+                    android:layout_below="@id/layoutTimeArrive"
                     android:layout_marginTop="2dp"
-                    android:layout_below="@id/layoutTimeArrive"/>
+                    android:fontFamily="@font/poppinsmedium"
+                    android:lineHeight="20dp"
+                    android:text="Melbourne International Airport"
+                    android:textColor="#000000"
+                    android:textSize="14sp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kedatangan"
-                    android:textSize="12sp"
-                    android:lineHeight="18dp"
-                    android:fontFamily="@font/poppinsbold"
-                    android:textColor="#A06ECE"
+                    android:layout_alignParentEnd="true"
                     android:layout_marginTop="2dp"
-                    android:textAlignment="textEnd"
                     android:layout_toEndOf="@id/layoutTimeArrive"
-                    android:layout_alignParentEnd="true"/>
+                    android:fontFamily="@font/poppinsbold"
+                    android:lineHeight="18dp"
+                    android:text="Kedatangan"
+                    android:textAlignment="textEnd"
+                    android:textColor="#A06ECE"
+                    android:textSize="12sp" />
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>

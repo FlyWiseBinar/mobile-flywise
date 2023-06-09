@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/cardHeader"
+            android:src="@drawable/cardheader"
             app:riv_corner_radius_top_left="10dp"
             app:riv_corner_radius_top_right="10dp"
             app:riv_corner_radius_bottom_left="0dp"
@@ -110,8 +110,8 @@
                         android:layout_marginTop="50dp"
                         android:text="Nama Lengkap"
                         android:textColor="@color/DARKBLUE05"
-                        android:textStyle="bold"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/et_nama"
@@ -120,8 +120,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tv_nama"
                         android:layout_marginStart="21dp"
-                        android:layout_marginEnd="21dp"
                         android:layout_marginTop="4dp"
+                        android:layout_marginEnd="21dp"
                         app:boxCornerRadiusBottomEnd="4dp"
                         app:boxCornerRadiusBottomStart="4dp"
                         app:boxCornerRadiusTopEnd="4dp"
@@ -138,44 +138,44 @@
 
                     <!--Horizon Switch Section-->
                     <LinearLayout
-                        android:layout_below="@id/et_nama"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_below="@id/et_nama"
                         android:layout_marginStart="25dp"
-                        android:layout_marginTop="15dp">
+                        android:layout_marginTop="15dp"
+                        android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Punya Nama Keluarga?"
                             android:textColor="@color/black"
-                            android:textSize="16sp"/>
+                            android:textSize="16sp" />
 
                         <Switch
                             android:id="@+id/switch1"
-                            android:track="@drawable/switch_bg_track"
-                            android:thumb="@drawable/ic_thumb"
                             android:layout_width="wrap_content"
                             android:layout_height="48dp"
+                            android:layout_marginEnd="20dp"
                             android:layout_weight="1"
                             android:checked="true"
                             android:gravity="end"
-                            android:layout_marginEnd="20dp"/>
+                            android:thumb="@drawable/ic_thumb"
+                            android:track="@drawable/switch_bg_track" />
                     </LinearLayout>
 
                     <!--Nama Keluarga Section-->
                     <TextView
-                        android:layout_below="@id/et_nama"
                         android:id="@+id/tv_nama_keluarga"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@id/et_nama"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="60dp"
                         android:text="Nama Keluarga"
                         android:textColor="@color/DARKBLUE05"
-                        android:textStyle="bold"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/et_nama_keluarga"
@@ -184,8 +184,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tv_nama_keluarga"
                         android:layout_marginStart="21dp"
-                        android:layout_marginEnd="21dp"
                         android:layout_marginTop="4dp"
+                        android:layout_marginEnd="21dp"
                         app:boxCornerRadiusBottomEnd="4dp"
                         app:boxCornerRadiusBottomStart="4dp"
                         app:boxCornerRadiusTopEnd="4dp"
@@ -202,16 +202,16 @@
 
                     <!--Nomor Telepon Section-->
                     <TextView
-                        android:layout_below="@id/et_nama_keluarga"
                         android:id="@+id/tv_nomor_telp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@id/et_nama_keluarga"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
                         android:text="Nomor Telepon"
                         android:textColor="@color/DARKBLUE05"
-                        android:textStyle="bold"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/et_nomor_telp"
@@ -220,8 +220,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tv_nomor_telp"
                         android:layout_marginStart="21dp"
-                        android:layout_marginEnd="21dp"
                         android:layout_marginTop="4dp"
+                        android:layout_marginEnd="21dp"
                         app:boxCornerRadiusBottomEnd="4dp"
                         app:boxCornerRadiusBottomStart="4dp"
                         app:boxCornerRadiusTopEnd="4dp"
@@ -238,16 +238,16 @@
 
                     <!--Email Section-->
                     <TextView
-                        android:layout_below="@id/et_nomor_telp"
                         android:id="@+id/tv_email"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_below="@id/et_nomor_telp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
                         android:text="Email"
                         android:textColor="@color/DARKBLUE05"
-                        android:textStyle="bold"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/et_email"
@@ -256,8 +256,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tv_email"
                         android:layout_marginStart="21dp"
-                        android:layout_marginEnd="21dp"
                         android:layout_marginTop="4dp"
+                        android:layout_marginEnd="21dp"
                         app:boxCornerRadiusBottomEnd="4dp"
                         app:boxCornerRadiusBottomStart="4dp"
                         app:boxCornerRadiusTopEnd="4dp"
