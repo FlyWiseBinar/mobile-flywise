@@ -16,7 +16,7 @@ class CheckoutBioPemesanFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_checkout_biodata, container, false)
+        return inflater.inflate(R.layout.fragment_checkout_bio_pemesanan, container, false)
     }
 
 

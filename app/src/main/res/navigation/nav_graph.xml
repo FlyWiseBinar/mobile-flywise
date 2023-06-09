@@ -167,7 +167,7 @@
         android:id="@+id/checkoutBioPemesanFragment"
         android:name="com.binar.projekakhir.view.ui.CheckoutBioPemesanFragment"
         android:label="fragment_checkout_biodata"
-        tools:layout="@layout/fragment_checkout_biodata" >
+        tools:layout="@layout/fragment_checkout_bio_pemesanan" >
         <action
             android:id="@+id/action_checkoutBioPemesanFragment_to_checkBioPenumpangFragment"
             app:destination="@id/checkBioPenumpangFragment" />
