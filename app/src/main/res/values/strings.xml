@@ -4,4 +4,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="masuk">Masuk\n</string>
     <string name="code">Booking Code: 453653657</string>
+
+
+    <!--auto complete text view bio penumpang mr ms-->
+    <string-array name="gender">
+        <item>Mr</item>
+        <item>Mrs</item>
+    </string-array>
 </resources>
