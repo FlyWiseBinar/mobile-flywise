@@ -344,25 +344,31 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar2"
-        android:background="#4B1979"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/cardview"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="17dp"
+        android:background="#3C3C3C"
         app:layout_constraintTop_toTopOf="parent">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/btnBack2"
-                android:src="@drawable/panah_bawah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="26dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                />
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/panah_bawah" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -380,10 +386,12 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar3"
-        android:background="#4B1979"
+        android:background="#7126B5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="17dp"
         android:layout_below="@id/appBar2"
         app:layout_constraintTop_toTopOf="parent">
         <RelativeLayout
@@ -396,6 +404,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="26dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="15dp"
                 android:layout_marginBottom="8dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
@@ -422,7 +431,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/appBar3"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         app:cardCornerRadius="8dp"
@@ -454,35 +463,33 @@
                     android:textColor="@color/NEUTRAL05"
                     android:textSize="14sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/editTextText3"
+                    android:layout_width="296dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
+                    android:ems="10"
+                    android:inputType="text"
                     android:fontFamily="@font/poppinsmedium"
-                    android:lineHeight="20dp"
-                    android:text="4480 0000 0000 0000"
-                    android:textColor="@color/NEUTRAL05"
-                    android:textSize="12sp" />
+                    android:text="4480 0000 0000 0000" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:fontFamily="@font/poppinsmedium"
+                    android:fontFamily="@font/poppinsbold"
                     android:lineHeight="20dp"
                     android:text="Card Holder Name"
                     android:textColor="@color/NEUTRAL05"
                     android:textSize="12sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/editTextText2"
+                    android:layout_width="296dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
+                    android:ems="10"
+                    android:inputType="text"
                     android:fontFamily="@font/poppinsmedium"
-                    android:lineHeight="20dp"
-                    android:text="John Doe "
-                    android:textColor="@color/NEUTRAL05"
-                    android:textSize="12sp" />
+                    android:text="John Doe" />
 
             </LinearLayout>
 
@@ -503,15 +510,43 @@
                     android:textColor="@color/NEUTRAL05"
                     android:textSize="14sp" />
 
+                <EditText
+                    android:id="@+id/editTextText4"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:text="000" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutexpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layoutCardNumber"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="198dp"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:fontFamily="@font/poppinsmedium"
+                    android:fontFamily="@font/poppinsbold"
                     android:lineHeight="20dp"
-                    android:text="00000"
+                    android:text="Expiry date"
                     android:textColor="@color/NEUTRAL05"
-                    android:textSize="12sp" />
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/edit_expdate"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:inputType="text"
+                    android:text="07/24" />
 
             </LinearLayout>
 
@@ -526,53 +561,20 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:text="Expire Date: "
-                    android:textColor="@color/NEUTRAL05"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:lineHeight="18dp"
-                    android:text="07/24"
-                    android:textColor="@color/black"
-                    android:textSize="12sp" />
-
-
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/gambar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
-                android:layout_marginTop="100dp"
+                android:layout_below="@+id/layoutCardNumber"
+                android:layout_marginStart="133dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginEnd="13dp"
-                android:layout_toEndOf="@id/layoutcvv"
+                android:layout_toEndOf="@+id/layoutcvv"
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:text="Expire Date: "
-                    android:textColor="@color/NEUTRAL05"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:lineHeight="18dp"
-                    android:text="07/24"
-                    android:textColor="@color/black"
-                    android:textSize="12sp" />
 
 
             </LinearLayout>
@@ -586,30 +588,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/cardview2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="60dp"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/mastercard"
-            android:layout_marginStart="80dp"/>
+            android:id="@+id/imageView2"
+            android:layout_width="69dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="50dp"
+            android:layout_weight="1"
+            android:src="@drawable/mastercardlogo" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/visa"
-            android:layout_marginStart="10dp"/>
+            android:layout_marginStart="10dp"
+            android:src="@drawable/visa" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/amex"
-            android:layout_marginStart="10dp"/>
+            android:layout_marginStart="10dp"
+            android:src="@drawable/amex" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/paypal"
-            android:layout_marginStart="10dp"/>
+            android:layout_marginStart="10dp"
+            android:src="@drawable/paypal" />
 
     </LinearLayout>
 
@@ -617,14 +626,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gambar_view"
-        android:layout_marginTop="30dp"
         android:layout_centerInParent="true"
+        android:layout_marginTop="15dp"
         android:orientation="vertical">
 
         <Button
             android:id="@+id/btnSelectFlight"
             style="@style/Widget.Material3.Button"
-            android:layout_width="match_parent"
+            android:layout_width="347dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
@@ -632,12 +641,13 @@
             android:backgroundTint="#4B1979"
             android:fontFamily="@font/poppinsmedium"
             android:lineHeight="24dp"
-            android:text="Lanjut Penerbangan"
+            android:text="Bayar"
             android:textAlignment="center"
             android:textColor="@color/NEUTRAL01"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPriceTicket"/>
+            app:layout_constraintTop_toBottomOf="@id/tvPriceTicket"
+            tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 
 
