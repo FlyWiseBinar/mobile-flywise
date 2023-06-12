@@ -114,6 +114,9 @@
         <action
             android:id="@+id/action_loginFragment_to_resetPassFragment"
             app:destination="@id/resetPassFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
     </fragment>
     <fragment
         android:id="@+id/notifikasiFragment2"
@@ -153,11 +156,15 @@
         android:name="com.binar.projekakhir.view.ui.SetKelasFragment"
         android:label="fragment_set_kelas"
         tools:layout="@layout/fragment_set_kelas" />
-    <fragment
+    <dialog
         android:id="@+id/setPenumpangFragment"
         android:name="com.binar.projekakhir.view.ui.SetPenumpangFragment"
         android:label="fragment_set_penumpang"
-        tools:layout="@layout/fragment_set_penumpang" />
+        tools:layout="@layout/fragment_set_penumpang" >
+        <action
+            android:id="@+id/action_setPenumpangFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </dialog>
     <fragment
         android:id="@+id/succeesFragment"
         android:name="com.binar.projekakhir.view.ui.SucceesFragment"

@@ -1,14 +1,26 @@
 package com.binar.projekakhir.view.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.binar.projekakhir.R
+import com.binar.projekakhir.databinding.FragmentLoginBinding
+import com.binar.projekakhir.model.auth.Data
+import com.binar.projekakhir.viewmodel.UserViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
+
+    private lateinit var userVm : UserViewModel
+    private lateinit var binding: FragmentLoginBinding
+    private var isSuccesLogin = false
+    private lateinit var data : Data
 
 
     override fun onCreateView(
@@ -16,7 +28,68 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        userVm.login(loginData = data)
+        login()
+    }
+
+    private fun login(){
+        binding.btnSignin.setOnClickListener {
+            val email = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
+            userValidation(email,password)
+
+            Log.d("Login Fragment", isSuccesLogin.toString())
+
+//            if(isSuccesLogin){
+//                findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
+//                Toast.makeText(requireContext(), "Login Success", Toast.LENGTH_SHORT).show()
+//                userVm.saveLoginState(true)
+//            } else {
+//                Toast.makeText(requireContext(), "Pastikan email dan Password anda benar", Toast.LENGTH_SHORT).show()
+//            }
+
+
+        }
+    }
+
+
+    private fun userValidation(email:String,pass:String) {
+        userVm.getlivedatalogin().observe(requireActivity()) {
+//            //when get data success, validate email and password to login
+//            for (i in it.indices) {
+//                //validate email and password using index data
+//                val emailValidate = it[i]
+//                val passValidate = it[i]
+//
+//                //create conditional to make sure email and password is available in response data
+//                if (email == emailValidate.email && pass == passValidate.password) {
+//                    Log.d("Login Fragment", "email validate: $emailValidate ")
+//                    Log.d("Login Fragment", email)
+//                    Log.d("Login Fragment", "pass validate: $passValidate ")
+//                    Log.d("Login Fragment", pass)
+//                    //get id
+////                    val id = it[i].idUsers
+//                    Log.d("Login Fragment", id.toString())
+//                    userVm.saveIdPreferences("id",id!!.toString())
+//
+//
+//                    isSuccesLogin = true
+//                    break
+//                } else if (email != emailValidate.email && pass == passValidate.password) {
+//                    isSuccesLogin = false
+//                } else if (email == emailValidate.email && pass != passValidate.password) {
+//                    isSuccesLogin = false
+//                } else {
+//                    isSuccesLogin = false
+//                }
+//            }
+                    }
     }
 
 
