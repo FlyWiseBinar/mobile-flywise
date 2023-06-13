@@ -74,6 +74,9 @@
         <action
             android:id="@+id/action_loginSebelumCheckOut_to_checkoutBioPemesanFragment"
             app:destination="@id/checkoutBioPemesanFragment" />
+        <action
+            android:id="@+id/action_loginSebelumCheckOut_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/resetPassFragment"
