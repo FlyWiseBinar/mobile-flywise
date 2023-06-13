@@ -55,7 +55,6 @@ class RegisterFragment : Fragment() {
             Toast.makeText(requireContext(), "Please fill all the field", Toast.LENGTH_SHORT)
                 .show()
         } else {
-
             userVm.postregist(email,fullName, telephone,password)
             Toast.makeText(requireContext(), "Registration Success", Toast.LENGTH_SHORT)
                 .show()

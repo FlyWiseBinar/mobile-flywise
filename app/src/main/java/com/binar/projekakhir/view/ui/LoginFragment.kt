@@ -43,6 +43,7 @@ class LoginFragment : Fragment() {
         binding.tvSignupHere.setOnClickListener {
             it.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
+
     }
     private fun login(){
         binding.btnSignin.setOnClickListener {

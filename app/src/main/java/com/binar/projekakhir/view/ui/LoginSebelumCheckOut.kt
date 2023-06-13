@@ -14,8 +14,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class LoginSebelumCheckOut : Fragment() {
     lateinit var binding: FragmentLoginSebelumCheckOutBinding
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
