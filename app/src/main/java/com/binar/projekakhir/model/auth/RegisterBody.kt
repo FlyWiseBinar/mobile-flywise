@@ -1,9 +1,15 @@
 package com.binar.projekakhir.model.auth
 
+import com.google.gson.annotations.SerializedName
+
 data class RegisterBody(
-    val email: String?,
-    val name: String?,
-    val password: String?,
-    val telephone : String?,
+    @SerializedName("email")
+    val email: String,
+    @SerializedName("name")
+    val name: String,
+    @SerializedName("password")
+    val password: String,
+    @SerializedName("phone")
+    val telephone : String
 
 )

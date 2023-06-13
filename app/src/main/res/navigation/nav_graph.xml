@@ -84,7 +84,11 @@
         android:id="@+id/riwayatFragment2"
         android:name="com.binar.projekakhir.view.ui.RiwayatFragment"
         android:label="fragment_riwayat"
-        tools:layout="@layout/fragment_riwayat" />
+        tools:layout="@layout/fragment_riwayat" >
+        <action
+            android:id="@+id/action_riwayatFragment2_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/checkBioPenumpangFragment"
         android:name="com.binar.projekakhir.view.ui.CheckBioPenumpangFragment"

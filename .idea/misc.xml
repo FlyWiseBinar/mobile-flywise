@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
@@ -34,6 +35,7 @@
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_checkout.xml" value="0.22" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_checkout_bio_pemesanan.xml" value="0.16666666666666666" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_checkout_biodata.xml" value="0.16666666666666666" />
+        <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_checkout_rincian.xml" value="0.1331521739130435" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_date_dialog.xml" value="0.16666666666666666" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_detail_non_login.xml" value="0.3333333333333333" />
         <entry key="..\:/KULIAH/ProjekAkhir/app/src/main/res/layout/fragment_hasil_pencarian.xml" value="0.14666666666666667" />

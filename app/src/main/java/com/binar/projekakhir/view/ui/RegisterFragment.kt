@@ -6,11 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.binar.projekakhir.R
 import com.binar.projekakhir.databinding.FragmentRegisterBinding
 import com.binar.projekakhir.model.auth.Data
+import com.binar.projekakhir.model.auth.RegisterBody
 import com.binar.projekakhir.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,7 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterBinding
-    private lateinit var userVm: UserViewModel
+    private val userVm : UserViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,32 +34,37 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        userVm = ViewModelProvider(this).get(UserViewModel::class.java)
 
-        register()
+        binding.btnDaftar.setOnClickListener {
+            register()
+        }
+
+        binding.tvMasukdisini.setOnClickListener {
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+        }
 
 
     }
 
     private fun register() {
-        binding.btnDaftar.setOnClickListener {
-            val nama = binding.txtInputLayoutNama.text.toString()
+            val fullName = binding.txtInputLayoutNama.text.toString()
             val email = binding.txtInputLayoutEmail.text.toString()
-            val telepon = binding.txtInputNoTelp.text.toString()
-            val pass = binding.txtInputLayoutPass.text.toString()
+            val telephone = binding.txtInputNoTelp.text.toString()
+            val password = binding.txtInputLayoutPass.text.toString()
 
-            if (nama.isEmpty() || email.isEmpty() || telepon.isEmpty() || pass.isEmpty()) {
-                Toast.makeText(requireContext(), "Please fill all the field", Toast.LENGTH_SHORT)
-                    .show()
-            } else {
+        if (fullName.isEmpty() || email.isEmpty() || telephone.isEmpty() || password.isEmpty()) {
+            Toast.makeText(requireContext(), "Please fill all the field", Toast.LENGTH_SHORT)
+                .show()
+        } else {
 
-                userVm.register(registerData = Data("",email, nama,0, pass, true, telepon, "" ))
-                Toast.makeText(requireContext(), "Registration Success", Toast.LENGTH_SHORT)
-                    .show()
-                findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+            userVm.postregist(email,fullName, telephone,password)
+            Toast.makeText(requireContext(), "Registration Success", Toast.LENGTH_SHORT)
+                .show()
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
 
 
-            }
         }
     }
-}
+
+    }
+

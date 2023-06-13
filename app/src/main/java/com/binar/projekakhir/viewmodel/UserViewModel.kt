@@ -18,63 +18,109 @@ import javax.inject.Inject
 class UserViewModel @Inject constructor(private val api: ApiService
 ) : ViewModel() {
 
-    var livedataregister: MutableLiveData<List<RegisterBody>> = MutableLiveData()
+    var livedataregister: MutableLiveData<Data?> = MutableLiveData()
 
-    fun getlivedataregister(): MutableLiveData<List<RegisterBody>> {
+    fun getlivedataregister(): MutableLiveData<Data?> {
         return livedataregister
     }
 
-    var livedatalogin : MutableLiveData<List<LoginBody>> = MutableLiveData()
+    var livedatalogin: MutableLiveData<List<Data>> = MutableLiveData()
 
-    fun getlivedatalogin() : MutableLiveData<List<LoginBody>> {
+    fun getlivedatalogin(): MutableLiveData<List<Data>> {
         return livedatalogin
     }
 
 
-    fun register(registerData: Data) {
-        api.register(registerData).enqueue(object : Callback<List<RegisterBody>> {
+    fun postregist(fullName : String, email : String, password : String, telephone : String) {
+        api.register(fullName, email, password, telephone).enqueue(object : Callback<Data>{
             override fun onResponse(
-                call: Call<List<RegisterBody>>,
-                response: Response<List<RegisterBody>>
+                call: Call<Data>,
+                response: Response<Data>
             ) {
-                if (response.isSuccessful){
-                    livedataregister.postValue(response.body())
-                }else{
-                    livedataregister.postValue(emptyList())
+                if (response.isSuccessful) {
+                    livedataregister.postValue(response.body()!!)
+                    Log.i("STATUS", response.body()!!.status.toString())
                 }
 
+
             }
 
-            override fun onFailure(call: Call<List<RegisterBody>>, t: Throwable) {
-                livedataregister.postValue(emptyList())
-            }
+            override fun onFailure(call: Call<Data>, t: Throwable) {
+                livedataregister.postValue(null)
 
+            }
 
         })
 
 
-    }
 
-    fun login(loginData : Data){
-        api.login(loginData).enqueue(object : Callback<List<LoginBody>>{
-            override fun onResponse(
-                call: Call<List<LoginBody>>,
-                response: Response<List<LoginBody>>
-            ) {
-                if (response.isSuccessful){
-                    livedatalogin.postValue(response.body())
-                }else{
-                    livedataregister.postValue(emptyList())
-                }
-            }
-
-            override fun onFailure(call: Call<List<LoginBody>>, t: Throwable) {
-                livedataregister.postValue(emptyList())
-            }
-
-        })
 
     }
 
+//    fun postlogin(loginBody: LoginBody) {
+//        api.login(loginBody).enqueue(object : Callback<List<Data>> {
+//            override fun onResponse(call: Call<List<Data>>, response: Response<List<Data>>) {
+//                if (response.isSuccessful) {
+//                    livedatalogin.postValue(response.body())
+//                } else {
+//                    livedatalogin.postValue(null)
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<List<Data>>, t: Throwable) {
+//
+//            }
+//
+//        })
+//    }
+
+
+//
+//    fun register(registerData: Data) {
+//        api.register(registerData).enqueue(object : Callback<List<RegisterBody>> {
+//            override fun onResponse(
+//                call: Call<List<RegisterBody>>,
+//                response: Response<List<RegisterBody>>
+//            ) {
+//                if (response.isSuccessful){
+//                    livedataregister.postValue(response.body())
+//                }else{
+//                    livedataregister.postValue(emptyList())
+//                }
+//
+//            }
+//
+//            override fun onFailure(call: Call<List<RegisterBody>>, t: Throwable) {
+//                livedataregister.postValue(emptyList())
+//            }
+//
+//
+//        })
+//
+//
+//    }
+//
+//    fun postlogin(loginData : Data){
+//        api.login(loginData).enqueue(object : Callback<List<LoginBody>>{
+//            override fun onResponse(
+//                call: Call<List<LoginBody>>,
+//                response: Response<List<LoginBody>>
+//            ) {
+//                if (response.isSuccessful){
+//                    livedatalogin.postValue(response.body())
+//                }else{
+//                    livedataregister.postValue(emptyList())
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<List<LoginBody>>, t: Throwable) {
+//                livedataregister.postValue(emptyList())
+//            }
+//
+//        })
+//
+//    }
 
 }
+
+
