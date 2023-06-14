@@ -5,10 +5,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.binar.projekakhir.model.auth.Data
-import com.binar.projekakhir.model.auth.LoginBody
+import com.binar.projekakhir.model.auth.LoginResponse
+import com.binar.projekakhir.model.auth.login.LoginBody
 import com.binar.projekakhir.model.auth.ResponseRegister
-import com.binar.projekakhir.model.auth.SendOtpResponse
+import com.binar.projekakhir.model.auth.otp.SendOtpResponse
 import com.binar.projekakhir.model.auth.resetpassword.ResetPassPost
+import com.binar.projekakhir.model.auth.resetpassword.UpdateProfilePost
 import com.binar.projekakhir.network.ApiService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
@@ -19,33 +21,11 @@ import javax.inject.Inject
 @HiltViewModel
 class UserViewModel @Inject constructor(private val api : ApiService) : ViewModel() {
 
-    private val _responselogin : MutableLiveData<List<Data>> = MutableLiveData()
-    val responselogin : LiveData<List<Data>> = _responselogin
-
-    fun postlogin(loginBody: LoginBody) {
-        api.login(loginBody).enqueue(object : Callback<List<Data>> {
-            override fun onResponse(call: Call<List<Data>>, response: Response<List<Data>>) {
-                if (response.isSuccessful) {
-                    _responselogin.postValue(response.body())
-                } else {
-                    Log.e("UserViewModel", "Cannot get data")
-                }
-            }
-
-            override fun onFailure(call: Call<List<Data>>, t: Throwable) {
-                Log.e("UserViewModel", "Cannot get data")
-
-            }
-
-        })
-    }
-
-
-
+    private val _responselogin : MutableLiveData<LoginResponse> = MutableLiveData()
+    val responselogin : LiveData<LoginResponse> = _responselogin
 
     private val _responseregist: MutableLiveData<ResponseRegister> = MutableLiveData()
     val responseRegister: LiveData<ResponseRegister> = _responseregist
-
 
 
     var livedataresetpasssendotp : MutableLiveData<List<Data>> = MutableLiveData()
@@ -60,6 +40,32 @@ class UserViewModel @Inject constructor(private val api : ApiService) : ViewMode
         return livedataresetpass
     }
 
+    var livedataupdateprofile : MutableLiveData<List<Data>> = MutableLiveData()
+
+    fun getlivedataupdateprofile() : MutableLiveData<List<Data>>{
+        return livedataupdateprofile
+    }
+
+
+    fun postlogin(loginBody: LoginBody) {
+       api.login(loginBody).enqueue(object : Callback<LoginResponse>{
+           override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+               if (response.isSuccessful) {
+                   _responselogin.value = response.body()
+
+               } else {
+                   Log.e("UserViewModel", "Cannot get data")
+               }
+           }
+
+           override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+               Log.e("UserViewModel", "Cannot get data")
+           }
+
+       })
+
+
+    }
 
 
     fun postregist(fullName: String, email: String, password: String, telephone: String) {
@@ -123,4 +129,23 @@ class UserViewModel @Inject constructor(private val api : ApiService) : ViewMode
 
         })
     }
+
+    fun updateprofile(token : String, updateprofile:UpdateProfilePost){
+        api.putupdateprofile("Bearer $token",updateprofile).enqueue(object : Callback<List<Data>>{
+            override fun onResponse(call: Call<List<Data>>, response: Response<List<Data>>) {
+                if (response.isSuccessful) {
+                    livedataupdateprofile.postValue(response.body())
+                } else {
+                    Log.e("UserViewModel", "Cannot get data")
+                }
+            }
+
+            override fun onFailure(call: Call<List<Data>>, t: Throwable) {
+                Log.e("UserViewModel", "Cannot get data")
+            }
+
+        })
+    }
+
+
 }

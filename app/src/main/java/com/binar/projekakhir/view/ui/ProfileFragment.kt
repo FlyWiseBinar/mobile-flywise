@@ -1,15 +1,23 @@
 package com.binar.projekakhir.view.ui
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.binar.projekakhir.R
 import com.binar.projekakhir.databinding.FragmentProfileBinding
+import com.binar.projekakhir.model.auth.resetpassword.ResetPassPost
+import com.binar.projekakhir.model.auth.resetpassword.UpdateProfilePost
+import com.binar.projekakhir.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -17,6 +25,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
+    private lateinit var userVm : UserViewModel
+    private lateinit var pref : SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,8 +39,51 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        userVm = ViewModelProvider(this).get(UserViewModel::class.java)
+        pref = requireContext().getSharedPreferences("Regist", Context.MODE_PRIVATE)
+
+        binding.btnLogout.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment2_to_homeFragment2)
+        }
+
+        binding.btnUpdate.setOnClickListener {
+            updateUserProfile()
+        }
 
     }
+
+    fun updateUserProfile() {
+        pref= requireContext().getSharedPreferences("Regist", Context.MODE_PRIVATE)
+//        val pass = pref.getString("password", "").toString()
+        val email = pref.getString("email", "").toString()
+        val token = pref.getString("token", "").toString()
+        val fullName = pref.getString("fullName", "").toString()
+        val telephone = pref.getString("telephone", "").toString()
+        val inputnama = binding.txtFullname.text.toString()
+        val inputtlp = binding.txtTelephone.text.toString()
+        val inputemail = binding.txtEmail.text.toString()
+        val dataUser = UpdateProfilePost(inputnama,inputtlp, inputemail)
+        userVm.updateprofile(token, dataUser)
+        navigationBundlingSf(dataUser)
+        userVm.getliveresetpass().observe(viewLifecycleOwner) {
+            if (it != null) {
+                Toast.makeText(context, "Update Profile Berhasil", Toast.LENGTH_SHORT)
+            }
+        }
+
+
+    }
+
+    private fun navigationBundlingSf(currentUser: UpdateProfilePost) {
+        pref = requireActivity().getSharedPreferences("Regist", Context.MODE_PRIVATE)
+        //shared pref to save log in history
+        val sharedPref =pref.edit()
+        sharedPref.putString("email", currentUser.email)
+        sharedPref.putString("telephone", currentUser.telephone)
+        sharedPref.putString("fullName", currentUser.fullName)
+        sharedPref.apply()
+    }
+
 
 
 }

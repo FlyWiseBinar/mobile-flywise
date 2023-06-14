@@ -1,4 +1,4 @@
-package com.binar.projekakhir.model.auth
+package com.binar.projekakhir.model.auth.login
 
 import com.google.gson.annotations.SerializedName
 

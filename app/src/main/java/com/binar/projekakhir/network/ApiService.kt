@@ -1,7 +1,10 @@
 package com.binar.projekakhir.network
 
 import com.binar.projekakhir.model.auth.*
+import com.binar.projekakhir.model.auth.login.LoginBody
+import com.binar.projekakhir.model.auth.otp.SendOtpResponse
 import com.binar.projekakhir.model.auth.resetpassword.ResetPassPost
+import com.binar.projekakhir.model.auth.resetpassword.UpdateProfilePost
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -22,7 +25,7 @@ interface ApiService {
     ): Call<ResponseRegister>
 
     @POST("auth/login")
-    fun login(@Body loginBody: LoginBody):Call<List<Data>>
+    fun login(@Body loginBody: LoginBody):Call<LoginResponse>
 
     @POST("auth/reset-password/send-otp")
     fun resetsendotp(@Body sendOtpResponse: SendOtpResponse):Call<List<Data>>
@@ -34,7 +37,8 @@ interface ApiService {
 
     @PUT("auth/profile")
     fun putupdateprofile(
-        @Body request : ResetPassPost
+        @Header("Authorization") token:String,
+        @Body request : UpdateProfilePost
     ) : Call<List<Data>>
 
 

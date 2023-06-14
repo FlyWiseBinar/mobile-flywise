@@ -1,5 +1,6 @@
 package com.binar.projekakhir.view.ui
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -8,10 +9,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.binar.projekakhir.R
 import com.binar.projekakhir.databinding.FragmentLoginBinding
 import com.binar.projekakhir.model.auth.Data
+import com.binar.projekakhir.model.auth.login.LoginBody
+import com.binar.projekakhir.model.auth.login.LoginResponse
 import com.binar.projekakhir.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,9 +27,8 @@ class LoginFragment : Fragment() {
 
     private lateinit var userVm : UserViewModel
     private lateinit var binding: FragmentLoginBinding
-    private var isSuccessLogin = false
-    lateinit var sharedPreferences: SharedPreferences
-    private lateinit var data : Data
+    private lateinit var pref: SharedPreferences
+    lateinit var listuserlogin: List<Data>
 
 
     override fun onCreateView(
@@ -35,71 +41,97 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        login()
-        dontHaveAccount()
-    }
 
-    private fun dontHaveAccount() {
+        userVm = ViewModelProvider(this).get(UserViewModel::class.java)
+        pref = requireContext().getSharedPreferences("Regist", Context.MODE_PRIVATE)
+
         binding.tvSignupHere.setOnClickListener {
-            it.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
-    }
-    private fun login(){
-        binding.btnSignin.setOnClickListener {
-            val email = binding.etEmail.text.toString()
-            val password = binding.etPassword.text.toString()
-            userValidation(email,password)
-
-            Log.d("Login Fragment", isSuccessLogin.toString())
-            if (isSuccessLogin){
-                it.findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
-            }else if(email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(requireContext(), "Please fill all the field", Toast.LENGTH_SHORT)
-                    .show()
-            }else{
-                binding.btnSignin.error = "Periksa kembali email dan password anda"
-            }
-        }
-    }
-    private fun forgetPassword(){
         binding.tvForgetPassword.setOnClickListener {
-            it.findNavController().navigate(R.id.action_loginFragment_to_resetPassFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_resetPassFragment)
         }
+
+        binding.btnSignin.setOnClickListener {
+
+            if (binding.etEmail.text.toString().isEmpty()) {
+                binding.etEmail.setError("Isi Username")
+            } else if (binding.etPassword.text.toString().isEmpty()) {
+                binding.etPassword.setError("Isi Password")
+            } else {
+                login()
+
+
+            }
+
+
+        }
+
+
     }
 
-    private fun userValidation(email:String,pass:String) {
-        userVm.responselogin.observe(requireActivity()) {
-//            //when get data success, validate email and password to login
-//            for (i in it.indices) {
-//                //validate email and password using index data
-//                val emailValidate = it[i]
-//                val passValidate = it[i]
-//
-//                //create conditional to make sure email and password is available in response data
-//                if (email == emailValidate.email && pass == passValidate.password) {
-//                    Log.d("Login Fragment", "email validate: $emailValidate ")
-//                    Log.d("Login Fragment", email)
-//                    Log.d("Login Fragment", "pass validate: $passValidate ")
-//                    Log.d("Login Fragment", pass)
-//                    //get id
-////                    val id = it[i].idUsers
-//                    Log.d("Login Fragment", id.toString())
-//                    userVm.saveIdPreferences("id",id!!.toString())
-//
-//
-//                    isSuccesLogin = true
-//                    break
-//                } else if (email != emailValidate.email && pass == passValidate.password) {
-//                    isSuccesLogin = false
-//                } else if (email == emailValidate.email && pass != passValidate.password) {
-//                    isSuccesLogin = false
-//                } else {
-//                    isSuccesLogin = false
-//                }
-//            }
-                    }
+    private fun login(){
+
+        val email = binding.etEmail.text.toString()
+        val password = binding.etPassword.text.toString()
+        userVm = ViewModelProvider(this).get(UserViewModel::class.java)
+        userVm.responselogin.observe(viewLifecycleOwner, Observer {
+//            listuserlogin = it
+//            loginAuth(listuserlogin)
+            if(it.status == true){
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
+            }
+            val sharedPref = pref.edit()
+            sharedPref.putString("token", it.accessToken)
+
+        })
+        userVm.postlogin(LoginBody(email, password))
+
+
     }
+
+    private fun loginAuth(userDataList: LoginResponse) {
+        //make shared preference that saving log in activity history
+        pref = requireActivity().getSharedPreferences("Regist", Context.MODE_PRIVATE)
+        userVm = ViewModelProvider(this).get(UserViewModel::class.java)
+
+        //get all data from user input
+        val inputEmail = binding.etEmail.text.toString()
+        val inputPassword = binding.etPassword.text.toString()
+
+        //checking email and password of user to authenticate
+//        for (i in userDataList.indices) {
+//            if (inputPassword == userDataList[i].password && inputEmail == userDataList[i].email) {
+//                Toast.makeText(requireContext(), "Berhasil login", Toast.LENGTH_SHORT).show()
+//                //bundling all information about user
+//                navigationBundlingSf(userDataList[i])
+//                break
+//            } else if (i == userDataList.lastIndex && inputPassword != userDataList[i].password && inputEmail != userDataList[i].email) {
+//                binding.etPassword.error = "Password Tidak Sesuai"
+//                binding.etEmail.error = "Email Tidak Sesuai"
+//            }
+//        }
+    }
+
+//    private fun navigationBundlingSf(currentUser: Data) {
+//        userVm = ViewModelProvider(this).get(UserViewModel::class.java)
+//        pref = requireActivity().getSharedPreferences("Regist", Context.MODE_PRIVATE)
+//        //shared pref to save log in history
+//        val sharedPref = pref.edit()
+//        sharedPref.putString("email", currentUser.email)
+//        sharedPref.putString("password", currentUser.password)
+//        sharedPref.putString("token", currentUser.)
+//        userVm.responselogin.observe(viewLifecycleOwner){
+//            it.
+//        }
+//        sharedPref.putString("status", currentUser.status.toString())
+//        sharedPref.apply()
+//        Navigation.findNavController(binding.root).navigate(R.id.action_loginFragment_to_checkoutBioPemesanFragment)
+//
+//
+//
+//    }
 
 
 }
