@@ -159,12 +159,19 @@
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_sendEmailOtpFragment"
+            app:destination="@id/sendEmailOtpFragment" />
     </fragment>
     <fragment
         android:id="@+id/sendOtpFragment"
         android:name="com.binar.projekakhir.view.ui.SendOtpFragment"
         android:label="fragment_send_otp"
-        tools:layout="@layout/fragment_send_otp" />
+        tools:layout="@layout/fragment_send_otp" >
+        <action
+            android:id="@+id/action_sendOtpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/setKelasFragment"
         android:name="com.binar.projekakhir.view.ui.SetKelasFragment"
@@ -207,4 +214,12 @@
         android:name="com.binar.projekakhir.view.ui.Checkout_rincianFragment"
         android:label="fragment_checkout_rincian"
         tools:layout="@layout/fragment_checkout_rincian" />
+    <fragment
+        android:id="@+id/sendEmailOtpFragment"
+        android:name="com.binar.projekakhir.view.ui.SendEmailOtpFragment"
+        android:label="SendEmailOtpFragment" >
+        <action
+            android:id="@+id/action_sendEmailOtpFragment_to_sendOtpFragment"
+            app:destination="@id/sendOtpFragment" />
+    </fragment>
 </navigation>

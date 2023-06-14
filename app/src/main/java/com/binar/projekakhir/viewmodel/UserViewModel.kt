@@ -9,6 +9,7 @@ import com.binar.projekakhir.model.auth.LoginResponse
 import com.binar.projekakhir.model.auth.login.LoginBody
 import com.binar.projekakhir.model.auth.ResponseRegister
 import com.binar.projekakhir.model.auth.otp.SendOtpResponse
+import com.binar.projekakhir.model.auth.otp.VerifyOtpResponse
 import com.binar.projekakhir.model.auth.resetpassword.ResetPassPost
 import com.binar.projekakhir.model.auth.resetpassword.UpdateProfilePost
 import com.binar.projekakhir.network.ApiService
@@ -145,6 +146,78 @@ class UserViewModel @Inject constructor(private val api : ApiService) : ViewMode
             }
 
         })
+    }
+
+    //vm send otp to email
+    private val _responseotp: MutableLiveData<SendOtpResponse> = MutableLiveData()
+    val responseOtp : LiveData<SendOtpResponse> = _responseotp
+    fun sendOtpRequest(email: String){
+        api.sendOtp(email)
+            .enqueue(object : Callback<SendOtpResponse> {
+                override fun onResponse(
+                    call: Call<SendOtpResponse>,
+                    response: Response<SendOtpResponse>
+                ) {
+                    if (response.isSuccessful){
+                        _responseotp.value =response.body()
+                    }
+                    else{
+                        Log.e("UserViewModel", "Cannot send data")
+                    }
+                }
+                override fun onFailure(call: Call<SendOtpResponse>, t: Throwable) {
+                    Log.e("UserViewModel", "Cannot send data")
+                }
+
+            })
+    }
+
+    //vm verivy otp
+    private val _verifyotp: MutableLiveData<VerifyOtpResponse> = MutableLiveData()
+    val verifyOtp : LiveData<VerifyOtpResponse> = _verifyotp
+    fun verifyOtpRequest(email: String, otp : String){
+        api.verifyOtp(email, otp)
+            .enqueue(object : Callback<VerifyOtpResponse> {
+                override fun onResponse(
+                    call: Call<VerifyOtpResponse>,
+                    response: Response<VerifyOtpResponse>
+                ) {
+                    if (response.isSuccessful){
+                        _verifyotp.value =response.body()
+                    }
+                    else{
+                        Log.e("UserViewModel", "Cannot verify data")
+                    }
+                }
+                override fun onFailure(call: Call<VerifyOtpResponse>, t: Throwable) {
+                    Log.e("UserViewModel", "Cannot verify data")
+                }
+
+            })
+    }
+
+    //vm Re : send otp to email
+    private val _resendseotp: MutableLiveData<SendOtpResponse> = MutableLiveData()
+    val resendOtp : LiveData<SendOtpResponse> = _resendseotp
+    fun resendOtpRequest(email: String){
+        api.sendOtp(email)
+            .enqueue(object : Callback<SendOtpResponse> {
+                override fun onResponse(
+                    call: Call<SendOtpResponse>,
+                    response: Response<SendOtpResponse>
+                ) {
+                    if (response.isSuccessful){
+                        _responseotp.value =response.body()
+                    }
+                    else{
+                        Log.e("UserViewModel", "Cannot send data")
+                    }
+                }
+                override fun onFailure(call: Call<SendOtpResponse>, t: Throwable) {
+                    Log.e("UserViewModel", "Cannot send data")
+                }
+
+            })
     }
 
 

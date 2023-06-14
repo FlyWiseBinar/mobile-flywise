@@ -3,6 +3,7 @@ package com.binar.projekakhir.network
 import com.binar.projekakhir.model.auth.*
 import com.binar.projekakhir.model.auth.login.LoginBody
 import com.binar.projekakhir.model.auth.otp.SendOtpResponse
+import com.binar.projekakhir.model.auth.otp.VerifyOtpResponse
 import com.binar.projekakhir.model.auth.resetpassword.ResetPassPost
 import com.binar.projekakhir.model.auth.resetpassword.UpdateProfilePost
 import retrofit2.Call
@@ -40,6 +41,30 @@ interface ApiService {
         @Header("Authorization") token:String,
         @Body request : UpdateProfilePost
     ) : Call<List<Data>>
+
+
+    //sendotp
+    @FormUrlEncoded
+    @POST("/auth/send-otp")
+    fun sendOtp(
+        @Field("email") email: String,
+    ): Call<SendOtpResponse>
+
+    //verify otp
+    @FormUrlEncoded
+    @POST("/auth/verify-otp")
+    fun verifyOtp(
+        @Field("email") email: String,
+        @Field("otp") otp: String,
+    ): Call<VerifyOtpResponse>
+
+
+    //resend otp
+    @FormUrlEncoded
+    @POST("/auth/resend-otp")
+    fun resendOtp(
+        @Field("email") email: String,
+    ): Call<SendOtpResponse>
 
 
 

@@ -94,4 +94,18 @@
         android:textSize="18sp"
         android:layout_below="@id/tv_contentOtp3" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_signin"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginRight="30dp"
+        android:backgroundTint="@color/primaryPurple"
+        android:text="masuk"
+        android:textSize="25sp"
+        app:cornerRadius="20dp"
+        android:layout_below="@id/tv_contentOtp4" />
+
 </RelativeLayout>
