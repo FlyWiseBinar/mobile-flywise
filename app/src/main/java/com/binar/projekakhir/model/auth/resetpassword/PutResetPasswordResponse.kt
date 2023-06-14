@@ -1,11 +1,9 @@
-package com.binar.projekakhir.model.auth
+package com.binar.projekakhir.model.auth.resetpassword
 
 
 import com.google.gson.annotations.SerializedName
 
-data class RegistrasiResponse(
-    @SerializedName("data")
-    val `data`: Data,
+data class PutResetPasswordResponse(
     @SerializedName("message")
     val message: String,
     @SerializedName("status")

@@ -69,7 +69,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun userValidation(email:String,pass:String) {
-        userVm.getlivedatalogin().observe(requireActivity()) {
+        userVm.responselogin.observe(requireActivity()) {
 //            //when get data success, validate email and password to login
 //            for (i in it.indices) {
 //                //validate email and password using index data

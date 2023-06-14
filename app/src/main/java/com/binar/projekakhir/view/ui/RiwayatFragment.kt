@@ -24,13 +24,16 @@ class RiwayatFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentRiwayatBinding.inflate(layoutInflater,container,false)
-        return inflater.inflate(R.layout.fragment_riwayat, container, false)
+        return binding.root
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.btnLogin.setOnClickListener {
+            Navigation.findNavController(binding.root).navigate(R.id.action_riwayatFragment2_to_loginFragment)
+        }
 
 
 

@@ -11,12 +11,12 @@
         android:icon="@drawable/riwayat"
         android:title="Riwayat" />
     <item
-        android:id="@+id/registerFragment"
+        android:id="@+id/notifikasiFragment2"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_notifications_24"
         android:title="Notifikasi" />
     <item
-        android:id="@+id/profileFragment2"
+        android:id="@+id/akunFragment2"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_account_circle_24"
         android:title="Profile"/>

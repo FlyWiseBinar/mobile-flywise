@@ -1,8 +1,8 @@
 package com.binar.projekakhir.network
 
 import com.binar.projekakhir.model.auth.*
+import com.binar.projekakhir.model.auth.resetpassword.ResetPassPost
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.*
 
 interface ApiService {
@@ -19,9 +19,24 @@ interface ApiService {
         @Field("email") email :String,
         @Field("password") password:String,
         @Field("telephone") telephone:String,
-    ): Call<Data>
+    ): Call<ResponseRegister>
 
     @POST("auth/login")
     fun login(@Body loginBody: LoginBody):Call<List<Data>>
+
+    @POST("auth/reset-password/send-otp")
+    fun resetsendotp(@Body sendOtpResponse: SendOtpResponse):Call<List<Data>>
+
+    @PUT("auth/reset-password/reset")
+    fun putresetpassword(
+        @Body request: ResetPassPost
+    ) : Call<List<Data>>
+
+    @PUT("auth/profile")
+    fun putupdateprofile(
+        @Body request : ResetPassPost
+    ) : Call<List<Data>>
+
+
 
 }
