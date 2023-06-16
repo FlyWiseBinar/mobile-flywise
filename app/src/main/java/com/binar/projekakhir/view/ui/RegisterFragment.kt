@@ -58,7 +58,7 @@ class RegisterFragment : Fragment() {
             userVm.postregist(fullName,email,password,telephone)
             userVm.responseRegister.observe(viewLifecycleOwner){
                 if (it.status == true){
-                    findNavController().navigate(R.id.action_registerFragment_to_sendOtpFragment)
+                    findNavController().navigate(R.id.action_registerFragment_to_sendEmailOtpFragment)
                 }
             }
 //            Toast.makeText(requireContext(), "Registration Success", Toast.LENGTH_SHORT).show()

@@ -77,25 +77,13 @@
         android:layout_height="wrap_content"
         android:paddingStart="45dp"
         android:layout_marginTop="30dp"
-        android:text="Kirim Ulang OTP dalam xx"
+        android:text="Kirim Ulang OTP dalam xx detik"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:layout_below="@id/pinview" />
 
-    <TextView
-        android:id="@+id/tv_contentOtp4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:text="Minta kode baru via Email"
-        android:textColor="@color/DARKBLUE04"
-        android:textSize="18sp"
-        android:layout_below="@id/tv_contentOtp3" />
-
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_signin"
+        android:id="@+id/btn_verif"
         style="@style/Widget.Material3.Button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -103,9 +91,9 @@
         android:layout_marginTop="72dp"
         android:layout_marginRight="30dp"
         android:backgroundTint="@color/primaryPurple"
-        android:text="masuk"
+        android:text="Verifikasi"
         android:textSize="25sp"
         app:cornerRadius="20dp"
-        android:layout_below="@id/tv_contentOtp4" />
+        android:layout_below="@id/tv_contentOtp3" />
 
 </RelativeLayout>
