@@ -2,8 +2,12 @@ package com.binar.projekakhir.view.ui
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -62,12 +66,13 @@ private fun verifyOtp() {
         userVm.verifyOtp.observe(viewLifecycleOwner){
             if (it.message == "OTP verified successfully"){
                 findNavController().navigate(R.id.action_sendOtpFragment_to_loginFragment)
+                Toast.makeText(requireContext(), "Verifikasi Berhasil", Toast.LENGTH_SHORT).show()
+            } else if (it.message == "Invalid OTP") {
+                Toast.makeText(requireContext(), "Maaf, Kode OTP Salah!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(), "Terjadi kesalahan saat verifikasi OTP", Toast.LENGTH_SHORT).show()
             }
         }
-//            Toast.makeText(requireContext(), "Registration Success", Toast.LENGTH_SHORT).show()
-
-
-
     }
 }
 
@@ -83,10 +88,15 @@ private fun verifyOtp() {
             // Implementasikan logika ketika time is up
             override fun onFinish() {
                 binding.tvContentOtp3.text = "Kirim Ulang"
+                // Change style for tvContentOtp3
+                binding.tvContentOtp3.setTypeface(null, Typeface.BOLD)
+                binding.tvContentOtp3.setTextColor(Color.RED)
+
                 binding.tvContentOtp3.isClickable = true
 
                 binding.tvContentOtp3.setOnClickListener{
                     resetTimer()
+                    reSendOtpToEmail()
                 }
 
             }
@@ -97,12 +107,33 @@ private fun verifyOtp() {
         binding.tvContentOtp3.isClickable = false
         binding.tvContentOtp3.text = "Kirim Ulang OTP dalam 60 detik"
 
+        // Reset style for tvContentOtp3
+        binding.tvContentOtp3.setTypeface(null, Typeface.NORMAL)
+        binding.tvContentOtp3.setTextColor(Color.BLACK)
+
         countDownTimer.cancel()
         startTimer()
     }
     override fun onDestroy() {
         super.onDestroy()
         countDownTimer.cancel()
+    }
+
+    private fun reSendOtpToEmail() {
+        val email = sharedPreferences.getString("name", "")
+
+        if (email!!.isEmpty()) {
+            Toast.makeText(requireContext(), "Please fill all the field", Toast.LENGTH_SHORT).show()
+        } else {
+            userVm.resendOtpRequest(email!!)
+            userVm.resendOtp.observe(viewLifecycleOwner){
+                if (it.message == "Otp sent successfully"){
+                //Toast.makeText(requireContext(), "Kode OTP telah dikirim!", Toast.LENGTH_SHORT).show()
+                }
+            }
+            Toast.makeText(requireContext(), "Kode OTP telah dikirim!", Toast.LENGTH_SHORT).show()
+
+        }
     }
 
 }

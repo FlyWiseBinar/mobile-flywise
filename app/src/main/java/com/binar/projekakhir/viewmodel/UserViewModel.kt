@@ -200,7 +200,7 @@ class UserViewModel @Inject constructor(private val api : ApiService) : ViewMode
     private val _resendseotp: MutableLiveData<SendOtpResponse> = MutableLiveData()
     val resendOtp : LiveData<SendOtpResponse> = _resendseotp
     fun resendOtpRequest(email: String){
-        api.sendOtp(email)
+        api.resendOtp(email)
             .enqueue(object : Callback<SendOtpResponse> {
                 override fun onResponse(
                     call: Call<SendOtpResponse>,
