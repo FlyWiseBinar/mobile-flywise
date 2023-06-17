@@ -4,10 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.binar.projekakhir.model.auth.Data
-import com.binar.projekakhir.model.auth.LoginResponse
+import com.binar.projekakhir.model.auth.*
 import com.binar.projekakhir.model.auth.login.LoginBody
-import com.binar.projekakhir.model.auth.ResponseRegister
 import com.binar.projekakhir.model.auth.otp.SendOtpResponse
 import com.binar.projekakhir.model.auth.otp.VerifyOtpResponse
 import com.binar.projekakhir.model.auth.resetpassword.ResetPassPost
@@ -219,6 +217,39 @@ class UserViewModel @Inject constructor(private val api : ApiService) : ViewMode
 
             })
     }
+
+    private val getliveprofile : MutableLiveData<Data> = MutableLiveData()
+
+    fun getlivegetprofile():MutableLiveData<Data>{
+        return getliveprofile
+    }
+
+    private val _getProfile = MutableLiveData<Data>()
+    val getProfile:LiveData<Data> = _getProfile
+
+    fun userprofile(token : String){
+        api.getprofile("Bearer $token").enqueue(object : Callback<GetUserResponse>{
+            override fun onResponse(
+                call: Call<GetUserResponse>,
+                response: Response<GetUserResponse>
+            ) {
+                if (response.isSuccessful){
+                    _getProfile.value = response.body()?.dataUser
+                    Log.d("UserViewModel","${response.body()?.dataUser?.email}")
+                } else{
+                    Log.e("UserViewModel", "Cannot send data")
+                }
+            }
+
+            override fun onFailure(call: Call<GetUserResponse>, t: Throwable) {
+                Log.e("UserViewModel", "${t.cause}")
+            }
+
+
+        })
+
+    }
+
 
 
 }

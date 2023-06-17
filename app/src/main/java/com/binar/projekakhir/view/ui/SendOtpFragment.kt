@@ -27,7 +27,6 @@ class SendOtpFragment : Fragment() {
     private lateinit var binding: FragmentSendOtpBinding
     lateinit var sharedPreferences: SharedPreferences
     private lateinit var userVm : UserViewModel
-    private lateinit var countDownTimer: CountDownTimer
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,100 +40,45 @@ class SendOtpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         userVm = ViewModelProvider(this).get(UserViewModel::class.java)
 
-        sharedPreferences = requireContext().getSharedPreferences("keyUser", Context.MODE_PRIVATE)
-        var getEmail = sharedPreferences.getString("name", "")
-        binding.tvContentOtp2.text = "ke $getEmail"
-        startTimer()
+        sharedPreferences = requireContext().getSharedPreferences("Regist", Context.MODE_PRIVATE)
+        binding.btnVerif.setOnClickListener {
+            inputOtp()
+        }
 
-        binding.btnVerif.setOnClickListener{
-            verifyOtp()
+        binding.tvKirimulang.setOnClickListener {
+            resendotp()
         }
 
 
 
+
+
     }
 
+    fun inputOtp(){
+        val inputOtp = binding.pinview.text.toString()
+        userVm = ViewModelProvider(this).get(UserViewModel::class.java)
+        var getEmail = sharedPreferences.getString("email", "")
+        userVm.verifyOtpRequest(getEmail!!,inputOtp)
+        userVm.verifyOtp.observe(viewLifecycleOwner) {
+            Toast.makeText(requireContext(), "${it.message}", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_sendOtpFragment_to_loginFragment)
+        }
 
-private fun verifyOtp() {
-    val email = sharedPreferences.getString("name", "")
-    val otp = binding.pinview.text.toString()
+    }
 
-    if (otp.isEmpty()) {
-        Toast.makeText(requireContext(), "Please fill all the field", Toast.LENGTH_SHORT).show()
-    } else {
-        userVm.verifyOtpRequest(email!!, otp)
-        userVm.verifyOtp.observe(viewLifecycleOwner){
-            if (it.message == "OTP verified successfully"){
-                findNavController().navigate(R.id.action_sendOtpFragment_to_loginFragment)
-                Toast.makeText(requireContext(), "Verifikasi Berhasil", Toast.LENGTH_SHORT).show()
-            } else if (it.message == "Invalid OTP") {
-                Toast.makeText(requireContext(), "Maaf, Kode OTP Salah!", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(requireContext(), "Terjadi kesalahan saat verifikasi OTP", Toast.LENGTH_SHORT).show()
-            }
+    fun resendotp(){
+        var getEmail = sharedPreferences.getString("email", "")
+        userVm.resendOtpRequest(getEmail!!)
+        userVm.resendOtp.observe(viewLifecycleOwner){
+            Toast.makeText(requireContext(), "${it.message}", Toast.LENGTH_SHORT).show()
         }
     }
-}
 
 
-    private fun startTimer() {
-        countDownTimer = object : CountDownTimer(60000, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                val secondsRemaining = millisUntilFinished / 1000
-                val timerText = "Kirim Ulang OTP dalam $secondsRemaining detik"
-                binding.tvContentOtp3.text = timerText
-            }
 
-            // Implementasikan logika ketika time is up
-            override fun onFinish() {
-                binding.tvContentOtp3.text = "Kirim Ulang"
-                // Change style for tvContentOtp3
-                binding.tvContentOtp3.setTypeface(null, Typeface.BOLD)
-                binding.tvContentOtp3.setTextColor(Color.RED)
 
-                binding.tvContentOtp3.isClickable = true
 
-                binding.tvContentOtp3.setOnClickListener{
-                    resetTimer()
-                    reSendOtpToEmail()
-                }
-
-            }
-        }
-        countDownTimer.start()
-    }
-    private fun resetTimer() {
-        binding.tvContentOtp3.isClickable = false
-        binding.tvContentOtp3.text = "Kirim Ulang OTP dalam 60 detik"
-
-        // Reset style for tvContentOtp3
-        binding.tvContentOtp3.setTypeface(null, Typeface.NORMAL)
-        binding.tvContentOtp3.setTextColor(Color.BLACK)
-
-        countDownTimer.cancel()
-        startTimer()
-    }
-    override fun onDestroy() {
-        super.onDestroy()
-        countDownTimer.cancel()
-    }
-
-    private fun reSendOtpToEmail() {
-        val email = sharedPreferences.getString("name", "")
-
-        if (email!!.isEmpty()) {
-            Toast.makeText(requireContext(), "Please fill all the field", Toast.LENGTH_SHORT).show()
-        } else {
-            userVm.resendOtpRequest(email!!)
-            userVm.resendOtp.observe(viewLifecycleOwner){
-                if (it.message == "Otp sent successfully"){
-                //Toast.makeText(requireContext(), "Kode OTP telah dikirim!", Toast.LENGTH_SHORT).show()
-                }
-            }
-            Toast.makeText(requireContext(), "Kode OTP telah dikirim!", Toast.LENGTH_SHORT).show()
-
-        }
-    }
 
 }
 

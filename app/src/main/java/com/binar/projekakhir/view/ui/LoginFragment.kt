@@ -84,6 +84,7 @@ class LoginFragment : Fragment() {
             }
             val sharedPref = pref.edit()
             sharedPref.putString("token", it.accessToken)
+            sharedPref.apply()
 
         })
         userVm.postlogin(LoginBody(email, password))

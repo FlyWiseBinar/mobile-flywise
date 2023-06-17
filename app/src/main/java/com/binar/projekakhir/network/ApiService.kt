@@ -45,14 +45,14 @@ interface ApiService {
 
     //sendotp
     @FormUrlEncoded
-    @POST("/v1/api/auth/send-otp")
+    @POST("auth/send-otp")
     fun sendOtp(
         @Field("email") email: String,
     ): Call<SendOtpResponse>
 
     //verify otp
     @FormUrlEncoded
-    @POST("/v1/api/auth/verify-otp")
+    @POST("auth/verify-otp")
     fun verifyOtp(
         @Field("email") email: String,
         @Field("otp") otp: String,
@@ -61,10 +61,18 @@ interface ApiService {
 
     //resend otp
     @FormUrlEncoded
-    @POST("/v1/api/auth/resend-otp")
+    @POST("auth/resend-otp")
     fun resendOtp(
         @Field("email") email: String,
     ): Call<SendOtpResponse>
+
+    @GET("auth/whoami")
+    fun getprofile(
+        @Header("Authorization") token:String,
+    ) : Call<GetUserResponse>
+
+
+
 
 
 

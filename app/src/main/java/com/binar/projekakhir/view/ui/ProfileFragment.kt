@@ -3,6 +3,7 @@ package com.binar.projekakhir.view.ui
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -50,22 +51,24 @@ class ProfileFragment : Fragment() {
             updateUserProfile()
         }
 
+        getdataprofile()
+
+
     }
 
     fun updateUserProfile() {
-        pref= requireContext().getSharedPreferences("Regist", Context.MODE_PRIVATE)
 //        val pass = pref.getString("password", "").toString()
-        val email = pref.getString("email", "").toString()
+
         val token = pref.getString("token", "").toString()
-        val fullName = pref.getString("fullName", "").toString()
-        val telephone = pref.getString("telephone", "").toString()
+
         val inputnama = binding.txtFullname.text.toString()
         val inputtlp = binding.txtTelephone.text.toString()
         val inputemail = binding.txtEmail.text.toString()
         val dataUser = UpdateProfilePost(inputnama,inputtlp, inputemail)
+
         userVm.updateprofile(token, dataUser)
         navigationBundlingSf(dataUser)
-        userVm.getliveresetpass().observe(viewLifecycleOwner) {
+        userVm.getlivedataupdateprofile().observe(viewLifecycleOwner) {
             if (it != null) {
                 Toast.makeText(context, "Update Profile Berhasil", Toast.LENGTH_SHORT)
             }
@@ -74,13 +77,24 @@ class ProfileFragment : Fragment() {
 
     }
 
+    fun getdataprofile(){
+        val token = pref.getString("token", "").toString()
+       userVm.userprofile(token)
+        userVm.getProfile.observe(viewLifecycleOwner){
+            Log.d("Profile","email : ${it.email}")
+            binding.txtEmail.setText(it.email)
+            binding.txtTelephone.setText(it.telephone)
+            binding.txtFullname.setText(it.fullName)
+        }
+
+    }
+
     private fun navigationBundlingSf(currentUser: UpdateProfilePost) {
-        pref = requireActivity().getSharedPreferences("Regist", Context.MODE_PRIVATE)
         //shared pref to save log in history
         val sharedPref =pref.edit()
         sharedPref.putString("email", currentUser.email)
         sharedPref.putString("telephone", currentUser.telephone)
-        sharedPref.putString("fullName", currentUser.fullName)
+        sharedPref.putString("fullname", currentUser.fullName)
         sharedPref.apply()
     }
 

@@ -20,8 +20,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterBinding
-    lateinit var sharedRegis: SharedPreferences
-    private lateinit var userVm : UserViewModel
+    private lateinit var userVm: UserViewModel
+    private lateinit var pref: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,19 +35,16 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         userVm = ViewModelProvider(this).get(UserViewModel::class.java)
-        sharedRegis = requireContext().getSharedPreferences("keyUser", Context.MODE_PRIVATE)
+        pref = requireContext().getSharedPreferences("Regist", Context.MODE_PRIVATE)
 
+
+
+        binding.tvMasukdisini.setOnClickListener {
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+        }
 
         binding.btnDaftar.setOnClickListener {
-            //eksekusi callback
-            register{
-                sendOtpToEmail()
-                //menampilkan email yang dikirim ke tv halaman otp
-                var getEmail = binding.txtInputLayoutEmail.text.toString()
-                var addUser = sharedRegis.edit()
-                addUser.putString("name", getEmail)
-                addUser.apply()
-            }
+            register()
         }
 
         binding.tvMasukdisini.setOnClickListener {
@@ -57,46 +54,39 @@ class RegisterFragment : Fragment() {
 
     }
 
-    // menggunakan pendekatan yang disebut sebagai callback atau chaining asynchronous operations.
-    //memanggil fungsi register() dan meneruskan fungsi sendOtpToEmail() sebagai callback.
-    // Callback sendOtpToEmail() tersebut akan dipanggil setelah operasi register() selesai
-    private fun register(callback: () -> Unit) {
+    private fun register() {
         val fullName = binding.txtInputLayoutNama.text.toString()
         val email = binding.txtInputLayoutEmail.text.toString()
         val telephone = "0" + binding.txtInputNoTelp.text.toString()
         val password = binding.txtInputLayoutPass.text.toString()
 
+
         if (fullName.isEmpty() || email.isEmpty() || telephone.isEmpty() || password.isEmpty()) {
             Toast.makeText(requireContext(), "Please fill all the field", Toast.LENGTH_SHORT).show()
         } else {
 //            userVm.postregist("ilham","ilham@gmail.com", "123456","0821233423121")
-            userVm.postregist(fullName,email,password,telephone)
-            userVm.responseRegister.observe(viewLifecycleOwner){
-                if (it.status == true){
-                    findNavController().navigate(R.id.action_registerFragment_to_sendOtpFragment)
-                    // Panggil callback setelah register selesai
-                    callback()
-                }
-            }
-//            Toast.makeText(requireContext(), "Registration Success", Toast.LENGTH_SHORT).show()
-        }
-    }
+            userVm.postregist(fullName, email, password, telephone)
 
-    private fun sendOtpToEmail() {
-        val email = binding.txtInputLayoutEmail.text.toString()
+            userVm.responseRegister.observe(viewLifecycleOwner) {
+                if (it.status == true) {
+                    userVm.sendOtpRequest(email)
+                    userVm.responseOtp.observe(viewLifecycleOwner) {
+                        Toast.makeText(requireContext(), "${it.message}", Toast.LENGTH_SHORT).show()
+                        val sharedPref = pref.edit()
+                        sharedPref.putString("email", email)
+                        sharedPref.putString("telephone", telephone)
+                        sharedPref.putString("fullname", fullName)
+                        sharedPref.apply()
+                        findNavController().navigate(R.id.action_registerFragment_to_sendOtpFragment)
+                    }
 
-        if (email.isEmpty()) {
-            Toast.makeText(requireContext(), "Please fill all the field", Toast.LENGTH_SHORT).show()
-        } else {
-            userVm.sendOtpRequest(email)
-            userVm.responseOtp.observe(viewLifecycleOwner){
-                if (it.message == "Otp sent successfully"){
 
                 }
+
             }
-            Toast.makeText(requireContext(), "Kode OTP telah dikirim!", Toast.LENGTH_SHORT).show()
         }
-    }
+
 
     }
+}
 
