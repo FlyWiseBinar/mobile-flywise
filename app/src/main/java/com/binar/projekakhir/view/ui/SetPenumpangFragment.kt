@@ -1,14 +1,20 @@
 package com.binar.projekakhir.view.ui
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.binar.projekakhir.R
 import com.binar.projekakhir.databinding.FragmentSetPenumpangBinding
+import com.binar.projekakhir.viewmodel.HomeViewModel
+import com.binar.projekakhir.viewmodel.UserViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,6 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class SetPenumpangFragment : BottomSheetDialogFragment() {
 
     private lateinit var binding : FragmentSetPenumpangBinding
+    private lateinit var HomeVm : HomeViewModel
 
     var tiketDewasa= 0
     var tiketAnak = 0
@@ -34,11 +41,17 @@ class SetPenumpangFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        HomeVm = ViewModelProvider(this).get(HomeViewModel::class.java)
         setClose()
+        Log.d("Sheet set Penumpang", "onViewCreated")
 
-        val dewasa = setDewasa(tiketDewasa)
-        val bayi = setBayi(tiketBayi)
-        val anak = setAnak(tiketAnak)
+        val jmlDewasa = HomeVm.getPenumpangDewasa()
+        val jmlAnak = HomeVm.getPenumpangAnak()
+        val jmlBayi = HomeVm.getPenumpangBayi()
+
+        val dewasa = setDewasa(jmlDewasa)
+        val anak = setAnak(jmlAnak)
+        val bayi = setBayi(jmlBayi)
 
 
         binding.tvPassangerBaby.text = bayi.toString()
@@ -50,10 +63,8 @@ class SetPenumpangFragment : BottomSheetDialogFragment() {
             val tvBayi = binding.tvPassangerBaby.text.toString()
             val tvAnak = binding.tvPassangerChild.text.toString()
 
-            val total = tvDewasa.toInt() + tvBayi.toInt() + tvAnak.toInt()
-            val bundle = Bundle()
-            bundle.putInt("dewasa", total)
-            findNavController().navigate(R.id.action_setPenumpangFragment_to_homeFragment2,bundle)
+            HomeVm.savePenumpangPreferences(tvDewasa.toInt(), tvAnak.toInt(), tvBayi.toInt())
+            findNavController().navigate(R.id.action_setPenumpangFragment_to_homeFragment2)
 
         }
     }
@@ -116,6 +127,31 @@ class SetPenumpangFragment : BottomSheetDialogFragment() {
             }
         }
         return tiketDewasa1
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val jmlDewasa = HomeVm.getPenumpangDewasa()
+        val jmlAnak = HomeVm.getPenumpangAnak()
+        val jmlBayi = HomeVm.getPenumpangBayi()
+
+        val dewasa = setDewasa(jmlDewasa)
+        val anak = setAnak(jmlAnak)
+        val bayi = setBayi(jmlBayi)
+
+
+        binding.tvPassangerBaby.text = bayi.toString()
+        binding.tvPassangerChild.text = dewasa.toString()
+        binding.tvPassangerAdult.text = anak.toString()
+
+        binding.btnSaveSeatPassenger.setOnClickListener {
+            val tvDewasa = binding.tvPassangerAdult.text.toString()
+            val tvBayi = binding.tvPassangerBaby.text.toString()
+            val tvAnak = binding.tvPassangerChild.text.toString()
+            HomeVm.savePenumpangPreferences(tvDewasa.toInt(), tvAnak.toInt(), tvBayi.toInt())
+            findNavController().navigate(R.id.action_setPenumpangFragment_to_homeFragment2)
+        }
     }
 
 

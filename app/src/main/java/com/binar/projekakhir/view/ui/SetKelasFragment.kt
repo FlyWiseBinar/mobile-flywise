@@ -6,19 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.binar.projekakhir.R
+import com.binar.projekakhir.view.adapter.SetKelasAdapter
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SetKelasFragment : Fragment() {
-
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_set_kelas, container, false)
-    }
+class SetKelasFragment : BottomSheetDialogFragment(){
 
 
 }

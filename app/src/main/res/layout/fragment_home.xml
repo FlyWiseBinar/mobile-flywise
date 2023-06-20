@@ -401,6 +401,7 @@
                 app:layout_constraintTop_toBottomOf="@id/TopLayout" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id = "@+id/destinationfavourite"
         android:layout_width="388dp"
         android:layout_height="197dp"
         android:layout_marginStart="16dp"
@@ -409,8 +410,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/TitleDestinationFavorite"
-        tools:listitem="@layout/item_destiantion_fav" />
+        app:layout_constraintTop_toBottomOf="@id/TitleDestinationFavorite" />
     <!--add scrollview-->
         </LinearLayout>
 
