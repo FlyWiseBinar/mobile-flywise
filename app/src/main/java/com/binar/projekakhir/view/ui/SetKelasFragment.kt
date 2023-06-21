@@ -2,7 +2,6 @@ package com.binar.projekakhir.view.ui
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,24 +14,26 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.binar.projekakhir.R
 import com.binar.projekakhir.databinding.FragmentSetKelasBinding
-import com.binar.projekakhir.datauser.DummyKelas
+import com.binar.projekakhir.datauser.KelasDummy
 import com.binar.projekakhir.view.adapter.SetKelasAdapter
 import com.binar.projekakhir.viewmodel.HomeViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SetKelasFragment : BottomSheetDialogFragment(), SetKelasAdapter.OnItemClickListener{
+class SetKelasFragment : BottomSheetDialogFragment(),
+    SetKelasAdapter.OnItemClickListener{
 
     private lateinit var binding: FragmentSetKelasBinding
     private val berandaViewModel: HomeViewModel by viewModels()
-    private lateinit var kelasList:ArrayList<DummyKelas>
+    private lateinit var kelasList:ArrayList<KelasDummy>
     private lateinit var kelasAdapter:SetKelasAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         binding = FragmentSetKelasBinding.inflate(inflater, container, false)
         return binding.root
@@ -45,10 +46,10 @@ class SetKelasFragment : BottomSheetDialogFragment(), SetKelasAdapter.OnItemClic
         }
 
         kelasList = ArrayList()
-        kelasList.add(DummyKelas("Economy","Rp.20000"))
-        kelasList.add(DummyKelas("Premium Economy","Rp.20000"))
-        kelasList.add(DummyKelas("Business","Rp.20000"))
-        kelasList.add(DummyKelas("First Class","Rp.20000"))
+        kelasList.add(KelasDummy("Economy","Rp.20000"))
+        kelasList.add(KelasDummy("Premium Economy","Rp.20000"))
+        kelasList.add(KelasDummy("Business","Rp.20000"))
+        kelasList.add(KelasDummy("First Class","Rp.20000"))
 
         binding.rvSetKelas.apply {
             layoutManager = LinearLayoutManager(requireContext())
@@ -60,7 +61,7 @@ class SetKelasFragment : BottomSheetDialogFragment(), SetKelasAdapter.OnItemClic
     }
     override fun onItemClick(position: Int, adapter: SetKelasAdapter, v: View) {
         val rvKelas = binding.rvSetKelas
-        val itemClicked: DummyKelas = kelasList[position]
+        val itemClicked: KelasDummy = kelasList[position]
         itemClicked.isSelected = !itemClicked.isSelected
         if (itemClicked.isSelected){
             rvKelas.getChildAt(rvKelas.indexOfChild(v)).findViewById<ConstraintLayout>(R.id.layout_set_kelas)
@@ -85,6 +86,4 @@ class SetKelasFragment : BottomSheetDialogFragment(), SetKelasAdapter.OnItemClic
             rvKelas.getChildAt(rvKelas.indexOfChild(v)).findViewById<TextView>(R.id.tv_price)
         }
     }
-
-
 }

@@ -197,7 +197,11 @@
         android:id="@+id/succeesFragment"
         android:name="com.binar.projekakhir.view.ui.SucceesFragment"
         android:label="fragment_succees"
-        tools:layout="@layout/fragment_succees" />
+        tools:layout="@layout/fragment_succees" >
+        <action
+            android:id="@+id/action_succeesFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/checkoutBioPemesanFragment"
         android:name="com.binar.projekakhir.view.ui.CheckoutBioPemesanFragment"

@@ -7,20 +7,15 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.binar.projekakhir.R
-import com.binar.projekakhir.datauser.DummyKelas
+import com.binar.projekakhir.datauser.KelasDummy
 
-class SetKelasAdapter (
-        private val listKelas:List<DummyKelas>,
-        private val listener:OnItemClickListener
-): RecyclerView.Adapter<SetKelasAdapter.ViewHolder>() {
-
-        inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
-                View.OnClickListener {
-
+class SetKelasAdapter (private val listKelas:List<KelasDummy>,
+    private val listener:OnItemClickListener
+    ): RecyclerView.Adapter<SetKelasAdapter.ViewHolder>() {
+        inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
                 internal var className: TextView
                 internal var priceClass: TextView
                 internal var layoutSetKelas: ConstraintLayout
-
 
                 init {
                         className = itemView.findViewById<TextView>(R.id.tv_class)
@@ -41,7 +36,6 @@ class SetKelasAdapter (
                         }
                 }
 
-
         }
 
         override fun onCreateViewHolder(
@@ -54,7 +48,6 @@ class SetKelasAdapter (
         }
 
         override fun onBindViewHolder(holder: SetKelasAdapter.ViewHolder, position: Int) {
-
 
                 if (listKelas[position].isSelected) {
                         holder.itemView.findViewById<View>(R.id.succes_klik).visibility =

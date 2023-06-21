@@ -1,6 +1,6 @@
 package com.binar.projekakhir.datauser
 
-class DummyKelas (
+class KelasDummy (
     var kelas:String,
     var harga:String,
     var isSelected:Boolean = false
