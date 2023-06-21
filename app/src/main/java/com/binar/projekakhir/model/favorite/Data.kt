@@ -1,13 +1,15 @@
-package com.binar.projekakhir.model.searchtiket
+package com.binar.projekakhir.model.favorite
 
 
 import com.google.gson.annotations.SerializedName
 
-data class Schedule(
+data class Data(
     @SerializedName("adultPrice")
     val adultPrice: Int,
     @SerializedName("arrivedDate")
     val arrivedDate: String,
+    @SerializedName("arrivedDateTime")
+    val arrivedDateTime: String,
     @SerializedName("arrivedTime")
     val arrivedTime: String,
     @SerializedName("available_seat")
@@ -18,10 +20,14 @@ data class Schedule(
     val classX: Class,
     @SerializedName("departureDate")
     val departureDate: String,
+    @SerializedName("departureDateTime")
+    val departureDateTime: String,
     @SerializedName("departureTime")
     val departureTime: String,
     @SerializedName("destinationAirport")
     val destinationAirport: DestinationAirport,
+    @SerializedName("durationInSecond")
+    val durationInSecond: Int,
     @SerializedName("id")
     val id: Int,
     @SerializedName("kidsPrice")
@@ -30,6 +36,8 @@ data class Schedule(
     val originAirport: OriginAirport,
     @SerializedName("plane")
     val plane: Plane,
+    @SerializedName("provTotalPrice")
+    val provTotalPrice: Int,
     @SerializedName("taxPrice")
     val taxPrice: Int
 )

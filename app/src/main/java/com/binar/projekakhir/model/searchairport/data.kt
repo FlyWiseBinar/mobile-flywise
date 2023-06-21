@@ -3,7 +3,7 @@ package com.binar.projekakhir.model.searchairport
 
 import com.google.gson.annotations.SerializedName
 
-data class Airport(
+data class data(
     @SerializedName("airportCode")
     val airportCode: String,
     @SerializedName("city")

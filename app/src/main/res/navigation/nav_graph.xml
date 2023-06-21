@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_homeFragment2_to_notifikasiFragment2"
             app:destination="@id/notifikasiFragment2" />
+        <action
+            android:id="@+id/action_homeFragment2_to_setKelasFragment2"
+            app:destination="@id/setKelasFragment" />
     </fragment>
     <fragment
         android:id="@+id/pilihDestinasiFragment"
@@ -176,7 +179,11 @@
         android:id="@+id/setKelasFragment"
         android:name="com.binar.projekakhir.view.ui.SetKelasFragment"
         android:label="fragment_set_kelas"
-        tools:layout="@layout/fragment_set_kelas" />
+        tools:layout="@layout/fragment_set_kelas" >
+        <action
+            android:id="@+id/action_setKelasFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
     <dialog
         android:id="@+id/setPenumpangFragment"
         android:name="com.binar.projekakhir.view.ui.SetPenumpangFragment"

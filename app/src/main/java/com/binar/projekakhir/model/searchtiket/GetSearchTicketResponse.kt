@@ -4,6 +4,10 @@ package com.binar.projekakhir.model.searchtiket
 import com.google.gson.annotations.SerializedName
 
 data class GetSearchTicketResponse(
-    @SerializedName("schedule")
-    val schedule: List<Schedule>
+    @SerializedName("data")
+    val `data`: List<Data>,
+    @SerializedName("message")
+    val message: String,
+    @SerializedName("statue")
+    val statue: Boolean
 )

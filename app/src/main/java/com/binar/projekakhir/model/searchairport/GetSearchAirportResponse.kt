@@ -4,8 +4,10 @@ package com.binar.projekakhir.model.searchairport
 import com.google.gson.annotations.SerializedName
 
 data class GetSearchAirportResponse(
-    @SerializedName("airport")
-    val airport: List<Airport>,
+    @SerializedName("data")
+    val `data`: List<data>,
     @SerializedName("message")
-    val message: String
+    val message: String,
+    @SerializedName("statue")
+    val statue: Boolean
 )

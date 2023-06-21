@@ -4,21 +4,26 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.binar.projekakhir.R
 import com.binar.projekakhir.databinding.FragmentHomeBinding
-import com.binar.projekakhir.view.adapter.FavouriteAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 import kotlin.collections.ArrayList
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.binar.projekakhir.view.adapter.FavouriteAdapter
+import com.binar.projekakhir.viewmodel.FavoriteViewModel
 import com.binar.projekakhir.viewmodel.HomeViewModel
+import com.binar.projekakhir.viewmodel.UserViewModel
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -27,7 +32,9 @@ class HomeFragment : Fragment() {
     private var tanggalKembali: String? = null
     private lateinit var pref : SharedPreferences
     private lateinit var HomeVm : HomeViewModel
+    private val userVm : UserViewModel by viewModels()
     private lateinit var adapter: FavouriteAdapter
+    private val favVm: FavoriteViewModel by viewModels()
 
 
 
@@ -36,7 +43,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
 
 
@@ -44,13 +51,23 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         HomeVm = ViewModelProvider(this).get(HomeViewModel::class.java)
         pref = requireContext().getSharedPreferences("Regist", Context.MODE_PRIVATE)
 
-        favorite()
+        //get date
+        val dateNowReturn = HomeVm.getArrivedDate()
+        val dateNowDeparture = HomeVm.getDepartureDate()
+        //set date
+        binding.pilihTanggal.text = dateNowReturn
+        binding.tanggal.text = dateNowDeparture
+
+
+
+
 
         getSetPenumpang()
+
+        getfavoritemodel()
 
 
         datePickerReturn()
@@ -59,8 +76,14 @@ class HomeFragment : Fragment() {
         datareturn()
         getpilihtanggal()
 
+       getKelasPenerbangan()
+
         binding.passenger.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment2_to_setPenumpangFragment)
+        }
+
+        binding.setclass.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment2_to_setKelasFragment2)
         }
 
 
@@ -159,17 +182,18 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun favorite( ){
-        HomeVm.getfavorite()
-        HomeVm.livedatafavorite.observe(viewLifecycleOwner, Observer { favList ->
-            if (favList != null) {
-                val adapter = FavouriteAdapter(requireContext(), favList)
-                binding.destinationfavourite.layoutManager = GridLayoutManager(requireContext(), 2)
-                binding.destinationfavourite.adapter = adapter
+    private fun getfavoritemodel(){
+        favVm.getfavorite()
+        favVm.livedatafavorite.observe(viewLifecycleOwner, Observer {
+            binding.destinationfavourite.layoutManager = GridLayoutManager(context,2)
+            if (it!= null) {
+                binding.destinationfavourite.adapter = FavouriteAdapter(it)
             }
         })
-
     }
+
+
+
 
     private fun getSetPenumpang(){
         val dewasa = HomeVm.getPenumpangDewasa()
@@ -177,6 +201,11 @@ class HomeFragment : Fragment() {
         val bayi = HomeVm.getPenumpangBayi()
         val total = dewasa + anak + bayi
         binding.passenger.text = "$total Penumpang"
+    }
+
+    private fun getKelasPenerbangan() {
+        val kelas = HomeVm.getNamaKelas()
+        binding.setclass.text = kelas
     }
 
 

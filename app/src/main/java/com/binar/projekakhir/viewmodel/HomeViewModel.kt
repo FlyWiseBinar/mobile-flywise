@@ -5,50 +5,73 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.binar.projekakhir.model.favorite.GetFavoriteResponse
-import com.binar.projekakhir.model.favorite.Schedule
+import com.binar.projekakhir.model.searchairport.GetSearchAirportResponse
+import com.binar.projekakhir.model.searchairport.data
+import com.binar.projekakhir.model.searchtiket.GetSearchTicketResponse
 import com.binar.projekakhir.network.ApiService
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 import javax.inject.Inject
 import kotlin.collections.ArrayList
+import com.binar.projekakhir.model.searchtiket.Data
+
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(var api:ApiService,
                                         private val sharedPreferences: SharedPreferences
                                         ) : ViewModel(){
-    val _favorite : MutableLiveData<List<Schedule>> = MutableLiveData()
-
-    val livedatafavorite : LiveData<List<Schedule>> = _favorite
 
 
-    fun getfavorite(){
-        api.getfavorite().enqueue(object : Callback<GetFavoriteResponse> {
+    val _searchallticket : MutableLiveData<List<Data>> = MutableLiveData()
+    val livedatafavorite : LiveData<List<Data>> = _searchallticket
+
+    fun searchallticket(originAirport:String,destinationAirport:String,departureDate:String,arrivedDate:String){
+        api.getallticket(originAirport, destinationAirport, departureDate, arrivedDate).enqueue(object : Callback<GetSearchTicketResponse>{
             override fun onResponse(
-                call: Call<GetFavoriteResponse>,
-                response: Response<GetFavoriteResponse>
+                call: Call<GetSearchTicketResponse>,
+                response: Response<GetSearchTicketResponse>
             ) {
                 if (response.isSuccessful){
-                    _favorite.value = response.body()!!.schedule
+                    _searchallticket.value = response.body()!!.data
                 }
                 else{
-                    Log.e("UserViewModel", "Cannot send data")
+                    Log.e("HomeViewModel", "Cannot send data")
                 }
             }
 
-            override fun onFailure(call: Call<GetFavoriteResponse>, t: Throwable) {
-                Log.e("UserViewModel", "Cannot send data 1")
+            override fun onFailure(call: Call<GetSearchTicketResponse>, t: Throwable) {
+                Log.e("HomeViewModel", "Cannot send data1")
             }
 
         })
     }
 
+    val _searchairport : MutableLiveData<List<data>> = MutableLiveData()
+    val livedatasearchairport : LiveData<List<data>> = _searchairport
+    fun searchairport(search : String){
+        api.getairport(search).enqueue(object : Callback<GetSearchAirportResponse>{
+            override fun onResponse(
+                call: Call<GetSearchAirportResponse>,
+                response: Response<GetSearchAirportResponse>
+            ) {
+                if (response.isSuccessful){
+                    _searchairport.value = response.body()!!.data
+                }
+                else{
+                    Log.e("HomeViewModel", "Cannot send data")
+                }
+            }
 
+            override fun onFailure(call: Call<GetSearchAirportResponse>, t: Throwable) {
+                Log.e("HomeViewModel", "Cannot send data")
+            }
+
+        })
+
+    }
 
     fun savePenumpangPreferences(dewasa: Int,anak: Int,bayi: Int){
         val editor = sharedPreferences.edit()
@@ -103,14 +126,16 @@ class HomeViewModel @Inject constructor(var api:ApiService,
     }
 
     fun getCityFrom():String?{
-        return sharedPreferences.getString("from","Jakarta")
+        return sharedPreferences.getString("from","San Antonio")
     }
+
+
 
     fun getCityTo():String?{
-        return sharedPreferences.getString("to","Jakarta")
+        return sharedPreferences.getString("to","Albuquerque")
     }
 
-    fun getDatePref(): String? {
+    fun getArrivedDate(): String? {
         val nameMonth = ArrayList<String>()
         nameMonth.add("Januari")
         nameMonth.add("Februari")

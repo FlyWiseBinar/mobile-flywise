@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/hasil_pencarian"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -14,55 +15,62 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp">
+
         <LinearLayout
             android:id="@+id/label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_alignParentEnd="true"
             android:background="@drawable/circle_label"
+            android:orientation="vertical"
             android:visibility="visible">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Today Only!"
-                android:textSize="10sp"
-                android:lineHeight="20dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="2dp"
                 android:fontFamily="@font/poppinsregular"
-                android:textColor="@color/NEUTRAL01"/>
+                android:lineHeight="20dp"
+                android:text="Today Only!"
+                android:textColor="@color/NEUTRAL01"
+                android:textSize="10sp" />
         </LinearLayout>
         <RelativeLayout
             android:id="@+id/layoutFlightSchedule"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/label">
+
             <LinearLayout
                 android:id="@+id/layoutDeparture"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:orientation="vertical">
+
                 <TextView
+                    android:id="@+id/tv_jamberangkat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="07:20"
                     android:fontFamily="@font/poppinsbold"
-                    android:textSize="14sp"
                     android:lineHeight="20dp"
-                    android:textColor="@color/NEUTRAL05"/>
+                    android:text="07:20"
+                    android:textColor="@color/NEUTRAL05"
+                    android:textSize="14sp" />
+
                 <TextView
+                    android:id="@+id/lokasiberangkat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="JKT"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:textSize="12sp"
-                    android:lineHeight="20dp"
                     android:layout_marginTop="2dp"
-                    android:textColor="@color/NEUTRAL05"/>
+                    android:fontFamily="@font/poppinsmedium"
+                    android:lineHeight="20dp"
+                    android:text="JKT"
+                    android:textColor="@color/NEUTRAL05"
+                    android:textSize="12sp" />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/layoutFlightTime"
@@ -74,6 +82,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
                 <TextView
+                    android:id="@+id/durasikeberangkatan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="4h 0m"
@@ -98,6 +107,7 @@
                     android:layout_marginTop="2dp"
                     android:textColor="@color/NEUTRAL03"/>
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/layoutArrive"
                 android:layout_width="wrap_content"
@@ -105,23 +115,27 @@
                 android:layout_marginTop="2dp"
                 android:layout_toEndOf="@id/layoutFlightTime"
                 android:orientation="vertical">
+
                 <TextView
+                    android:id="@+id/tv_jamkedatangan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="11:20"
                     android:fontFamily="@font/poppinsbold"
-                    android:textSize="14sp"
                     android:lineHeight="20dp"
-                    android:textColor="@color/NEUTRAL05"/>
+                    android:text="11:20"
+                    android:textColor="@color/NEUTRAL05"
+                    android:textSize="14sp" />
+
                 <TextView
+                    android:id="@+id/lokasikedatangan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="MLB"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:textSize="12sp"
-                    android:lineHeight="20dp"
                     android:layout_marginTop="2dp"
-                    android:textColor="@color/NEUTRAL05"/>
+                    android:fontFamily="@font/poppinsmedium"
+                    android:lineHeight="20dp"
+                    android:text="MLB"
+                    android:textColor="@color/NEUTRAL05"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <TextView
@@ -143,49 +157,54 @@
             android:background="@color/NEUTRAL02"
             android:layout_below="@id/layoutFlightSchedule"
             android:layout_marginTop="16dp"/>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/grid"
-            >
+            android:layout_below="@id/grid">
 
             <ImageView
                 android:id="@+id/imgAirline"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_airline" />
+
             <LinearLayout
                 android:id="@+id/layoutAirline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_centerVertical="true"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/imgAirline">
+                android:layout_toEndOf="@id/imgAirline"
+                android:orientation="vertical">
+
                 <TextView
+                    android:id="@+id/namapesawat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Jet Airline - Economy"
                     android:fontFamily="@font/poppinsmedium"
-                    android:textSize="12sp"
                     android:lineHeight="18dp"
-                    android:textColor="@color/NEUTRAL05"/>
+                    android:text="Jet Airline - Economy"
+                    android:textColor="@color/NEUTRAL05"
+                    android:textSize="12sp" />
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:src="@drawable/suitcase"/>
+                    android:src="@drawable/suitcase" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true">
+
                 <ImageButton
                     android:id="@+id/btnDetail"
                     android:layout_width="wrap_content"
