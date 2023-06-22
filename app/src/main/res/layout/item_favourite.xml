@@ -26,7 +26,7 @@
                 android:layout_width="160dp"
                 android:layout_height="120dp"
                 android:scaleType="fitXY"
-                tools:src ="@tools:sample/backgrounds/scenic"
+                android:src="@drawable/contoh_destination_favorite"
                 android:layout_gravity="center" />
 
             <TextView

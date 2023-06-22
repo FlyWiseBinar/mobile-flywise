@@ -26,7 +26,7 @@ class HomeViewModel @Inject constructor(var api:ApiService,
 
 
     val _searchallticket : MutableLiveData<List<Data>> = MutableLiveData()
-    val livedatafavorite : LiveData<List<Data>> = _searchallticket
+    val livedatasearchallticket : LiveData<List<Data>> = _searchallticket
 
     fun searchallticket(originAirport:String,destinationAirport:String,departureDate:String,arrivedDate:String){
         api.getallticket(originAirport, destinationAirport, departureDate, arrivedDate).enqueue(object : Callback<GetSearchTicketResponse>{
@@ -113,6 +113,11 @@ class HomeViewModel @Inject constructor(var api:ApiService,
         editor.apply()
     }
 
+    fun saveselected(isSelected: Boolean){
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("selected", isSelected)
+    }
+
     fun getPenumpangDewasa():Int{
         return sharedPreferences.getInt("dewasa",1)
     }
@@ -155,7 +160,8 @@ class HomeViewModel @Inject constructor(var api:ApiService,
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
         val bulan = nameMonth[month]
-        val defaultTanggal = "$year-$month-$day"
+//        val tanggal = "2023-5-27"
+        val defaultTanggal = "$year-${month+1}-$day"
         return sharedPreferences.getString("date",defaultTanggal)
     }
 
@@ -179,7 +185,8 @@ class HomeViewModel @Inject constructor(var api:ApiService,
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
         val bulan = nameMonth[month]
-        val defaultTanggal = "$year-$month-$day"
+//        val tanggal = "2023-5-26"
+        val defaultTanggal = "$year-${month+1}-$day"
         return sharedPreferences.getString("departure",defaultTanggal)
     }
 
@@ -193,6 +200,10 @@ class HomeViewModel @Inject constructor(var api:ApiService,
 
     fun getSelected():Boolean{
         return sharedPreferences.getBoolean("isSelected",false)
+    }
+
+    fun getCheckedSwitch() : Boolean{
+        return  sharedPreferences.getBoolean("selected", true)
     }
 
 

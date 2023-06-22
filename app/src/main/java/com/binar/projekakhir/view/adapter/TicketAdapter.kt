@@ -3,7 +3,6 @@ package com.binar.projekakhir.view.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.binar.projekakhir.databinding.ItemFavouriteBinding
 import com.binar.projekakhir.databinding.ItemTicketBinding
 import com.binar.projekakhir.model.searchtiket.Data
 import com.binar.projekakhir.util.Utill
@@ -20,9 +19,10 @@ class TicketAdapter(private val listticket: List<Data>, private val onSelect:(Da
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.tvJamberangkat.text = listticket[position].departureTime
-        holder.binding.lokasiberangkat.text = listticket[position].originAirport.city
+        holder.binding.lokasiberangkat.text = listticket[position].originAirport.airportCode
         holder.binding.durasikeberangkatan.text = listticket[position].durationInSecond.toString()
         holder.binding.tvJamkedatangan.text = listticket[position].arrivedTime
+        holder.binding.lokasikedatangan.text = listticket[position].destinationAirport.airportCode
         val price = Utill.getPriceIdFormat(listticket[position].provTotalPrice)
         holder.binding.tvPriceFlight.text = price
         holder.binding.hasilPencarian.setOnClickListener {

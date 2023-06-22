@@ -11,7 +11,7 @@
         android:icon="@drawable/riwayat"
         android:title="Riwayat" />
     <item
-        android:id="@+id/hasilPencarianFragment"
+        android:id="@+id/notifikasiFragment2"
         android:enabled="true"
         android:icon="@drawable/ic_baseline_notifications_24"
         android:title="Notifikasi" />

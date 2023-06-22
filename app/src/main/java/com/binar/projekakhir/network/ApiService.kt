@@ -9,6 +9,7 @@ import com.binar.projekakhir.model.auth.resetpassword.UpdateProfilePost
 import com.binar.projekakhir.model.favorite.GetFavoriteResponse
 import com.binar.projekakhir.model.searchairport.GetSearchAirportResponse
 import com.binar.projekakhir.model.searchtiket.GetSearchTicketResponse
+import com.binar.projekakhir.model.updateticket.UpdateTicketResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -79,6 +80,9 @@ interface ApiService {
         @Query("departureDate") departureDate:String,
         @Query("arrivedDate") arrivedDate:String
     ) : Call<GetSearchTicketResponse>
+
+    @GET("schedule/id")
+    fun getupdateticket():Call<UpdateTicketResponse>
 
     @GET("schedule/search")
     fun getairport(

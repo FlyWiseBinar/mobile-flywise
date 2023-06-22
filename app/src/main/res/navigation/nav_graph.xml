@@ -42,6 +42,9 @@
         <action
             android:id="@+id/action_homeFragment2_to_setKelasFragment2"
             app:destination="@id/setKelasFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_hasilPencarianFragment2"
+            app:destination="@id/hasilPencarianFragment" />
     </fragment>
     <fragment
         android:id="@+id/pilihDestinasiFragment"
@@ -68,6 +71,9 @@
         <action
             android:id="@+id/action_hasilPencarianFragment_to_detailNonLoginFragment"
             app:destination="@id/detailNonLoginFragment" />
+        <action
+            android:id="@+id/action_hasilPencarianFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
     </fragment>
     <fragment
         android:id="@+id/loginSebelumCheckOut"

@@ -3,12 +3,14 @@ package com.binar.projekakhir.view.ui
 import android.app.DatePickerDialog
 import android.content.Context
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -29,8 +31,10 @@ import com.binar.projekakhir.viewmodel.UserViewModel
 class HomeFragment : Fragment() {
 
     private lateinit var binding:FragmentHomeBinding
-    private var tanggalKembali: String? = null
+//    private var tanggalKembali: String? = null
     private lateinit var pref : SharedPreferences
+    private var tanggalKembali = "Tanggal"
+    private var tanggalPergi:String? = null
     private lateinit var HomeVm : HomeViewModel
     private val userVm : UserViewModel by viewModels()
     private lateinit var adapter: FavouriteAdapter
@@ -49,6 +53,7 @@ class HomeFragment : Fragment() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         HomeVm = ViewModelProvider(this).get(HomeViewModel::class.java)
@@ -58,8 +63,50 @@ class HomeFragment : Fragment() {
         val dateNowReturn = HomeVm.getArrivedDate()
         val dateNowDeparture = HomeVm.getDepartureDate()
         //set date
-        binding.pilihTanggal.text = dateNowReturn
-        binding.tanggal.text = dateNowDeparture
+        binding.tanggalreturn.text = dateNowReturn
+        binding.tanggaldeparture.text = dateNowDeparture
+
+        binding.btnCariPenerbangan.setOnClickListener {
+            val isSwitchTrue = HomeVm.getCheckedSwitch()
+            if (isSwitchTrue){
+                findNavController().navigate(R.id.action_homeFragment2_to_hasilPencarianFragment)
+            } else{
+                findNavController().navigate(R.id.action_homeFragment2_to_hasilPencarianFragment)
+            }
+
+        }
+
+        binding.swPp.setOnCheckedChangeListener { p0, isChecked ->
+
+            if (isChecked) {
+                HomeVm.saveselected(true)
+                binding.returndate.visibility = View.VISIBLE
+
+            } else {
+                HomeVm.saveselected(false)
+                binding.returndate.visibility = View.GONE
+
+            }
+        }
+
+        val getCheck = HomeVm.getCheckedSwitch()
+        Log.d("Beranda Fragment","$getCheck")
+        binding.swPp.isChecked = getCheck
+
+
+
+
+        binding.layoutDeparture.setOnClickListener {
+            val bundle =Bundle()
+            bundle.putString("from","from")
+            findNavController().navigate(R.id.action_homeFragment2_to_pilihDestinasiFragment,bundle)
+        }
+
+        binding.layoutArrival.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("to","to")
+            findNavController().navigate(R.id.action_homeFragment2_to_pilihDestinasiFragment,bundle)
+        }
 
 
 
@@ -68,12 +115,11 @@ class HomeFragment : Fragment() {
         getSetPenumpang()
 
         getfavoritemodel()
-
-
         datePickerReturn()
+        datePickerDeparture()
         getTanggalKembali()
 
-        datareturn()
+
         getpilihtanggal()
 
        getKelasPenerbangan()
@@ -89,22 +135,10 @@ class HomeFragment : Fragment() {
 
     }
 
-    private fun datePickerReturn() {
-        binding.tanggal.setOnClickListener {
-            val nameMonth = ArrayList<String>()
-            nameMonth.add("Januari")
-            nameMonth.add("Februari")
-            nameMonth.add("Maret")
-            nameMonth.add("April")
-            nameMonth.add("Mei")
-            nameMonth.add("Juni")
-            nameMonth.add("Juli")
-            nameMonth.add("Agustus")
-            nameMonth.add("September")
-            nameMonth.add("Oktober")
-            nameMonth.add("November")
-            nameMonth.add("Desember")
-
+    @RequiresApi(Build.VERSION_CODES.N)
+    private fun datePickerDeparture() {
+        binding.tanggaldeparture.setOnClickListener {
+            val nameMonth = namaMonth()
             val calendar = Calendar.getInstance()
             val year = calendar.get(Calendar.YEAR)
             val month = calendar.get(Calendar.MONTH)
@@ -113,71 +147,79 @@ class HomeFragment : Fragment() {
             val datePickerDialog = DatePickerDialog(
                 requireContext(),
                 { _, year, month, dayOfMonth ->
-                    val bulan = nameMonth[month]
-                    tanggalKembali = "$dayOfMonth $bulan $year"
-                    binding.tanggal.setText(tanggalKembali)
-                    binding.tanggal.setTextColor(resources.getColor(R.color.black))
+                    val bulan =nameMonth[month]
+                    tanggalPergi = "$dayOfMonth $bulan+1 $year"
+                    binding.tanggaldeparture.setText(tanggalPergi)
                 },
                 year, month, day,
             )
             datePickerDialog.show()
+            datePickerDialog.setOnDateSetListener { datePicker, _, _, _ ->
+                val bulanDeparture = nameMonth[datePicker.month]
+                val month = datePicker.month
+                val tahunDeparture = datePicker.year
+                val hariDeparture = datePicker.dayOfMonth
+                val tanggalDeparture = "$tahunDeparture-${month+1}-$hariDeparture"
+                HomeVm.saveDepartureDate(tanggalDeparture)
+                findNavController().navigate(R.id.homeFragment2)
+            }
+            datePickerDialog.getButton(DatePickerDialog.BUTTON_NEGATIVE).setTextColor(resources.getColor(R.color.DARKBLUE05))
+            datePickerDialog.getButton(DatePickerDialog.BUTTON_POSITIVE).setTextColor(resources.getColor(R.color.DARKBLUE05))
 
         }
     }
 
     private fun getTanggalKembali() {
         if (tanggalKembali == null) {
-            binding.tanggal.setText("Pilih Tanggal")
+            binding.tanggaldeparture.setText("Pilih Tanggal")
         } else {
-            binding.tanggal.setText(tanggalKembali)
-            binding.tanggal.setTextColor(resources.getColor(R.color.black))
+            binding.tanggaldeparture.setText(tanggalKembali)
+            binding.tanggaldeparture.setTextColor(resources.getColor(R.color.black))
 
         }
 
 
     }
 
-    private fun datareturn(){
-        binding.pilihTanggal.setOnClickListener {
-            val nameMonth = ArrayList<String>()
-            nameMonth.add("Januari")
-            nameMonth.add("Februari")
-            nameMonth.add("Maret")
-            nameMonth.add("April")
-            nameMonth.add("Mei")
-            nameMonth.add("Juni")
-            nameMonth.add("Juli")
-            nameMonth.add("Agustus")
-            nameMonth.add("September")
-            nameMonth.add("Oktober")
-            nameMonth.add("November")
-            nameMonth.add("Desember")
+    @RequiresApi(Build.VERSION_CODES.N)
+    private fun datePickerReturn(){
+        binding.tanggalreturn.setOnClickListener {
+            val nameMonth = namaMonth()
 
             val calendar = Calendar.getInstance()
             val year = calendar.get(Calendar.YEAR)
             val month = calendar.get(Calendar.MONTH)
             val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-            val datePickerDialog = DatePickerDialog(
-                requireContext(),
-                { _, year, month, dayOfMonth ->
-                    val bulan = nameMonth[month]
-                    tanggalKembali = "$dayOfMonth $bulan $year"
-                    binding.pilihTanggal.setText(tanggalKembali)
-                    binding.pilihTanggal.setTextColor(resources.getColor(R.color.black))
-                },
+            val datePickerDialog = DatePickerDialog(requireContext(), { _, year, month, dayOfMonth ->
+                val bulan =nameMonth[month]
+                tanggalPergi = "$dayOfMonth $bulan+1 $year"
+                binding.tanggalreturn.text = tanggalPergi
+            },
                 year, month, day,
             )
             datePickerDialog.show()
+            datePickerDialog.setOnDateSetListener { datePicker, _, _, _ ->
+                val nameMonth = namaMonth()
+                val bulan =nameMonth[datePicker.month]
+                val month = datePicker.month
+                val tahun = datePicker.year
+                val hari = datePicker.dayOfMonth
+                val tanggalPilihan = "$tahun-${month+1}-$hari"
+               HomeVm.saveDatePref(tanggalPilihan)
+                findNavController().navigate(R.id.homeFragment2)
+            }
+            datePickerDialog.getButton(DatePickerDialog.BUTTON_NEGATIVE).setTextColor(resources.getColor(R.color.DARKBLUE05))
+            datePickerDialog.getButton(DatePickerDialog.BUTTON_POSITIVE).setTextColor(resources.getColor(R.color.DARKBLUE05))
         }
     }
 
     private fun getpilihtanggal(){
         if (tanggalKembali == null) {
-            binding.pilihTanggal.setText("Pilih Tanggal")
+            binding.tanggalreturn.setText("Pilih Tanggal")
         } else {
-            binding.pilihTanggal.setText(tanggalKembali)
-            binding.pilihTanggal.setTextColor(resources.getColor(R.color.black))
+            binding.tanggalreturn.setText(tanggalKembali)
+            binding.tanggalreturn.setTextColor(resources.getColor(R.color.black))
 
         }
     }
@@ -190,6 +232,23 @@ class HomeFragment : Fragment() {
                 binding.destinationfavourite.adapter = FavouriteAdapter(it)
             }
         })
+    }
+
+    private fun namaMonth(): ArrayList<String> {
+        val nameMonth = ArrayList<String>()
+        nameMonth.add("Januari")
+        nameMonth.add("Februari")
+        nameMonth.add("Maret")
+        nameMonth.add("April")
+        nameMonth.add("Mei")
+        nameMonth.add("Juni")
+        nameMonth.add("Juli")
+        nameMonth.add("Agustus")
+        nameMonth.add("September")
+        nameMonth.add("Oktober")
+        nameMonth.add("November")
+        nameMonth.add("Desember")
+        return nameMonth
     }
 
 
