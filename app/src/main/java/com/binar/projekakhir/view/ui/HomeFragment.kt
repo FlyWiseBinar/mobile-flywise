@@ -59,6 +59,7 @@ class HomeFragment : Fragment() {
         HomeVm = ViewModelProvider(this).get(HomeViewModel::class.java)
         pref = requireContext().getSharedPreferences("Regist", Context.MODE_PRIVATE)
 
+
         //get date
         val dateNowReturn = HomeVm.getArrivedDate()
         val dateNowDeparture = HomeVm.getDepartureDate()
@@ -97,15 +98,11 @@ class HomeFragment : Fragment() {
 
 
         binding.layoutDeparture.setOnClickListener {
-            val bundle =Bundle()
-            bundle.putString("from","from")
-            findNavController().navigate(R.id.action_homeFragment2_to_pilihDestinasiFragment,bundle)
+            findNavController().navigate(R.id.action_homeFragment2_to_pilihDestinasiFromFragment)
         }
 
         binding.layoutArrival.setOnClickListener {
-            val bundle = Bundle()
-            bundle.putString("to","to")
-            findNavController().navigate(R.id.action_homeFragment2_to_pilihDestinasiFragment,bundle)
+            findNavController().navigate(R.id.action_homeFragment2_to_pilihDestinasiToFragment)
         }
 
 
@@ -133,6 +130,14 @@ class HomeFragment : Fragment() {
         binding.setclass.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment2_to_setKelasFragment2)
         }
+
+        pref = requireContext().getSharedPreferences("MyPrefsFrom", Context.MODE_PRIVATE)
+        val selectedDestination = pref.getString("keyFrom","")
+        binding.from.text = selectedDestination
+
+        val prefTo = requireContext().getSharedPreferences("MyPrefsTo", Context.MODE_PRIVATE)
+        val selectedDestinationTo = prefTo.getString("keyTo","")
+        binding.to.text = selectedDestinationTo
 
 
     }
@@ -170,6 +175,8 @@ class HomeFragment : Fragment() {
 
         }
     }
+
+    //get city to and from
 
     private fun getTanggalKembali() {
         if (tanggalKembali == null) {

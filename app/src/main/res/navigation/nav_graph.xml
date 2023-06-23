@@ -19,9 +19,6 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment2_to_pilihDestinasiFragment"
-            app:destination="@id/pilihDestinasiFragment" />
-        <action
             android:id="@+id/action_homeFragment2_to_setPenumpangFragment"
             app:destination="@id/setPenumpangFragment" />
         <action
@@ -45,15 +42,12 @@
         <action
             android:id="@+id/action_homeFragment2_to_hasilPencarianFragment2"
             app:destination="@id/hasilPencarianFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/pilihDestinasiFragment"
-        android:name="com.binar.projekakhir.view.ui.PilihDestinasiFragment"
-        android:label="fragment_pilih_destinasi"
-        tools:layout="@layout/fragment_pilih_destinasi" >
         <action
-            android:id="@+id/action_pilihDestinasiFragment_to_homeFragment2"
-            app:destination="@id/homeFragment2" />
+            android:id="@+id/action_homeFragment2_to_pilihDestinasiToFragment"
+            app:destination="@id/pilihDestinasiToFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_pilihDestinasiFromFragment"
+            app:destination="@id/pilihDestinasiFromFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailNonLoginFragment"
@@ -235,4 +229,22 @@
         android:name="com.binar.projekakhir.view.ui.Checkout_rincianFragment"
         android:label="fragment_checkout_rincian"
         tools:layout="@layout/fragment_checkout_rincian" />
+    <fragment
+        android:id="@+id/pilihDestinasiFromFragment"
+        android:name="com.binar.projekakhir.view.ui.PilihDestinasiFromFragment"
+        android:label="fragment_pilih_destinasi_from"
+        tools:layout="@layout/fragment_pilih_destinasi_from" >
+        <action
+            android:id="@+id/action_pilihDestinasiFromFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/pilihDestinasiToFragment"
+        android:name="com.binar.projekakhir.view.ui.PilihDestinasiToFragment"
+        android:label="fragment_pilih_destinasi_to"
+        tools:layout="@layout/fragment_pilih_destinasi_to" >
+        <action
+            android:id="@+id/action_pilihDestinasiToFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
 </navigation>

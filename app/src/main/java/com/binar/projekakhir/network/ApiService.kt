@@ -121,6 +121,13 @@ interface ApiService {
 //        @Query("arrivedDate") arrivedDate:String
 //    ) : Call<GetSearchTicketResponse>
 
+    @GET("schedule/airport?search=")
+    fun getSearchAirport(
+        @Query("city") city:String
+    ) : Call<GetSearchAirportResponse>
+
+
+
 
 
 

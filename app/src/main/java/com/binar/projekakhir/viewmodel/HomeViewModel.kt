@@ -206,7 +206,7 @@ class HomeViewModel @Inject constructor(var api:ApiService,
 
 
     fun getCityTo():String?{
-        return sharedPreferences.getString("to","Albuquerque")
+        return sharedPreferences.getString("to","")
     }
 
     fun getorder():String?{
@@ -298,5 +298,32 @@ class HomeViewModel @Inject constructor(var api:ApiService,
 
     companion object{
         private const val TAG = "DestinasiViewModel"
+    }
+
+
+    private val _search = MutableLiveData<List<data>>()
+    val search: LiveData<List<data>> = _search
+
+    fun callGetSearchAirport(city: String) {
+        api.getSearchAirport(city).enqueue(object : Callback<GetSearchAirportResponse> {
+            override fun onResponse(
+                call: Call<GetSearchAirportResponse>,
+                response: Response<GetSearchAirportResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    if (data != null) {
+                        _search.postValue(data.data as List<data>?)
+                    }
+                } else {
+                    Log.e("Error : ", "onFailure : ${response.message()}")
+                }
+            }
+
+            override fun onFailure(call: Call<GetSearchAirportResponse>, t: Throwable) {
+                Log.e("Error : ", "onFailure : ${t.message}")
+            }
+
+        })
     }
 }
