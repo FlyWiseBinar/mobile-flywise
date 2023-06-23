@@ -1,6 +1,7 @@
 package com.binar.projekakhir.view.ui
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -66,6 +67,11 @@ class HasilPencarianFragment : Fragment() {
 
         binding.btnFilter.setOnClickListener {
             filterharga(cityFrom,cityTo,departure,arrived,order)
+        }
+
+        binding.btnFilterHarga.setOnClickListener {
+     //     val intent = Intent(this, GetFilterPrice::class.java)
+      //      findNavController().navigate(R.id.action_hasilPencarianFragment_to_dialogFilter)
         }
 
 

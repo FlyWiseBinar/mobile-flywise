@@ -77,32 +77,7 @@ class DetailNonLoginFragment : Fragment() {
 //
 //            val id =
 //            val bundle = Bundle()
-//            bundle.getString("id", id)
-//            if (getdetail != null){
-//                binding.layoutDetail.visibility = View.VISIBLE
-//                binding.totalTicket.visibility = View.VISIBLE
-//                Log.d("DetailPenerbangan","Berhasil dong")
-//                binding.apply {
-//                    nomorseri.visibility = View.GONE
-//                    val idpenerbangan = detail.data
-//                    idFlight.text = idpenerbangan.toString()
-//                    tvDepartureAirport.text = detail.originAirport.name
-//                    tvDateDeparture.text = getdetail.departureDate
-//                    tvTimeDeparture.text = getdetail.departureTime
-//                    baggage.text = getdetail.plane.baggageMaxCapacity.toString()
-//                    cabinbaggage.text = getdetail.plane.cabinMaxCapacity.toString()
-//                    tvTimeArrive.text = getdetail.arrivedTime
-//                    tvDateArrive.text = getdetail.arrivedDate
-//                    tvArriveAirport.text = getdetail.destinationAirport.name
-//                    val price = Utill.getPriceIdFormat(getdetail.provTotalPrice)
-//                    tvPriceTicket.text = "$price"
-//
-//
-//                }
-//            }else {
-//                Log.e("DetailPenerbangan", "detailTicket is null")
-//            }
-//
+//            bundle.getString("id", id) //
 //        }
 //    }
 

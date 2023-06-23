@@ -8,7 +8,6 @@
 
 
 
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:background="#4B1979"

@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/homeFragment2">
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.binar.projekakhir.view.ui.SplashFragment"
         android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" >
+        tools:layout="@layout/fragment_splash">
         <action
             android:id="@+id/action_splashFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
@@ -17,7 +17,7 @@
         android:id="@+id/homeFragment2"
         android:name="com.binar.projekakhir.view.ui.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment2_to_setPenumpangFragment"
             app:destination="@id/setPenumpangFragment" />
@@ -53,7 +53,7 @@
         android:id="@+id/detailNonLoginFragment"
         android:name="com.binar.projekakhir.view.ui.DetailNonLoginFragment"
         android:label="fragment_detail_non_login"
-        tools:layout="@layout/fragment_detail_non_login" >
+        tools:layout="@layout/fragment_detail_non_login">
         <action
             android:id="@+id/action_detailNonLoginFragment_to_loginSebelumCheckOut"
             app:destination="@id/loginSebelumCheckOut" />
@@ -65,7 +65,7 @@
         android:id="@+id/hasilPencarianFragment"
         android:name="com.binar.projekakhir.view.ui.HasilPencarianFragment"
         android:label="fragment_hasil_pencarian"
-        tools:layout="@layout/fragment_hasil_pencarian" >
+        tools:layout="@layout/fragment_hasil_pencarian">
         <action
             android:id="@+id/action_hasilPencarianFragment_to_detailNonLoginFragment"
             app:destination="@id/detailNonLoginFragment" />
@@ -77,7 +77,7 @@
         android:id="@+id/loginSebelumCheckOut"
         android:name="com.binar.projekakhir.view.ui.LoginSebelumCheckOut"
         android:label="fragment_login_sebelum_check_out"
-        tools:layout="@layout/fragment_login_sebelum_check_out" >
+        tools:layout="@layout/fragment_login_sebelum_check_out">
         <action
             android:id="@+id/action_loginSebelumCheckOut_to_checkoutBioPemesanFragment"
             app:destination="@id/checkoutBioPemesanFragment" />
@@ -94,7 +94,7 @@
         android:id="@+id/riwayatFragment2"
         android:name="com.binar.projekakhir.view.ui.RiwayatFragment"
         android:label="fragment_riwayat"
-        tools:layout="@layout/fragment_riwayat" >
+        tools:layout="@layout/fragment_riwayat">
         <action
             android:id="@+id/action_riwayatFragment2_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -103,7 +103,7 @@
         android:id="@+id/checkBioPenumpangFragment"
         android:name="com.binar.projekakhir.view.ui.CheckBioPenumpangFragment"
         android:label="fragment_check_bio_penumpang"
-        tools:layout="@layout/fragment_check_bio_penumpang" >
+        tools:layout="@layout/fragment_check_bio_penumpang">
         <action
             android:id="@+id/action_checkBioPenumpangFragment_to_checkoutFragment"
             app:destination="@id/checkoutFragment" />
@@ -112,7 +112,7 @@
         android:id="@+id/checkoutFragment"
         android:name="com.binar.projekakhir.view.ui.CheckoutFragment"
         android:label="fragment_checkout"
-        tools:layout="@layout/fragment_checkout" >
+        tools:layout="@layout/fragment_checkout">
         <action
             android:id="@+id/action_checkoutFragment_to_paymentFragment"
             app:destination="@id/paymentFragment" />
@@ -121,7 +121,7 @@
         android:id="@+id/loginFragment"
         android:name="com.binar.projekakhir.view.ui.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
@@ -144,7 +144,7 @@
         android:id="@+id/paymentFragment"
         android:name="com.binar.projekakhir.view.ui.PaymentFragment"
         android:label="fragment_payment"
-        tools:layout="@layout/fragment_payment" >
+        tools:layout="@layout/fragment_payment">
         <action
             android:id="@+id/action_paymentFragment_to_succeesFragment"
             app:destination="@id/succeesFragment" />
@@ -153,7 +153,7 @@
         android:id="@+id/profileFragment2"
         android:name="com.binar.projekakhir.view.ui.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" >
+        tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment2_to_homeFragment2"
             app:destination="@id/homeFragment2" />
@@ -162,7 +162,7 @@
         android:id="@+id/registerFragment"
         android:name="com.binar.projekakhir.view.ui.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" >
+        tools:layout="@layout/fragment_register">
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -174,7 +174,7 @@
         android:id="@+id/sendOtpFragment"
         android:name="com.binar.projekakhir.view.ui.SendOtpFragment"
         android:label="fragment_send_otp"
-        tools:layout="@layout/fragment_send_otp" >
+        tools:layout="@layout/fragment_send_otp">
         <action
             android:id="@+id/action_sendOtpFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -183,7 +183,7 @@
         android:id="@+id/setKelasFragment"
         android:name="com.binar.projekakhir.view.ui.SetKelasFragment"
         android:label="fragment_set_kelas"
-        tools:layout="@layout/fragment_set_kelas" >
+        tools:layout="@layout/fragment_set_kelas">
         <action
             android:id="@+id/action_setKelasFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
@@ -192,7 +192,7 @@
         android:id="@+id/setPenumpangFragment"
         android:name="com.binar.projekakhir.view.ui.SetPenumpangFragment"
         android:label="fragment_set_penumpang"
-        tools:layout="@layout/fragment_set_penumpang" >
+        tools:layout="@layout/fragment_set_penumpang">
         <action
             android:id="@+id/action_setPenumpangFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
@@ -201,7 +201,7 @@
         android:id="@+id/succeesFragment"
         android:name="com.binar.projekakhir.view.ui.SucceesFragment"
         android:label="fragment_succees"
-        tools:layout="@layout/fragment_succees" >
+        tools:layout="@layout/fragment_succees">
         <action
             android:id="@+id/action_succeesFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
@@ -210,7 +210,7 @@
         android:id="@+id/checkoutBioPemesanFragment"
         android:name="com.binar.projekakhir.view.ui.CheckoutBioPemesanFragment"
         android:label="fragment_checkout_biodata"
-        tools:layout="@layout/fragment_checkout_bio_pemesanan" >
+        tools:layout="@layout/fragment_checkout_bio_pemesanan">
         <action
             android:id="@+id/action_checkoutBioPemesanFragment_to_checkBioPenumpangFragment"
             app:destination="@id/checkBioPenumpangFragment" />
@@ -219,7 +219,7 @@
         android:id="@+id/akunFragment2"
         android:name="com.binar.projekakhir.view.ui.AkunFragment"
         android:label="fragment_akun"
-        tools:layout="@layout/fragment_akun" >
+        tools:layout="@layout/fragment_akun">
         <action
             android:id="@+id/action_akunFragment2_to_profileFragment2"
             app:destination="@id/profileFragment2" />
@@ -233,7 +233,7 @@
         android:id="@+id/pilihDestinasiFromFragment"
         android:name="com.binar.projekakhir.view.ui.PilihDestinasiFromFragment"
         android:label="fragment_pilih_destinasi_from"
-        tools:layout="@layout/fragment_pilih_destinasi_from" >
+        tools:layout="@layout/fragment_pilih_destinasi_from">
         <action
             android:id="@+id/action_pilihDestinasiFromFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
@@ -242,9 +242,18 @@
         android:id="@+id/pilihDestinasiToFragment"
         android:name="com.binar.projekakhir.view.ui.PilihDestinasiToFragment"
         android:label="fragment_pilih_destinasi_to"
-        tools:layout="@layout/fragment_pilih_destinasi_to" >
+        tools:layout="@layout/fragment_pilih_destinasi_to">
         <action
             android:id="@+id/action_pilihDestinasiToFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
     </fragment>
+    <!--    <fragment-->
+    <!--        android:id="@+id/hasilPencarianFragmentTodialogFilter"-->
+    <!--        android:name="com.binar.projekakhir.view.ui.PilihDestinasiToFragment"-->
+    <!--        android:label="fragment_pilih_destinasi_to"-->
+    <!--        tools:layout="@layout/fragment_pilih_destinasi_to" >-->
+    <!--        <action-->
+    <!--            android:id="@+id/action_hasilPencarianFragment_to_dialogFilter"-->
+    <!--            app:destination="@id/dialogFilter" />-->
+    <!--    </fragment>-->
 </navigation>
