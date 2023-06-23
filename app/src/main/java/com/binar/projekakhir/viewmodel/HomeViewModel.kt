@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.binar.projekakhir.model.filterprice.GetFilterPriceResponse
 import com.binar.projekakhir.model.searchairport.GetSearchAirportResponse
 import com.binar.projekakhir.model.searchairport.data
 import com.binar.projekakhir.model.searchtiket.GetSearchTicketResponse
@@ -73,6 +74,74 @@ class HomeViewModel @Inject constructor(var api:ApiService,
 
     }
 
+    fun cityfrom(originAirport:String){
+        api.getdestinationsfrom(originAirport).enqueue(object :Callback<GetSearchTicketResponse>{
+            override fun onResponse(
+                call: Call<GetSearchTicketResponse>,
+                response: Response<GetSearchTicketResponse>
+            ) {
+                if (response.isSuccessful){
+                    _searchallticket.value = response.body()!!.data
+                }
+                else{
+                    Log.e("HomeViewModel", "Can't Send Data ")
+                }
+            }
+
+            override fun onFailure(call: Call<GetSearchTicketResponse>, t: Throwable) {
+                Log.e("HomeViewModel", "Can't Send Data city from")
+            }
+
+        })
+
+    }
+
+    fun cityTo(destinationAirport:String){
+        api.getdestinationsto( destinationAirport).enqueue(object :Callback<GetSearchTicketResponse>{
+            override fun onResponse(
+                call: Call<GetSearchTicketResponse>,
+                response: Response<GetSearchTicketResponse>
+            ) {
+                if (response.isSuccessful){
+                    _searchallticket.value = response.body()!!.data
+                }
+                else{
+                    Log.e("HomeViewModel", "Can't Send Data ")
+                }
+            }
+
+            override fun onFailure(call: Call<GetSearchTicketResponse>, t: Throwable) {
+                Log.e("HomeViewModel", "Can't Send Data city from")
+            }
+
+        })
+    }
+
+    val filterprice : MutableLiveData<List<com.binar.projekakhir.model.filterprice.Data>> = MutableLiveData()
+    val livedatafilterprice : LiveData<List<com.binar.projekakhir.model.filterprice.Data>> = filterprice
+
+    fun getfilterprice(originAirport:String,destinationAirport:String,departureDate:String,arrivedDate:String, order: String){
+        api.getfilterprice(originAirport, destinationAirport, departureDate, arrivedDate, order).enqueue(object :Callback<GetFilterPriceResponse>{
+            override fun onResponse(
+                call: Call<GetFilterPriceResponse>,
+                response: Response<GetFilterPriceResponse>
+            ) {
+                if (response.isSuccessful){
+                    filterprice.value = response.body()!!.data
+                }
+                else{
+                    Log.e("HomeViewModel", "Cannot send data 3")
+                }
+            }
+
+            override fun onFailure(call: Call<GetFilterPriceResponse>, t: Throwable) {
+                Log.e("HomeViewModel", "Cannot send data 4")
+            }
+
+        })
+
+    }
+
     fun savePenumpangPreferences(dewasa: Int,anak: Int,bayi: Int){
         val editor = sharedPreferences.edit()
         editor.putInt("dewasa",dewasa)
@@ -131,13 +200,17 @@ class HomeViewModel @Inject constructor(var api:ApiService,
     }
 
     fun getCityFrom():String?{
-        return sharedPreferences.getString("from","San Antonio")
+        return sharedPreferences.getString("from","")
     }
 
 
 
     fun getCityTo():String?{
         return sharedPreferences.getString("to","Albuquerque")
+    }
+
+    fun getorder():String?{
+        return sharedPreferences.getString("order","price")
     }
 
     fun getArrivedDate(): String? {

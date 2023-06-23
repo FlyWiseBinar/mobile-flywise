@@ -63,8 +63,8 @@ class HomeFragment : Fragment() {
         val dateNowReturn = HomeVm.getArrivedDate()
         val dateNowDeparture = HomeVm.getDepartureDate()
         //set date
-        binding.tanggalreturn.text = dateNowReturn
-        binding.tanggaldeparture.text = dateNowDeparture
+        binding.tanggalreturn.setText(dateNowReturn)
+        binding.tanggaldeparture.setText(dateNowDeparture)
 
         binding.btnCariPenerbangan.setOnClickListener {
             val isSwitchTrue = HomeVm.getCheckedSwitch()
@@ -118,6 +118,8 @@ class HomeFragment : Fragment() {
         datePickerReturn()
         datePickerDeparture()
         getTanggalKembali()
+        getCityFrom()
+        getCityTo()
 
 
         getpilihtanggal()
@@ -265,6 +267,16 @@ class HomeFragment : Fragment() {
     private fun getKelasPenerbangan() {
         val kelas = HomeVm.getNamaKelas()
         binding.setclass.text = kelas
+    }
+
+    private fun getCityTo() {
+        val destination = HomeVm.getCityTo()
+        binding.to.text = destination
+    }
+
+    private fun getCityFrom() {
+        val departure = HomeVm.getCityFrom()
+        binding.from.text =  departure
     }
 
 

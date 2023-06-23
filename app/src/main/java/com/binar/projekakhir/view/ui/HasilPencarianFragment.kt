@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.binar.projekakhir.R
 import com.binar.projekakhir.databinding.FragmentHasilPencarianBinding
+import com.binar.projekakhir.view.adapter.FilterTicketAdapter
 import com.binar.projekakhir.view.adapter.TicketAdapter
 import com.binar.projekakhir.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,6 +26,7 @@ class HasilPencarianFragment : Fragment() {
     private lateinit var binding : FragmentHasilPencarianBinding
     private val HomeVm : HomeViewModel by viewModels()
     private lateinit var ticketAdapter: TicketAdapter
+    private lateinit var filterTicketAdapter: FilterTicketAdapter
     private var tanggalPergi:String? = null
 
 
@@ -45,6 +47,7 @@ class HasilPencarianFragment : Fragment() {
         val dewasa = HomeVm.getPenumpangDewasa()
         val departure = HomeVm.getDepartureDate()
         val arrived = HomeVm.getArrivedDate()
+        val order = HomeVm.getorder()
         val anak = HomeVm.getPenumpangAnak()
         val bayi = HomeVm.getPenumpangBayi()
         val totalPassengers = dewasa + anak + bayi
@@ -59,6 +62,10 @@ class HasilPencarianFragment : Fragment() {
 
         binding.btnBack.setOnClickListener {
             findNavController().navigate(R.id.action_hasilPencarianFragment_to_homeFragment2)
+        }
+
+        binding.btnFilter.setOnClickListener {
+            filterharga(cityFrom,cityTo,departure,arrived,order)
         }
 
 
@@ -125,12 +132,34 @@ class HasilPencarianFragment : Fragment() {
             binding.rvListHari.apply {
                 layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL,false)
                 ticketAdapter = TicketAdapter(it){itemTicket ->
-                    val id = itemTicket.id.toString()
+                    val id = itemTicket.id
                     val bundle = Bundle()
-                    bundle.putString("id",id)
+                    bundle.putInt("id",id)
                     findNavController().navigate(R.id.action_hasilPencarianFragment_to_detailNonLoginFragment,bundle)
                 }
                 adapter  = ticketAdapter
+            }
+        }
+    }
+
+    private fun filterharga(
+        cityFrom: String?,
+        cityTo: String?,
+        dateDeparture: String?,
+        arrivedDate:String?,
+        order:String?
+    ){
+        HomeVm.getfilterprice(cityFrom!!,cityTo!!,dateDeparture!!,arrivedDate!!,order!!)
+        HomeVm.livedatafilterprice.observe(viewLifecycleOwner){
+            binding.rvDataFlight.apply {
+                layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL,false)
+                filterTicketAdapter = FilterTicketAdapter(it){ticket ->
+                    val id = ticket.id
+                    val bundle = Bundle()
+                    bundle.putInt("id",id)
+                    findNavController().navigate(R.id.action_hasilPencarianFragment_to_detailNonLoginFragment,bundle)
+                }
+                adapter  = filterTicketAdapter
             }
         }
     }

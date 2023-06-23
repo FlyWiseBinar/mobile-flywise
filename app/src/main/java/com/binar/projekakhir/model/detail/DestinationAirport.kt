@@ -1,9 +1,9 @@
-package com.binar.projekakhir.model.updateticket
+package com.binar.projekakhir.model.detail
 
 
 import com.google.gson.annotations.SerializedName
 
-data class OriginAirport(
+data class DestinationAirport(
     @SerializedName("city")
     val city: String,
     @SerializedName("name")

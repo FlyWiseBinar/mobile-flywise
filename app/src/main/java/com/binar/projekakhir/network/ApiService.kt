@@ -6,10 +6,11 @@ import com.binar.projekakhir.model.auth.otp.SendOtpResponse
 import com.binar.projekakhir.model.auth.otp.VerifyOtpResponse
 import com.binar.projekakhir.model.auth.resetpassword.ResetPassPost
 import com.binar.projekakhir.model.auth.resetpassword.UpdateProfilePost
+import com.binar.projekakhir.model.detail.GetResponseFindSchedulebyId
 import com.binar.projekakhir.model.favorite.GetFavoriteResponse
+import com.binar.projekakhir.model.filterprice.GetFilterPriceResponse
 import com.binar.projekakhir.model.searchairport.GetSearchAirportResponse
 import com.binar.projekakhir.model.searchtiket.GetSearchTicketResponse
-import com.binar.projekakhir.model.updateticket.UpdateTicketResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -81,13 +82,46 @@ interface ApiService {
         @Query("arrivedDate") arrivedDate:String
     ) : Call<GetSearchTicketResponse>
 
-    @GET("schedule/id")
-    fun getupdateticket():Call<UpdateTicketResponse>
 
     @GET("schedule/search")
     fun getairport(
         @Query("search") search : String
     ) : Call<GetSearchAirportResponse>
+
+    @GET("schedule/{id}")
+    fun detailticket(
+        @Path("id") id:Int
+    ):Call<GetResponseFindSchedulebyId>
+
+    @GET("schedule/search")
+    fun getfilterprice(
+        @Query("originAirport") originAirport:String,
+        @Query("destinationAirport") destinationAirport:String,
+        @Query("departureDate") departureDate:String,
+        @Query("arrivedDate") arrivedDate:String,
+        @Query("order") order:String
+    ):Call<GetFilterPriceResponse>
+
+    @GET("schedule/search")
+    fun getdestinationsfrom(
+        @Query("originAirport") originAirport:String,
+    ): Call<GetSearchTicketResponse>
+
+    @GET("schedule/search")
+    fun getdestinationsto(
+        @Query("destinationAirport") destinationAirport:String,
+
+    ): Call<GetSearchTicketResponse>
+
+//    @GET("schedule/search")
+//    fun getdetail(
+//        @Query("originAirport") originAirport:String,
+//        @Query("destinationAirport") destinationAirport:String,
+//        @Query("departureDate") departureDate:String,
+//        @Query("arrivedDate") arrivedDate:String
+//    ) : Call<GetSearchTicketResponse>
+
+
 
 
 

@@ -50,7 +50,11 @@
         android:id="@+id/pilihDestinasiFragment"
         android:name="com.binar.projekakhir.view.ui.PilihDestinasiFragment"
         android:label="fragment_pilih_destinasi"
-        tools:layout="@layout/fragment_pilih_destinasi" />
+        tools:layout="@layout/fragment_pilih_destinasi" >
+        <action
+            android:id="@+id/action_pilihDestinasiFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/detailNonLoginFragment"
         android:name="com.binar.projekakhir.view.ui.DetailNonLoginFragment"

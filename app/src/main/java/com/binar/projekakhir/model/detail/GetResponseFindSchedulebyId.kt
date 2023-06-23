@@ -1,9 +1,9 @@
-package com.binar.projekakhir.model.updateticket
+package com.binar.projekakhir.model.detail
 
 
 import com.google.gson.annotations.SerializedName
 
-data class UpdateTicketResponse(
+data class GetResponseFindSchedulebyId(
     @SerializedName("data")
     val `data`: Data,
     @SerializedName("message")

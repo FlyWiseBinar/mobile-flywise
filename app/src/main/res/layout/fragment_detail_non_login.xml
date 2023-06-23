@@ -75,10 +75,21 @@
                 android:textSize="16sp"
                 android:lineHeight="24dp"
                 android:textColor="#222222"/>
+            <TextView
+                android:id="@+id/idFlight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:text="id"
+                android:fontFamily="@font/poppinsbold"
+                android:textSize="16sp"
+                android:lineHeight="24dp"
+                android:textColor="#222222"/>
         </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:id="@+id/layout_detail"
             android:layout_height="wrap_content"
             android:layout_below="@id/layoutFlightDestination"
             android:layout_marginStart="16dp"
@@ -193,6 +204,7 @@
                         android:textSize="14sp" />
 
                     <TextView
+                        android:id = "@+id/nomorseri"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppinsbold"
@@ -212,6 +224,7 @@
                         android:textSize="14sp" />
 
                     <TextView
+                        android:id="@+id/baggage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppinsregular"
@@ -221,6 +234,7 @@
                         android:textSize="14sp" />
 
                     <TextView
+                        android:id="@+id/cabinbaggage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppinsregular"
@@ -316,6 +330,7 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id = "@+id/totalTicket"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="76dp"
