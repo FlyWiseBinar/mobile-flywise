@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
@@ -70,6 +71,8 @@ class HasilPencarianFragment : Fragment() {
         }
 
         binding.btnFilterHarga.setOnClickListener {
+            val modalBottomSheet = FilterHarga()
+            modalBottomSheet.show(requireFragmentManager(),FilterHarga.TAG)
      //     val intent = Intent(this, GetFilterPrice::class.java)
       //      findNavController().navigate(R.id.action_hasilPencarianFragment_to_dialogFilter)
         }
