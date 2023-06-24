@@ -1,10 +1,14 @@
 package com.binar.projekakhir.view.ui
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -41,9 +45,6 @@ class SetKelasFragment : BottomSheetDialogFragment(),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnClose.setOnClickListener {
-            dismiss()
-        }
 
         kelasList = ArrayList()
         kelasList.add(KelasDummy("Economy","Rp.20000"))
@@ -57,6 +58,9 @@ class SetKelasFragment : BottomSheetDialogFragment(),
             adapter = kelasAdapter
             setHasFixedSize(true)
             addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
+        }
+        binding.btnClose.setOnClickListener {
+            findNavController().navigate(R.id.action_setKelasFragment_to_homeFragment2)
         }
     }
     override fun onItemClick(position: Int, adapter: SetKelasAdapter, v: View) {
@@ -85,5 +89,14 @@ class SetKelasFragment : BottomSheetDialogFragment(),
             rvKelas.getChildAt(rvKelas.indexOfChild(v)).findViewById<TextView>(R.id.tv_class).setTextColor(resources.getColor(R.color.black))
             rvKelas.getChildAt(rvKelas.indexOfChild(v)).findViewById<TextView>(R.id.tv_price)
         }
+
+
+//           val dialog = Dialog(requireContext())
+//            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+//            dialog.setContentView(R.layout.fragment_set_kelas)
+//            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//            dialog.dismiss()
+//            findNavController().navigateUp()
+
     }
 }

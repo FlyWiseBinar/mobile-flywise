@@ -101,6 +101,8 @@ class LoginFragment : Fragment() {
         val inputEmail = binding.etEmail.text.toString()
         val inputPassword = binding.etPassword.text.toString()
 
+
+
         //checking email and password of user to authenticate
 //        for (i in userDataList.indices) {
 //            if (inputPassword == userDataList[i].password && inputEmail == userDataList[i].email) {
