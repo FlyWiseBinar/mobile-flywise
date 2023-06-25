@@ -1,5 +1,7 @@
 package com.binar.projekakhir.view.ui
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,6 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class AkunFragment : Fragment() {
 
     private lateinit var binding : FragmentAkunBinding
+    private lateinit var pref : SharedPreferences
 
 
     override fun onCreateView(
@@ -28,10 +31,24 @@ class AkunFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         binding.ubahprofile.setOnClickListener {
             findNavController().navigate(R.id.action_akunFragment2_to_profileFragment2)
         }
     }
+
+//    private fun isLogin() {
+//        pref = requireContext().getSharedPreferences("Regist", Context.MODE_PRIVATE)
+//        if (pref.getString("token", "")!!.isEmpty()) {
+//            binding.
+//            binding.layoutNoLoginHistori.visibility = View.GONE
+//        } else {
+//            binding.layoutloginHistori.visibility = View.GONE
+//            binding.layoutNoLoginHistori.visibility = View.VISIBLE
+//        }
+//    }
+
+
 
 
 }

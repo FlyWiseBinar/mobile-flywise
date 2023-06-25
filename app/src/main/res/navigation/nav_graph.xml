@@ -247,6 +247,18 @@
             android:id="@+id/action_pilihDestinasiToFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
     </fragment>
+    <fragment
+        android:id="@+id/akunNoAktifFragment"
+        android:name="com.binar.projekakhir.view.ui.AkunNoAktifFragment"
+        android:label="fragment_akun_no_aktif"
+        tools:layout="@layout/fragment_akun_no_aktif" >
+        <action
+            android:id="@+id/action_akunNoAktifFragment_to_profileFragment2"
+            app:destination="@id/profileFragment2" />
+        <action
+            android:id="@+id/action_akunNoAktifFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <!--    <fragment-->
     <!--        android:id="@+id/hasilPencarianFragmentTodialogFilter"-->
     <!--        android:name="com.binar.projekakhir.view.ui.PilihDestinasiToFragment"-->

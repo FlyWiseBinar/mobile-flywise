@@ -78,6 +78,7 @@ class RegisterFragment : Fragment() {
                         sharedPref.putString("fullname", fullName)
                         sharedPref.apply()
                         findNavController().navigate(R.id.action_registerFragment_to_sendOtpFragment)
+                        Toast.makeText(context, "Berhasil Registrasi", Toast.LENGTH_SHORT)
                     }
 
 

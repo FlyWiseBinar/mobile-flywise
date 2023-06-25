@@ -1,7 +1,9 @@
 package com.binar.projekakhir.view.ui
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -26,6 +28,7 @@ import java.util.*
 @AndroidEntryPoint
 class HasilPencarianFragment : Fragment() {
     private lateinit var binding : FragmentHasilPencarianBinding
+    private lateinit var pref : SharedPreferences
     private val HomeVm : HomeViewModel by viewModels()
     private lateinit var ticketAdapter: TicketAdapter
     private lateinit var filterTicketAdapter: FilterTicketAdapter
@@ -43,6 +46,7 @@ class HasilPencarianFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        pref = requireContext().getSharedPreferences("MyPrefsFrom", Context.MODE_PRIVATE)
 
         val cityFrom = HomeVm.getCityFrom()
         val cityTo = HomeVm.getCityTo()
@@ -66,7 +70,7 @@ class HasilPencarianFragment : Fragment() {
             findNavController().navigate(R.id.action_hasilPencarianFragment_to_homeFragment2)
         }
 
-        binding.btnFilter.setOnClickListener {
+        binding.btnFilterHarga.setOnClickListener {
             filterharga(cityFrom,cityTo,departure,arrived,order)
         }
 

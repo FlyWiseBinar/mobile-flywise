@@ -64,8 +64,8 @@ class HomeFragment : Fragment() {
         val dateNowReturn = HomeVm.getArrivedDate()
         val dateNowDeparture = HomeVm.getDepartureDate()
         //set date
-        binding.tanggalreturn.setText(dateNowReturn)
-        binding.tanggaldeparture.setText(dateNowDeparture)
+        binding.tanggalreturn.text = dateNowReturn
+        binding.tanggaldeparture.text = dateNowDeparture
 
         binding.btnCariPenerbangan.setOnClickListener {
             val isSwitchTrue = HomeVm.getCheckedSwitch()
@@ -98,10 +98,14 @@ class HomeFragment : Fragment() {
 
 
         binding.layoutDeparture.setOnClickListener {
+//            val bundle =Bundle()
+//            bundle.putString("keyFrom","keyFrom")
             findNavController().navigate(R.id.action_homeFragment2_to_pilihDestinasiFromFragment)
         }
 
         binding.layoutArrival.setOnClickListener {
+//            val bundle = Bundle()
+//            bundle.putString("keyTo","keyTo")
             findNavController().navigate(R.id.action_homeFragment2_to_pilihDestinasiToFragment)
         }
 
@@ -114,12 +118,12 @@ class HomeFragment : Fragment() {
         getfavoritemodel()
         datePickerReturn()
         datePickerDeparture()
-        getTanggalKembali()
-        getCityFrom()
-        getCityTo()
-
-
-        getpilihtanggal()
+//        getTanggalKembali()
+//        getCityFrom()
+//        getCityTo()
+//
+//
+//        getpilihtanggal()
 
        getKelasPenerbangan()
 
@@ -178,17 +182,17 @@ class HomeFragment : Fragment() {
 
     //get city to and from
 
-    private fun getTanggalKembali() {
-        if (tanggalKembali == null) {
-            binding.tanggaldeparture.setText("Pilih Tanggal")
-        } else {
-            binding.tanggaldeparture.setText(tanggalKembali)
-            binding.tanggaldeparture.setTextColor(resources.getColor(R.color.black))
-
-        }
-
-
-    }
+//    private fun getTanggalKembali() {
+//        if (tanggalKembali == null) {
+//            binding.tanggaldeparture.setText("Pilih Tanggal")
+//        } else {
+//            binding.tanggaldeparture.setText(tanggalKembali)
+//            binding.tanggaldeparture.setTextColor(resources.getColor(R.color.black))
+//
+//        }
+//
+//
+//    }
 
     @RequiresApi(Build.VERSION_CODES.N)
     private fun datePickerReturn(){
@@ -223,15 +227,15 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun getpilihtanggal(){
-        if (tanggalKembali == null) {
-            binding.tanggalreturn.setText("Pilih Tanggal")
-        } else {
-            binding.tanggalreturn.setText(tanggalKembali)
-            binding.tanggalreturn.setTextColor(resources.getColor(R.color.black))
-
-        }
-    }
+//    private fun getpilihtanggal(){
+//        if (tanggalKembali == null) {
+//            binding.tanggalreturn.setText("Pilih Tanggal")
+//        } else {
+//            binding.tanggalreturn.setText(tanggalKembali)
+//            binding.tanggalreturn.setTextColor(resources.getColor(R.color.black))
+//
+//        }
+//    }
 
     private fun getfavoritemodel(){
         favVm.getfavorite()
@@ -276,15 +280,17 @@ class HomeFragment : Fragment() {
         binding.setclass.text = kelas
     }
 
-    private fun getCityTo() {
-        val destination = HomeVm.getCityTo()
-        binding.to.text = destination
-    }
-
-    private fun getCityFrom() {
-        val departure = HomeVm.getCityFrom()
-        binding.from.text =  departure
-    }
+//    private fun getCityTo() {
+//        val prefTo = requireContext().getSharedPreferences("MyPrefsTo", Context.MODE_PRIVATE)
+//        val destination = HomeVm.getCityTo()
+//        binding.to.text = destination
+//    }
+//
+//    private fun getCityFrom() {
+//        pref = requireContext().getSharedPreferences("MyPrefsFrom", Context.MODE_PRIVATE)
+//        val departure = HomeVm.getCityFrom()
+//        binding.from.text =  departure
+//    }
 
 
 

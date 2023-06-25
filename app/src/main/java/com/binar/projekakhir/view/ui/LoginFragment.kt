@@ -81,6 +81,9 @@ class LoginFragment : Fragment() {
 //            loginAuth(listuserlogin)
             if(it.status == true){
                 findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
+                Toast.makeText(context,"User Berhasil Login", Toast.LENGTH_SHORT)
+            }else{
+                Toast.makeText(context, "Maaf Cek Lagi Email dan Password", Toast.LENGTH_LONG)
             }
             val sharedPref = pref.edit()
             sharedPref.putString("token", it.accessToken)

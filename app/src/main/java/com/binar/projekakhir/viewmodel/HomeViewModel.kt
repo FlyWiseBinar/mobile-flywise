@@ -1,5 +1,6 @@
 package com.binar.projekakhir.viewmodel
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -172,13 +173,13 @@ class HomeViewModel @Inject constructor(var api:ApiService,
 
     fun saveCityFrom(city:String){
         val editor = sharedPreferences.edit()
-        editor.putString("from",city)
+        editor.putString("keyFrom",city)
         editor.apply()
     }
 
     fun saveCityTo(city:String){
         val editor = sharedPreferences.edit()
-        editor.putString("to",city)
+        editor.putString("keyTo",city)
         editor.apply()
     }
 
@@ -200,13 +201,13 @@ class HomeViewModel @Inject constructor(var api:ApiService,
     }
 
     fun getCityFrom():String?{
-        return sharedPreferences.getString("from","")
+        return sharedPreferences.getString("keyFrom"," ")
     }
 
 
 
     fun getCityTo():String?{
-        return sharedPreferences.getString("to","")
+        return sharedPreferences.getString("keyTo"," ")
     }
 
     fun getorder():String?{

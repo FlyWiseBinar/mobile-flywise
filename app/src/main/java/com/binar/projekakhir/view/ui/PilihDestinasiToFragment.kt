@@ -45,6 +45,7 @@ class PilihDestinasiToFragment : Fragment() {
         binding.ivSearch.setOnClickListener {
             val kotaSearch = binding.etSearch.text.toString()
             getSearch(requireContext(), kotaSearch)
+            homeVM.saveCityTo(kotaSearch)
         }
         binding.ivClose.setOnClickListener {
             findNavController().navigate(R.id.action_pilihDestinasiToFragment_to_homeFragment2)
@@ -62,8 +63,10 @@ class PilihDestinasiToFragment : Fragment() {
         if (searchText.isNotEmpty()) {
             homeVM.callGetSearchAirport(city)
             homeVM.search.observe(viewLifecycleOwner) { searchResults ->
+
                 val filteredResults = searchResults?.filter { dat ->
                     dat.city.contains(searchText, ignoreCase = true)
+
                 }
                 showSearch(context, filteredResults ?: emptyList())
                 saveSearchHistory(searchText)

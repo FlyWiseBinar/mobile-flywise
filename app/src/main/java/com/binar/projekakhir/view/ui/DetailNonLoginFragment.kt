@@ -51,6 +51,8 @@ class DetailNonLoginFragment : Fragment() {
                     tvDepartureAirport.text = getdetail.originAirport.name
                     tvDateDeparture.text = getdetail.departureDate
                     tvTimeDeparture.text = getdetail.departureTime
+                    tvFlightAsal.text = getdetail.originAirport.city
+                    tvFlightDestination.text = getdetail.destinationAirport.city
                     baggage.text = getdetail.plane.baggageMaxCapacity.toString()
                     cabinbaggage.text = getdetail.plane.cabinMaxCapacity.toString()
                     tvTimeArrive.text = getdetail.arrivedTime

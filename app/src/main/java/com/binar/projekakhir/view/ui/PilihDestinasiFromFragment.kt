@@ -42,9 +42,12 @@ class PilihDestinasiFromFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         homeVM = ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
 
+
+
         binding.ivSearch.setOnClickListener {
             val kotaSearch = binding.etSearch.text.toString()
             getSearch(requireContext(), kotaSearch)
+            homeVM.saveCityFrom(kotaSearch)
         }
         binding.ivClose.setOnClickListener {
             findNavController().navigate(R.id.action_pilihDestinasiFromFragment_to_homeFragment2)
@@ -64,6 +67,7 @@ class PilihDestinasiFromFragment : Fragment() {
             homeVM.search.observe(viewLifecycleOwner) { searchResults ->
                 val filteredResults = searchResults?.filter { data ->
                     data.city.contains(searchText, ignoreCase = true)
+
                 }
                 showSearch(context, filteredResults ?: emptyList())
                 saveSearchHistory(searchText)
@@ -95,6 +99,7 @@ class PilihDestinasiFromFragment : Fragment() {
         val searchHistoryAdapter = RiwayatPencarianAdapter(context, searchHistory)
         binding.rvCity.adapter = searchHistoryAdapter
         binding.rvCity.layoutManager = LinearLayoutManager(context)
+
 
         searchHistoryAdapter.onItemClick = { searchText ->
             binding.etSearch.setText(searchText)

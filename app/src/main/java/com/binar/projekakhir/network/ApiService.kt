@@ -6,6 +6,7 @@ import com.binar.projekakhir.model.auth.otp.SendOtpResponse
 import com.binar.projekakhir.model.auth.otp.VerifyOtpResponse
 import com.binar.projekakhir.model.auth.resetpassword.ResetPassPost
 import com.binar.projekakhir.model.auth.resetpassword.UpdateProfilePost
+import com.binar.projekakhir.model.checkout.PostCheckoutResponse
 import com.binar.projekakhir.model.detail.GetResponseFindSchedulebyId
 import com.binar.projekakhir.model.favorite.GetFavoriteResponse
 import com.binar.projekakhir.model.filterprice.GetFilterPriceResponse
@@ -113,18 +114,18 @@ interface ApiService {
 
     ): Call<GetSearchTicketResponse>
 
-//    @GET("schedule/search")
-//    fun getdetail(
-//        @Query("originAirport") originAirport:String,
-//        @Query("destinationAirport") destinationAirport:String,
-//        @Query("departureDate") departureDate:String,
-//        @Query("arrivedDate") arrivedDate:String
-//    ) : Call<GetSearchTicketResponse>
 
     @GET("schedule/airport?search=")
     fun getSearchAirport(
         @Query("city") city:String
     ) : Call<GetSearchAirportResponse>
+
+   @POST("order/checkout")
+   fun postcheckout(
+       @Header("Authorization") token:String
+   ) : Call<PostCheckoutResponse>
+
+
 
 
 
