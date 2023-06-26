@@ -11,6 +11,7 @@ import com.binar.projekakhir.model.checkout.request.PostCheckoutPemesananRespons
 import com.binar.projekakhir.model.detail.GetResponseFindSchedulebyId
 import com.binar.projekakhir.model.favorite.GetFavoriteResponse
 import com.binar.projekakhir.model.filterprice.GetFilterPriceResponse
+import com.binar.projekakhir.model.history.GetHistoryResponse
 import com.binar.projekakhir.model.searchairport.GetSearchAirportResponse
 import com.binar.projekakhir.model.searchtiket.GetSearchTicketResponse
 import retrofit2.Call
@@ -126,6 +127,11 @@ interface ApiService {
        @Header("Authorization") token:String,
        @Body data : PostCheckoutPemesananResponse
    ) : Call<PostCheckoutResponse>
+
+   @GET("order/history")
+   fun gethistory(
+       @Header("Authorization") token:String
+   ) : Call<GetHistoryResponse>
 
 
 
