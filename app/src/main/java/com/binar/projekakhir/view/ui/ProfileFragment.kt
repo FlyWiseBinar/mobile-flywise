@@ -43,8 +43,12 @@ class ProfileFragment : Fragment() {
         userVm = ViewModelProvider(this).get(UserViewModel::class.java)
         pref = requireContext().getSharedPreferences("Regist", Context.MODE_PRIVATE)
 
+
         binding.btnLogout.setOnClickListener {
+            pref.edit().clear().apply()
+            Log.d("DataToken", pref.getString("token", "").toString())
             findNavController().navigate(R.id.action_profileFragment2_to_homeFragment2)
+
         }
 
         binding.btnUpdate.setOnClickListener {
@@ -97,6 +101,8 @@ class ProfileFragment : Fragment() {
         sharedPref.putString("fullname", currentUser.fullName)
         sharedPref.apply()
     }
+
+
 
 
 

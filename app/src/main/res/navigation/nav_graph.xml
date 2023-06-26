@@ -60,6 +60,9 @@
         <action
             android:id="@+id/action_detailNonLoginFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_detailNonLoginFragment_to_checkoutBioPemesanFragment"
+            app:destination="@id/checkoutBioPemesanFragment" />
     </fragment>
     <fragment
         android:id="@+id/hasilPencarianFragment"
@@ -258,6 +261,9 @@
         <action
             android:id="@+id/action_akunNoAktifFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_akunNoAktifFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
     </fragment>
     <!--    <fragment-->
     <!--        android:id="@+id/hasilPencarianFragmentTodialogFilter"-->

@@ -3,6 +3,7 @@ package com.binar.projekakhir.view.ui
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -54,6 +55,12 @@ class AkunNoAktifFragment : Fragment() {
             findNavController().navigate(R.id.action_akunNoAktifFragment_to_profileFragment2)
         }
 
+        binding.layoutKeluar.setOnClickListener {
+            pref.edit().clear().apply()
+            Log.d("DataToken", pref.getString("token", "").toString())
+            findNavController().navigate(R.id.action_akunNoAktifFragment_to_homeFragment2)
+        }
+
 
 
 
@@ -71,10 +78,12 @@ class AkunNoAktifFragment : Fragment() {
     }
 
     private fun isLogin() {
-        pref = requireContext().getSharedPreferences("Regist", Context.MODE_PRIVATE)
-        if (pref.getString("token", "").toString().isEmpty()) {
-            binding.akunlogin.visibility = View.GONE
-            binding.layoutNoLogin.visibility = View.VISIBLE
+        Log.d("Berhasil", pref.getString("token", " ").toString())
+        if (pref.getString("token", "").toString().isNotEmpty()) {
+            binding.akunlogin.visibility = View.VISIBLE
+            Log.d("Berhasil Login", "berhasil")
+            binding.layoutNoLogin.visibility = View.GONE
+
         } else {
             binding.layoutNoLogin.visibility = View.VISIBLE
             binding.akunlogin.visibility = View.GONE

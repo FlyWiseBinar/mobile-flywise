@@ -7,6 +7,7 @@ import com.binar.projekakhir.model.auth.otp.VerifyOtpResponse
 import com.binar.projekakhir.model.auth.resetpassword.ResetPassPost
 import com.binar.projekakhir.model.auth.resetpassword.UpdateProfilePost
 import com.binar.projekakhir.model.checkout.PostCheckoutResponse
+import com.binar.projekakhir.model.checkout.request.PostCheckoutPemesananResponse
 import com.binar.projekakhir.model.detail.GetResponseFindSchedulebyId
 import com.binar.projekakhir.model.favorite.GetFavoriteResponse
 import com.binar.projekakhir.model.filterprice.GetFilterPriceResponse
@@ -40,7 +41,7 @@ interface ApiService {
     fun putupdateprofile(
         @Header("Authorization") token:String,
         @Body request : UpdateProfilePost
-    ) : Call<List<Data>>
+    ) : Call<Data>
 
 
     //sendotp
@@ -122,7 +123,8 @@ interface ApiService {
 
    @POST("order/checkout")
    fun postcheckout(
-       @Header("Authorization") token:String
+       @Header("Authorization") token:String,
+       @Body data : PostCheckoutPemesananResponse
    ) : Call<PostCheckoutResponse>
 
 

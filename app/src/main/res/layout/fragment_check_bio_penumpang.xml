@@ -43,14 +43,16 @@
                 android:layout_toEndOf="@id/btnBack"/>
         </RelativeLayout>
     </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="500dp"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomLayout"
         app:layout_constraintTop_toBottomOf="@id/appBar"
-        app:layout_constraintBottom_toTopOf="@id/bottomLayout"/>
+        app:layout_constraintVertical_bias="0.208"
+        tools:layout_editor_absoluteX="0dp" />
+
     <LinearLayout
         android:id="@+id/bottomLayout"
         android:layout_width="match_parent"
@@ -66,7 +68,7 @@
             android:textSize="16sp"
             android:textAlignment="center"
             android:textColor="@color/NEUTRAL01"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="100dp"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"

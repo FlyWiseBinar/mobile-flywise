@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:background="@drawable/card_border"
         android:layout_height="535dp"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:layout_gravity="center"
         app:cardCornerRadius="10dp"
         app:cardElevation="20dp"
@@ -196,8 +196,8 @@
                             android:id="@+id/txt_input_layout_nama_keluarga"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Nama Keluarga"
-                            android:inputType="textPersonName" />
+                            android:inputType="textPersonName"
+                            android:text="Halilintar" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <!--Nomor Telepon Section-->
@@ -277,14 +277,14 @@
     </androidx.cardview.widget.CardView>
 
 
-        <Button
-            android:id="@+id/btn_simpan"
-            android:background="@drawable/shape_button_primary"
-            android:layout_width="match_parent"
-            android:layout_marginHorizontal="20dp"
-            android:layout_height="48dp"
-            android:text="Simpan"
-            android:layout_marginBottom="30dp"
-            android:layout_alignParentBottom="true"
-            android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/btn_simpan"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/shape_button_primary"
+        android:text="Simpan"
+        android:textAllCaps="false" />
 </RelativeLayout>

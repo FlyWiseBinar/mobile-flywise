@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.binar.projekakhir.model.checkout.Data
 import com.binar.projekakhir.model.checkout.PostCheckoutResponse
+import com.binar.projekakhir.model.checkout.request.PostCheckoutPemesananResponse
 import com.binar.projekakhir.network.ApiService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
@@ -21,8 +22,8 @@ class CheckoutViewModel @Inject constructor(var api : ApiService) : ViewModel() 
     val livebiopemesanan : LiveData<Data> = _biopemesanan
 
 
-    fun postbiopemesan(token : String){
-        api.postcheckout("Bearer $token").enqueue(object : Callback<PostCheckoutResponse>{
+    fun postbiopemesan(token : String, data : PostCheckoutPemesananResponse){
+        api.postcheckout("Bearer $token", data).enqueue(object : Callback<PostCheckoutResponse>{
             override fun onResponse(
                 call: Call<PostCheckoutResponse>,
                 response: Response<PostCheckoutResponse>
@@ -32,6 +33,7 @@ class CheckoutViewModel @Inject constructor(var api : ApiService) : ViewModel() 
                 } else {
                     Log.e("CheckoutViewModel", "Cannot get data1")
                 }
+
             }
 
             override fun onFailure(call: Call<PostCheckoutResponse>, t: Throwable) {

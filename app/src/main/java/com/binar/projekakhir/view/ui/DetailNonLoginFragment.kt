@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.binar.projekakhir.R
 import com.binar.projekakhir.databinding.FragmentDetailNonLoginBinding
 import com.binar.projekakhir.util.Utill
@@ -60,6 +61,10 @@ class DetailNonLoginFragment : Fragment() {
                     tvArriveAirport.text = getdetail.destinationAirport.name
                     val price = Utill.getPriceIdFormat(getdetail.provTotalPrice)
                     tvPriceTicket.text = "$price"
+
+                    binding.btnSelectFlight.setOnClickListener {
+                        findNavController().navigate(R.id.action_detailNonLoginFragment_to_checkoutBioPemesanFragment)
+                    }
 
 
                 }

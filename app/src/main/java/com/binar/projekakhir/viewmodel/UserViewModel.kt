@@ -39,9 +39,9 @@ class UserViewModel @Inject constructor(private val api : ApiService) : ViewMode
         return livedataresetpass
     }
 
-    var livedataupdateprofile : MutableLiveData<List<Data>> = MutableLiveData()
+    var livedataupdateprofile : MutableLiveData<Data> = MutableLiveData()
 
-    fun getlivedataupdateprofile() : MutableLiveData<List<Data>>{
+    fun getlivedataupdateprofile() : MutableLiveData<Data>{
         return livedataupdateprofile
     }
 
@@ -130,8 +130,8 @@ class UserViewModel @Inject constructor(private val api : ApiService) : ViewMode
     }
 
     fun updateprofile(token : String, updateprofile:UpdateProfilePost){
-        api.putupdateprofile("Bearer $token",updateprofile).enqueue(object : Callback<List<Data>>{
-            override fun onResponse(call: Call<List<Data>>, response: Response<List<Data>>) {
+        api.putupdateprofile("Bearer $token",updateprofile).enqueue(object : Callback<Data>{
+            override fun onResponse(call: Call<Data>, response: Response<Data>) {
                 if (response.isSuccessful) {
                     livedataupdateprofile.postValue(response.body())
                 } else {
@@ -139,7 +139,7 @@ class UserViewModel @Inject constructor(private val api : ApiService) : ViewMode
                 }
             }
 
-            override fun onFailure(call: Call<List<Data>>, t: Throwable) {
+            override fun onFailure(call: Call<Data>, t: Throwable) {
                 Log.e("UserViewModel", "Cannot get data")
             }
 

@@ -1,68 +1,137 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    tools:context=".view.ui.RiwayatFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/iv_iconback"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/ic_button_arrowback"
-        app:layout_constraintLeft_toLeftOf="parent"
+    <RelativeLayout
+        android:id="@+id/layoutNonLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription" />
+        android:visibility="gone">
 
-    <TextView
-        android:id="@+id/tv_reset"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/TitleRiwayatPesanan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/poppinsbold"
+            android:text="Riwayat Pesanan"
+            android:textColor="#151515"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txt_harus_login_riwayat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TitleRiwayatPesanan"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="90dp"
+            android:fontFamily="@font/poppinsmedium"
+            android:text="Maaf Anda Harus Login Terlebih Dahulu"
+            android:textColor="#151515" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_harus_login_riwayat"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_illustration_man" />
+
+        <Button
+            android:id="@+id/btnMasukRiwayat"
+            style="@style/Btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/poppinsbold"
+            android:lineHeight="20dp"
+            android:text="@string/masuk"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_login"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:text="Riwayat Pesanan"
-        android:textColor="@color/black"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_iconback" />
+        android:background="@drawable/background_home"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="176dp"
-        android:text="Maaf, Anda harus login terlebih dahulu !"
-        android:textColor="@color/black"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:gravity="end">
 
-    <ImageView
-        android:layout_width="155dp"
-        android:layout_height="258dp"
-        android:layout_marginLeft="112dp"
-        android:layout_marginTop="208dp"
-        android:src="@drawable/people"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/TitleRiwayatPesananNonVisible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppinsbold"
+                android:text="Riwayat Pesanan"
+                android:textColor="#151515"
+                android:textSize="22sp" />
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="148dp"
-        android:layout_marginTop="468dp"
-        android:backgroundTint="#7126B5"
-        android:text="Masuk"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/imageViewSearch"
+                android:layout_width="42dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="155dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/search" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tanggalPemesanan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/poppinsbold"
+                android:text="Maret 2023"
+                android:textColor="#151515"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/imageViewFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginStart="230dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/filter_riwayat" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_riwayat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp" />
+
+    </LinearLayout>
 
 
 
