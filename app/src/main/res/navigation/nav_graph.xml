@@ -40,14 +40,14 @@
             android:id="@+id/action_homeFragment2_to_setKelasFragment2"
             app:destination="@id/setKelasFragment" />
         <action
-            android:id="@+id/action_homeFragment2_to_hasilPencarianFragment2"
-            app:destination="@id/hasilPencarianFragment" />
-        <action
             android:id="@+id/action_homeFragment2_to_pilihDestinasiToFragment"
             app:destination="@id/pilihDestinasiToFragment" />
         <action
             android:id="@+id/action_homeFragment2_to_pilihDestinasiFromFragment"
             app:destination="@id/pilihDestinasiFromFragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_hasilPencarianFirstFragment"
+            app:destination="@id/hasilPencarianFirstFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailNonLoginFragment"
@@ -265,6 +265,47 @@
             android:id="@+id/action_akunNoAktifFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
     </fragment>
+    <fragment
+        android:id="@+id/hasilPencarianReturnFragment"
+        android:name="com.binar.projekakhir.view.ui.HasilPencarianReturnFragment"
+        android:label="HasilPencarianReturnFragment" >
+        <action
+            android:id="@+id/action_hasilPencarianReturnFragment_to_hasilPencarianFirstFragment"
+            app:destination="@id/hasilPencarianFirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hasilPencarianFirstFragment"
+        android:name="com.binar.projekakhir.view.ui.HasilPencarianFirstFragment"
+        android:label="fragment_hasil_pencarian_first"
+        tools:layout="@layout/fragment_hasil_pencarian_first" >
+        <action
+            android:id="@+id/action_hasilPencarianFirstFragment_to_hasilPencarianReturnFragment"
+            app:destination="@id/hasilPencarianReturnFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailPenerbanganPulangFragment"
+        android:name="com.binar.projekakhir.view.ui.DetailPenerbanganPulangFragment"
+        android:label="fragment_detail_penerbangan_pulang"
+        tools:layout="@layout/fragment_detail_penerbangan_pulang" />
+    <fragment
+        android:id="@+id/detailPenerbanganPulangPergiFragment"
+        android:name="com.binar.projekakhir.view.ui.DetailPenerbanganPulangPergiFragment"
+        android:label="fragment_detail_penerbangan_pulang_pergi"
+        tools:layout="@layout/fragment_detail_penerbangan_pulang_pergi" />
+    <fragment
+        android:id="@+id/detailPergiFragment"
+        android:name="com.binar.projekakhir.view.ui.DetailPergiFragment"
+        android:label="fragment_detail_pergi"
+        tools:layout="@layout/fragment_detail_pergi" />
+    <dialog
+        android:id="@+id/bottomSheetCekUserLogin"
+        android:name="com.binar.projekakhir.view.ui.BottomSheetCekUserLogin"
+        android:label="fragment_bottom_sheet_cek_user_login"
+        tools:layout="@layout/fragment_bottom_sheet_cek_user_login" >
+        <action
+            android:id="@+id/action_bottomSheetCekUserLogin_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </dialog>
     <!--    <fragment-->
     <!--        android:id="@+id/hasilPencarianFragmentTodialogFilter"-->
     <!--        android:name="com.binar.projekakhir.view.ui.PilihDestinasiToFragment"-->

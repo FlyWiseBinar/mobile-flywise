@@ -3,7 +3,6 @@ package com.binar.projekakhir.view.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.binar.projekakhir.databinding.ItemFavouriteBinding
 import com.binar.projekakhir.databinding.ItemRiwayatBinding
 import com.binar.projekakhir.model.history.Order
 import com.binar.projekakhir.model.searchtiket.Data

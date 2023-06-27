@@ -138,6 +138,7 @@
                     </LinearLayout>
 
                     <ImageButton
+                        android:id="@+id/btn_flip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -169,7 +170,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:checked="true"
+                        android:checked="false"
                         app:thumbTint="#FFFFFF"
                         app:trackTint="#4B1979" />
                 </RelativeLayout>
@@ -248,6 +249,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="12dp"
                             android:layout_toEndOf="@id/imgDateReturn"
+                            android:visibility="gone"
                             android:orientation="vertical">
 
                             <TextView

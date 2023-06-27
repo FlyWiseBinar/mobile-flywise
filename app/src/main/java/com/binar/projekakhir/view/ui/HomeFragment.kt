@@ -20,6 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 import kotlin.collections.ArrayList
 import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.binar.projekakhir.view.adapter.FavouriteAdapter
@@ -59,6 +60,8 @@ class HomeFragment : Fragment() {
         HomeVm = ViewModelProvider(this).get(HomeViewModel::class.java)
         pref = requireContext().getSharedPreferences("Regist", Context.MODE_PRIVATE)
 
+        val switchState = HomeVm.getSelected()
+        Log.d("home fragment","$switchState")
 
         //get date
         val dateNowReturn = HomeVm.getArrivedDate()
@@ -67,32 +70,46 @@ class HomeFragment : Fragment() {
         binding.tanggalreturn.text = dateNowReturn
         binding.tanggaldeparture.text = dateNowDeparture
 
-        binding.btnCariPenerbangan.setOnClickListener {
-            val isSwitchTrue = HomeVm.getCheckedSwitch()
-            if (isSwitchTrue){
-                findNavController().navigate(R.id.action_homeFragment2_to_hasilPencarianFragment)
-            } else{
-                findNavController().navigate(R.id.action_homeFragment2_to_hasilPencarianFragment)
-            }
-
-        }
 
         binding.swPp.setOnCheckedChangeListener { p0, isChecked ->
 
             if (isChecked) {
                 HomeVm.saveselected(true)
                 binding.returndate.visibility = View.VISIBLE
+                Log.d("Beranda Fragment","switch true")
 
             } else {
                 HomeVm.saveselected(false)
                 binding.returndate.visibility = View.GONE
+                Log.d("Beranda Fragment","switch false")
 
             }
         }
 
         val getCheck = HomeVm.getCheckedSwitch()
-        Log.d("Beranda Fragment","$getCheck")
+
         binding.swPp.isChecked = getCheck
+
+        binding.btnCariPenerbangan.setOnClickListener {
+            val getCheck = HomeVm.getCheckedSwitch()
+            Log.d( "Beranda Fragment"," get check $getCheck")
+            if (getCheck){
+                Navigation.findNavController(binding.root).navigate(R.id.action_homeFragment2_to_hasilPencarianFirstFragment)
+
+            } else{
+                Navigation.findNavController(binding.root).navigate(R.id.action_homeFragment2_to_hasilPencarianFragment)
+
+
+            }
+
+
+        }
+
+
+
+
+
+
 
 
 
@@ -126,6 +143,7 @@ class HomeFragment : Fragment() {
 //        getpilihtanggal()
 
        getKelasPenerbangan()
+        flipLokasi()
 
         binding.passenger.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment2_to_setPenumpangFragment)
@@ -291,6 +309,15 @@ class HomeFragment : Fragment() {
 //        val departure = HomeVm.getCityFrom()
 //        binding.from.text =  departure
 //    }
+
+    private fun flipLokasi() {
+        binding.btnFlip.setOnClickListener {
+            val keberangkatan = binding.from.text.toString()
+            val tujuan = binding.to.text.toString()
+            binding.from.text = keberangkatan
+            binding.to.text = tujuan
+        }
+    }
 
 
 

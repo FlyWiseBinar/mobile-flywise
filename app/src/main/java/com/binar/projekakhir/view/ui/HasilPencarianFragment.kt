@@ -66,13 +66,13 @@ class HasilPencarianFragment : Fragment() {
 
 //        HomeVm.searchallticket(cityFrom!!, cityTo!!,departure!!,arrived!!)
 
-        binding.btnBack.setOnClickListener {
+        binding.ivBackBeranda.setOnClickListener {
             findNavController().navigate(R.id.action_hasilPencarianFragment_to_homeFragment2)
         }
 
-        binding.btnFilterHarga.setOnClickListener {
-            filterharga(cityFrom,cityTo,departure,arrived,order)
-        }
+//        binding.btnFilterHarga.setOnClickListener {
+//            filterharga(cityFrom,cityTo,departure,arrived,order)
+//        }
 
         binding.btnFilterHarga.setOnClickListener {
             val modalBottomSheet = FilterHarga()
@@ -155,27 +155,27 @@ class HasilPencarianFragment : Fragment() {
         }
     }
 
-    private fun filterharga(
-        cityFrom: String?,
-        cityTo: String?,
-        dateDeparture: String?,
-        arrivedDate:String?,
-        order:String?
-    ){
-        HomeVm.getfilterprice(cityFrom!!,cityTo!!,dateDeparture!!,arrivedDate!!,order!!)
-        HomeVm.livedatafilterprice.observe(viewLifecycleOwner){
-            binding.rvDataFlight.apply {
-                layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL,false)
-                filterTicketAdapter = FilterTicketAdapter(it){ticket ->
-                    val id = ticket.id
-                    val bundle = Bundle()
-                    bundle.putInt("id",id)
-                    findNavController().navigate(R.id.action_hasilPencarianFragment_to_detailNonLoginFragment,bundle)
-                }
-                adapter  = filterTicketAdapter
-            }
-        }
-    }
+//    private fun filterharga(
+//        cityFrom: String?,
+//        cityTo: String?,
+//        dateDeparture: String?,
+//        arrivedDate:String?,
+//        order:String?
+//    ){
+//        HomeVm.getfilterprice(cityFrom!!,cityTo!!,dateDeparture!!,arrivedDate!!,order!!)
+//        HomeVm.livedatafilterprice.observe(viewLifecycleOwner){
+//            binding.rvDataFlight.apply {
+//                layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL,false)
+//                filterTicketAdapter = FilterTicketAdapter(it){ticket ->
+//                    val id = ticket.id
+//                    val bundle = Bundle()
+//                    bundle.putInt("id",id)
+//                    findNavController().navigate(R.id.action_hasilPencarianFragment_to_detailNonLoginFragment,bundle)
+//                }
+//                adapter  = filterTicketAdapter
+//            }
+//        }
+//    }
 
 
 }

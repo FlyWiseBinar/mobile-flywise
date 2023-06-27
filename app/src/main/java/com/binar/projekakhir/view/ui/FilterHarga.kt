@@ -10,7 +10,9 @@ import com.binar.projekakhir.datauser.FilterDummy
 import com.binar.projekakhir.datauser.KelasDummy
 import com.binar.projekakhir.view.adapter.SetKelasAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FilterHarga : BottomSheetDialogFragment() {
     private lateinit var filterList:ArrayList<FilterDummy>
     private lateinit var binding: DialogFilterBinding

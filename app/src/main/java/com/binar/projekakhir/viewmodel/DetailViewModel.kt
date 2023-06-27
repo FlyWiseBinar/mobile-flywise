@@ -4,9 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.binar.projekakhir.model.detail.Data
 import com.binar.projekakhir.model.detail.GetResponseFindSchedulebyId
-import com.binar.projekakhir.model.searchtiket.GetSearchTicketResponse
 import com.binar.projekakhir.network.ApiService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
@@ -21,7 +19,7 @@ class DetailViewModel @Inject constructor(var api : ApiService) : ViewModel() {
 
     val livedetailticket : LiveData<GetResponseFindSchedulebyId> = _detail
 
-    fun getdetailticket(id:Int) {
+    fun getdetailticket(id: Int) {
         api.detailticket(id).enqueue(object : Callback<GetResponseFindSchedulebyId>{
             override fun onResponse(
                 call: Call<GetResponseFindSchedulebyId>,

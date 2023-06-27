@@ -1,6 +1,5 @@
 package com.binar.projekakhir.viewmodel
 
-import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -9,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import com.binar.projekakhir.model.filterprice.GetFilterPriceResponse
 import com.binar.projekakhir.model.searchairport.GetSearchAirportResponse
 import com.binar.projekakhir.model.searchairport.data
+import com.binar.projekakhir.model.searchtiket.Data
 import com.binar.projekakhir.model.searchtiket.GetSearchTicketResponse
 import com.binar.projekakhir.network.ApiService
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +18,6 @@ import retrofit2.Response
 import java.util.*
 import javax.inject.Inject
 import kotlin.collections.ArrayList
-import com.binar.projekakhir.model.searchtiket.Data
 
 
 @HiltViewModel
@@ -186,6 +185,25 @@ class HomeViewModel @Inject constructor(var api:ApiService,
     fun saveselected(isSelected: Boolean){
         val editor = sharedPreferences.edit()
         editor.putBoolean("selected", isSelected)
+        editor.apply()
+    }
+
+    fun saveIdDeparture(idDep:Int){
+        val editor = sharedPreferences.edit()
+        editor.putInt("idDep",idDep)
+        editor.apply()
+    }
+
+    fun saveIdReturn(idReturn:Int){
+        val editor = sharedPreferences.edit()
+        editor.putInt("idReturn",idReturn)
+        editor.apply()
+    }
+
+    fun saveIdTicket(idTicket:Int){
+        val editor =  sharedPreferences.edit()
+        editor.putInt("idTicket",idTicket)
+        editor.apply()
     }
 
     fun getPenumpangDewasa():Int{
@@ -204,6 +222,14 @@ class HomeViewModel @Inject constructor(var api:ApiService,
         return sharedPreferences.getString("keyFrom"," ")
     }
 
+    fun getIdDep():Int?{
+        return sharedPreferences.getInt("idDep",0)
+    }
+
+    fun getIdReturn(): Int?{
+        return sharedPreferences.getInt("idReturn",0)
+    }
+
 
 
     fun getCityTo():String?{
@@ -212,6 +238,10 @@ class HomeViewModel @Inject constructor(var api:ApiService,
 
     fun getorder():String?{
         return sharedPreferences.getString("order","price")
+    }
+
+    fun getIdTicket():Int?{
+        return sharedPreferences.getInt("idTicket",0)
     }
 
     fun getArrivedDate(): String? {
@@ -277,7 +307,7 @@ class HomeViewModel @Inject constructor(var api:ApiService,
     }
 
     fun getCheckedSwitch() : Boolean{
-        return  sharedPreferences.getBoolean("selected", true)
+        return  sharedPreferences.getBoolean("selected", false)
     }
 
 
