@@ -326,7 +326,11 @@
         android:id="@+id/detailBiodataPenumpangFragment"
         android:name="com.binar.projekakhir.view.ui.DetailBiodataPenumpangFragment"
         android:label="fragment_detail_biodata_penumpang"
-        tools:layout="@layout/fragment_detail_biodata_penumpang" />
+        tools:layout="@layout/fragment_detail_biodata_penumpang" >
+        <action
+            android:id="@+id/action_detailBiodataPenumpangFragment_to_checkBioPenumpangFragment"
+            app:destination="@id/checkBioPenumpangFragment" />
+    </fragment>
     <!--    <fragment-->
     <!--        android:id="@+id/hasilPencarianFragmentTodialogFilter"-->
     <!--        android:name="com.binar.projekakhir.view.ui.PilihDestinasiToFragment"-->
