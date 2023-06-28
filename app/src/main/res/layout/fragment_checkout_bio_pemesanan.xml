@@ -50,7 +50,7 @@
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:background="@drawable/card_border"
-        android:layout_height="535dp"
+        android:layout_height="550dp"
         android:layout_margin="10dp"
         android:layout_gravity="center"
         app:cardCornerRadius="10dp"
@@ -175,7 +175,8 @@
                         android:text="Nama Keluarga"
                         android:textColor="@color/DARKBLUE05"
                         android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:visibility="gone" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/et_nama_keluarga"
@@ -186,6 +187,7 @@
                         android:layout_marginStart="21dp"
                         android:layout_marginTop="4dp"
                         android:layout_marginEnd="21dp"
+                        android:visibility="gone"
                         app:boxCornerRadiusBottomEnd="4dp"
                         app:boxCornerRadiusBottomStart="4dp"
                         app:boxCornerRadiusTopEnd="4dp"
@@ -207,7 +209,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/et_nama_keluarga"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="45dp"
                         android:text="Nomor Telepon"
                         android:textColor="@color/DARKBLUE05"
                         android:textSize="18sp"
@@ -283,7 +285,7 @@
         android:layout_height="48dp"
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="60dp"
         android:background="@drawable/shape_button_primary"
         android:text="Simpan"
         android:textAllCaps="false" />

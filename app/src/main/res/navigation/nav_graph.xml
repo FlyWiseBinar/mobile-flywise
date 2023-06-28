@@ -63,6 +63,9 @@
         <action
             android:id="@+id/action_detailNonLoginFragment_to_checkoutBioPemesanFragment"
             app:destination="@id/checkoutBioPemesanFragment" />
+        <action
+            android:id="@+id/action_detailNonLoginFragment_to_checkBioPenumpangFragment"
+            app:destination="@id/checkBioPenumpangFragment" />
     </fragment>
     <fragment
         android:id="@+id/hasilPencarianFragment"
@@ -110,6 +113,9 @@
         <action
             android:id="@+id/action_checkBioPenumpangFragment_to_checkoutFragment"
             app:destination="@id/checkoutFragment" />
+        <action
+            android:id="@+id/action_checkBioPenumpangFragment_to_detailBiodataPenumpangFragment"
+            app:destination="@id/detailBiodataPenumpangFragment" />
     </fragment>
     <fragment
         android:id="@+id/checkoutFragment"
@@ -272,6 +278,9 @@
         <action
             android:id="@+id/action_hasilPencarianReturnFragment_to_hasilPencarianFirstFragment"
             app:destination="@id/hasilPencarianFirstFragment" />
+        <action
+            android:id="@+id/action_hasilPencarianReturnFragment_to_detailPenerbanganPulangPergiFragment"
+            app:destination="@id/detailPenerbanganPulangPergiFragment" />
     </fragment>
     <fragment
         android:id="@+id/hasilPencarianFirstFragment"
@@ -281,6 +290,9 @@
         <action
             android:id="@+id/action_hasilPencarianFirstFragment_to_hasilPencarianReturnFragment"
             app:destination="@id/hasilPencarianReturnFragment" />
+        <action
+            android:id="@+id/action_hasilPencarianFirstFragment_to_detailPenerbanganPulangPergiFragment"
+            app:destination="@id/detailPenerbanganPulangPergiFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailPenerbanganPulangFragment"
@@ -291,7 +303,11 @@
         android:id="@+id/detailPenerbanganPulangPergiFragment"
         android:name="com.binar.projekakhir.view.ui.DetailPenerbanganPulangPergiFragment"
         android:label="fragment_detail_penerbangan_pulang_pergi"
-        tools:layout="@layout/fragment_detail_penerbangan_pulang_pergi" />
+        tools:layout="@layout/fragment_detail_penerbangan_pulang_pergi" >
+        <action
+            android:id="@+id/action_detailPenerbanganPulangPergiFragment_to_checkoutBioPemesanFragment"
+            app:destination="@id/checkoutBioPemesanFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailPergiFragment"
         android:name="com.binar.projekakhir.view.ui.DetailPergiFragment"
@@ -306,6 +322,11 @@
             android:id="@+id/action_bottomSheetCekUserLogin_to_loginFragment"
             app:destination="@id/loginFragment" />
     </dialog>
+    <fragment
+        android:id="@+id/detailBiodataPenumpangFragment"
+        android:name="com.binar.projekakhir.view.ui.DetailBiodataPenumpangFragment"
+        android:label="fragment_detail_biodata_penumpang"
+        tools:layout="@layout/fragment_detail_biodata_penumpang" />
     <!--    <fragment-->
     <!--        android:id="@+id/hasilPencarianFragmentTodialogFilter"-->
     <!--        android:name="com.binar.projekakhir.view.ui.PilihDestinasiToFragment"-->

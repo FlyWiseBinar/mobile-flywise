@@ -23,6 +23,7 @@ class TicketAdapter(private val listticket: List<Data>, private val onSelect:(Da
         holder.binding.durasikeberangkatan.text = listticket[position].durationInSecond.toString()
         holder.binding.tvJamkedatangan.text = listticket[position].arrivedTime
         holder.binding.lokasikedatangan.text = listticket[position].destinationAirport.airportCode
+        holder.binding.namapesawat.text = listticket[position].plane.airline.airlineName
         val price = Utill.getPriceIdFormat(listticket[position].provTotalPrice)
         holder.binding.tvPriceFlight.text = price
         holder.binding.hasilPencarian.setOnClickListener {

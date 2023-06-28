@@ -8,6 +8,8 @@ data class DestinationAirport(
     val airportCode: String,
     @SerializedName("city")
     val city: String,
+    @SerializedName("country")
+    val country: Country,
     @SerializedName("countryCode")
     val countryCode: String,
     @SerializedName("id")

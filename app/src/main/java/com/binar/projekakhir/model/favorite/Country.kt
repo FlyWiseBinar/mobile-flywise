@@ -3,13 +3,9 @@ package com.binar.projekakhir.model.favorite
 
 import com.google.gson.annotations.SerializedName
 
-data class OriginAirport(
-    @SerializedName("airportCode")
-    val airportCode: String,
-    @SerializedName("city")
-    val city: String,
-    @SerializedName("country")
-    val country: Country,
+data class Country(
+    @SerializedName("continent")
+    val continent: String,
     @SerializedName("countryCode")
     val countryCode: String,
     @SerializedName("id")

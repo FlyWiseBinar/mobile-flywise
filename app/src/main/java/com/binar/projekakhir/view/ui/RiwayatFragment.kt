@@ -8,14 +8,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.binar.projekakhir.R
 import com.binar.projekakhir.databinding.FragmentRiwayatBinding
+import com.binar.projekakhir.view.adapter.RiwayatAdapter
+import com.binar.projekakhir.viewmodel.HistoryViewModel
+import com.binar.projekakhir.viewmodel.HomeViewModel
 import com.binar.projekakhir.viewmodel.UserViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,6 +30,7 @@ import kotlin.math.log
 class RiwayatFragment : Fragment() {
     private lateinit var binding : FragmentRiwayatBinding
     private lateinit var pref : SharedPreferences
+    private val HistoryVm : HistoryViewModel by viewModels()
 
 
 
@@ -49,6 +55,8 @@ class RiwayatFragment : Fragment() {
         login()
 
 
+
+
     }
 
     private fun login() {
@@ -63,13 +71,28 @@ class RiwayatFragment : Fragment() {
         Log.d("Berhasil", pref.getString("token", " ").toString())
         if (pref.getString("token", "").toString().isNotEmpty()) {
             binding.layoutLogin.visibility = View.VISIBLE
+            getdatahistory()
             Log.d("Berhasil Login", "berhasil")
             binding.layoutNonLogin.visibility = View.GONE
+
 
         } else {
             binding.layoutNonLogin.visibility = View.VISIBLE
             binding.layoutLogin.visibility = View.GONE
         }
+    }
+
+
+    fun getdatahistory(){
+        val token = pref.getString("token", "").toString()
+        HistoryVm.gethistory(token)
+        Log.d("historytoken", token)
+        HistoryVm.livehistory.observe(viewLifecycleOwner, Observer {
+            binding.rvRiwayat.layoutManager = LinearLayoutManager(
+                context,LinearLayoutManager.VERTICAL,false)
+            binding.rvRiwayat.adapter = RiwayatAdapter(it)
+
+        })
     }
 
 

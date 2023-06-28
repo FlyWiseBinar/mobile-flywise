@@ -10,36 +10,33 @@
     android:paddingHorizontal="25dp"
     android:paddingTop="18dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Akun"
-            android:textColor="@color/black" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             android:text="Maaf, Anda harus login terlebih dahulu"
             android:textColor="@color/black" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="290dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:src="@drawable/people" />
+    <ImageView
+        android:layout_width="278dp"
+        android:layout_height="342dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/people" />
 
-        <Button
-            android:id="@+id/btn_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:backgroundTint="@color/DARKBLUE04"
-            android:text="Masuk" />
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/DARKBLUE04"
+        android:text="Masuk"
+        android:textColor="@color/white"
+        />
 
 
-    </LinearLayout>
+</LinearLayout>
 
 

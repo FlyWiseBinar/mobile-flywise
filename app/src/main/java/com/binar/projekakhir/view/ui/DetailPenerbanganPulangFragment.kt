@@ -73,10 +73,12 @@ class DetailPenerbanganPulangFragment : Fragment() {
                     txtKeberangkatan.text = getDetail.originAirport.city
                     txtTujuan.text = getDetail.destinationAirport.city
                     txtJamBerangkat.text = getDetail.departureTime
-                    txtTanggalBerangkat.text = getDetail.departureDateTime
+                    tvPesawat.text = getDetail.plane.airline.airlineName
+                    txtTanggalBerangkat.text = getDetail.departureDate
+                    tvAirplaneCode.text = getDetail.plane.airline.airlineCode
                     tvInformasi.text = getDetail.plane.baggageMaxCapacity.toString()
                     txtJamDatang.text = getDetail.arrivedTime
-                    txtTanggalSampai.text = getDetail.arrivedDateTime
+                    txtTanggalSampai.text = getDetail.arrivedDate
                     val price = Utill.getPriceIdFormat(getDetail.provTotalPrice!!)
                 }
             } else {

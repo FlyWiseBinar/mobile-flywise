@@ -113,7 +113,7 @@ class HasilPencarianReturnFragment : Fragment() {
             val getPrice = arguments?.getInt("pricePergi")
             val price = Utill.getPriceIdFormat(getPrice!!)
             binding.tvHarga.text = price
-            binding.tvPesawat.text = dataItemTicket.departureDateTime
+            binding.tvPesawat.text = dataItemTicket.plane.airline.airlineName
         }
     }
 
@@ -188,19 +188,18 @@ class HasilPencarianReturnFragment : Fragment() {
         }
     }
 
+
     private fun returnOnly(
         cityFrom: String?,
         cityTo: String?,
         seatClass: String?,
         dateReturn: String?
     ) {
-
-        val cityToReturn = cityFrom
-        val cityFromReturn = cityTo
+        val cityFromReturn = cityFrom
+        val cityToReturn = cityTo
         berandaViewModel.searchallticket(cityFromReturn!!, cityToReturn!!, seatClass!!, dateReturn!!)
         berandaViewModel.livedatasearchallticket.observe(viewLifecycleOwner) {
             binding.rvDeparture.apply {
-//                binding.emptyResult.visibility = View.GONE
                 layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
                 ticketAdapter = TicketAdapter(it) { itemTicket ->
                     val idReturn = itemTicket.id
@@ -215,7 +214,7 @@ class HasilPencarianReturnFragment : Fragment() {
                         bundle.putInt("hargaPergi",hargaPergi)
                     }
                     bundle.putInt("hargaPulang",priceReturn)
-//                    findNavController().navigate(R.id.actio,bundle)
+                    findNavController().navigate(R.id.action_hasilPencarianReturnFragment_to_detailPenerbanganPulangPergiFragment,bundle)
                 }
                 adapter = ticketAdapter
                 isNestedScrollingEnabled = false

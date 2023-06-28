@@ -4,6 +4,8 @@ package com.binar.projekakhir.model.detail
 import com.google.gson.annotations.SerializedName
 
 data class Plane(
+    @SerializedName("airline")
+    val airline: Airline,
     @SerializedName("airlineId")
     val airlineId: Int,
     @SerializedName("baggageMaxCapacity")

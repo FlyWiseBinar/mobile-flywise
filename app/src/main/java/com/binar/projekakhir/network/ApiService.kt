@@ -6,6 +6,7 @@ import com.binar.projekakhir.model.auth.otp.SendOtpResponse
 import com.binar.projekakhir.model.auth.otp.VerifyOtpResponse
 import com.binar.projekakhir.model.auth.resetpassword.ResetPassPost
 import com.binar.projekakhir.model.auth.resetpassword.UpdateProfilePost
+import com.binar.projekakhir.model.checkout.PenumpangRequest
 import com.binar.projekakhir.model.checkout.PostCheckoutResponse
 import com.binar.projekakhir.model.checkout.request.PostCheckoutPemesananResponse
 import com.binar.projekakhir.model.detail.GetResponseFindSchedulebyId
@@ -125,7 +126,7 @@ interface ApiService {
    @POST("order/checkout")
    fun postcheckout(
        @Header("Authorization") token:String,
-       @Body data : PostCheckoutPemesananResponse
+       @Body data : PenumpangRequest
    ) : Call<PostCheckoutResponse>
 
    @GET("order/history")

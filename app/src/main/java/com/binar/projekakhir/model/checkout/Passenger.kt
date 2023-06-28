@@ -9,9 +9,9 @@ data class Passenger(
     @SerializedName("birthdate")
     val birthdate: String,
     @SerializedName("createdAt")
-    val createdAt: String,
+    val createdAt: String? = "",
     @SerializedName("expiredAt")
-    val expiredAt: String,
+    val expiredAt: String?="",
     @SerializedName("id")
     val id: Int,
     @SerializedName("issuingCountry")
@@ -27,5 +27,5 @@ data class Passenger(
     @SerializedName("passport")
     val passport: String,
     @SerializedName("updatedAt")
-    val updatedAt: String
+    val updatedAt: String? = ""
 )

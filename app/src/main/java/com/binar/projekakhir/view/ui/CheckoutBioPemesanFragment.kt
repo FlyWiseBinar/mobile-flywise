@@ -48,6 +48,19 @@ class CheckoutBioPemesanFragment : Fragment() {
 
         }
 
+        binding.switch1.setOnCheckedChangeListener { p0, isChecked ->
+
+            if (isChecked) {
+                binding.tvNamaKeluarga.visibility = View.VISIBLE
+                binding.etNamaKeluarga.visibility = View.VISIBLE
+
+            } else {
+                binding.tvNamaKeluarga.visibility = View.GONE
+                binding.etNamaKeluarga.visibility = View.GONE
+
+            }
+        }
+
 
 
 

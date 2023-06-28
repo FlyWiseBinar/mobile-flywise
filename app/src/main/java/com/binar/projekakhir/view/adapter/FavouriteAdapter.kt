@@ -18,9 +18,11 @@ class FavouriteAdapter( private val listFav: List<Data>):RecyclerView.Adapter<Fa
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.tvMaskapai.text = listFav[position].availableSeat.toString()
-        holder.binding.tvPrice.text = listFav[position].adultPrice.toString()
+        holder.binding.tvMaskapai.text = listFav[position].plane.airline.airlineName
+        holder.binding.tvPrice.text = listFav[position].provTotalPrice.toString()
         holder.binding.tvDestination.text = listFav[position].destinationAirport.name
+        holder.binding.tvDeparture.text = listFav[position].originAirport.name
+        holder.binding.tvTanggalFavorit.text = listFav[position].arrivedDate
     }
 
     override fun getItemCount(): Int {

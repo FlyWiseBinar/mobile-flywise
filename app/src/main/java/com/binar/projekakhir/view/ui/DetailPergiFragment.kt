@@ -74,10 +74,12 @@ class DetailPergiFragment : Fragment() {
                     txtKeberangkatan.text = getDetail.originAirport.city
                     txtTujuan.text = getDetail.destinationAirport.city
                     txtJamBerangkat.text = getDetail.departureTime
-                    txtTanggalBerangkat.text = getDetail.departureDateTime
+                    txtTanggalBerangkat.text = getDetail.departureDate
+                    tvPesawat.text = getDetail.plane.airline.airlineName
+                    tvAirplaneCode.text = getDetail.plane.airline.airlineCode
                     tvInformasi.text = getDetail.plane.baggageMaxCapacity.toString()
                     txtJamDatang.text = getDetail.arrivedTime
-                    txtTanggalSampai.text = getDetail.arrivedDateTime
+                    txtTanggalSampai.text = getDetail.arrivedDate
                     val price = Utill.getPriceIdFormat(getDetail.provTotalPrice!!)
                 }
             } else {
