@@ -9,6 +9,7 @@ import com.binar.projekakhir.model.checkout.Passenger
 import com.binar.projekakhir.model.checkout.PenumpangRequest
 import com.binar.projekakhir.model.checkout.PostCheckoutResponse
 import com.binar.projekakhir.model.checkoutrequest.GetCheckoutRequest
+import com.binar.projekakhir.model.paymentcreate.GetPaymentCreateResponse
 import com.binar.projekakhir.network.ApiService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
@@ -45,6 +46,11 @@ class CheckoutViewModel @Inject constructor(var api : ApiService) : ViewModel() 
         })
 
     }
+
+
+//    val _payment : MutableLiveData<GetPaymentCreateResponse> = MutableLiveData()
+//
+//    val livepemesan : LiveData<GetPaymentCreateResponse> =
 
 
 }

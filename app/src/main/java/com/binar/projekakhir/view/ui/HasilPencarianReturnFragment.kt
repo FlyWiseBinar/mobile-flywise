@@ -57,7 +57,7 @@ class HasilPencarianReturnFragment : Fragment() {
 
         dateToolbarDeparture(dateDeparture)
         dateToolbarReturn(dateRetun)
-        returnOnly(cityFrom, cityTo, dateDeparture,dateRetun)
+        returnOnly(cityTo, cityFrom, dateDeparture,dateRetun)
         getDepartureTicket(idDeparture)
 
 
@@ -195,8 +195,8 @@ class HasilPencarianReturnFragment : Fragment() {
         seatClass: String?,
         dateReturn: String?
     ) {
-        val cityFromReturn = cityFrom
-        val cityToReturn = cityTo
+        val cityFromReturn = cityTo
+        val cityToReturn = cityFrom
         berandaViewModel.searchallticket(cityFromReturn!!, cityToReturn!!, seatClass!!, dateReturn!!)
         berandaViewModel.livedatasearchallticket.observe(viewLifecycleOwner) {
             binding.rvDeparture.apply {

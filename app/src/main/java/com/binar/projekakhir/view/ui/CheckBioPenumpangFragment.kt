@@ -81,6 +81,9 @@ class CheckBioPenumpangFragment : Fragment() {
                         "Berhasil Menambahkan data penumpang",
                         Toast.LENGTH_SHORT
                     ).show()
+
+                    findNavController().navigate(R.id.action_checkBioPenumpangFragment_to_checkoutFragment)
+
                 }
             }
         }

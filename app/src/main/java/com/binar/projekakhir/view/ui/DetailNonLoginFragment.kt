@@ -76,16 +76,34 @@ class DetailNonLoginFragment : Fragment() {
                     }
 
                     tvFlightTime.text = "(${hourDiff}h ${minuteDiff}m)"
-                    nomorseri.visibility = View.GONE
+                    nomorseri.text = getdetail.plane.airline.airlineCode
                     tvDepartureAirport.text = getdetail.originAirport.name
-                    nameairline.text = getdetail.plane.airline.airlineName
                     tvDateDeparture.text = getdetail.departureDate
-                    tvTimeDeparture.text = getdetail.departureTime
+
+                    val departureTime = getdetail.departureTime
+                    val formattedDepTime = departureTime.substring(0, 5) // Mengambil karakter dari indeks 0 hingga 4 (jam dan menit)
+                    tvTimeDeparture.text = formattedDepTime
+
                     tvFlightAsal.text = getdetail.originAirport.city
                     tvFlightDestination.text = getdetail.destinationAirport.city
-                    baggage.text = getdetail.plane.baggageMaxCapacity.toString()
-                    cabinbaggage.text = getdetail.plane.cabinMaxCapacity.toString()
-                    tvTimeArrive.text = getdetail.arrivedTime
+
+                    val baggageCapacity = getdetail.plane.baggageMaxCapacity.toString()
+                    val baggageText = "Baggage $baggageCapacity kg"
+                    baggage.text = baggageText
+
+                    val cabiBagCap = getdetail.plane.cabinMaxCapacity.toString()
+                    val cabiBagText = "Cabin baggage $cabiBagCap kg"
+                    cabinbaggage.text = cabiBagText
+
+                    val airlineName = getdetail.plane.airline.airlineName
+                    val className = getdetail.classX.name
+                    val planeNclassText = "$airlineName - $className"
+                    nameairline.setText(planeNclassText)
+
+                    val arrivedTime = getdetail.arrivedTime
+                    val formattedTime = arrivedTime.substring(0, 5) // Mengambil karakter dari indeks 0 hingga 4 (jam dan menit)
+                    tvTimeArrive.text = formattedTime
+
                     tvDateArrive.text = getdetail.arrivedDate
                     tvArriveAirport.text = getdetail.destinationAirport.name
                     val price = Utill.getPriceIdFormat(getdetail.provTotalPrice)

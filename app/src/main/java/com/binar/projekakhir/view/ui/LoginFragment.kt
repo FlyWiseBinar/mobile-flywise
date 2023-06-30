@@ -79,72 +79,48 @@ class LoginFragment : Fragment() {
     }
 
     private fun login(){
-
         val email = binding.etEmail.text.toString()
         val password = binding.etPassword.text.toString()
-        userVm = ViewModelProvider(this).get(UserViewModel::class.java)
-        userVm.responselogin.observe(viewLifecycleOwner, Observer {
+        if (email.isNotEmpty() && password.isNotEmpty()){
+            userVm.responselogin.observe(viewLifecycleOwner, Observer {
 //            listuserlogin = it
 //            loginAuth(listuserlogin)
-            if(it.status == true){
-                findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
-                Toast.makeText(context,"User Berhasil Login", Toast.LENGTH_SHORT).show()
-            }else{
-                Toast.makeText(context, "Login Failed", Toast.LENGTH_SHORT).show()
-            }
-            val sharedPref = pref.edit()
-            sharedPref.putString("token", it.accessToken)
-            sharedPref.apply()
+                if(it.status == true){
+                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
+                    Toast.makeText(context,"User Berhasil Login", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(context, "Login Failed", Toast.LENGTH_SHORT).show()
+                }
+                val sharedPref = pref.edit()
+                sharedPref.putString("token", it.accessToken)
+                sharedPref.apply()
 
-        })
-        userVm.postlogin(LoginBody(email, password))
+            })
+            userVm.postlogin(LoginBody(email, password))
 
-
-    }
-
-    private fun loginAuth(userDataList: LoginResponse) {
-        //make shared preference that saving log in activity history
-        pref = requireActivity().getSharedPreferences("Regist", Context.MODE_PRIVATE)
-        userVm = ViewModelProvider(this).get(UserViewModel::class.java)
-
-        //get all data from user input
-        val inputEmail = binding.etEmail.text.toString()
-        val inputPassword = binding.etPassword.text.toString()
-
-
-
-        //checking email and password of user to authenticate
-//        for (i in userDataList.indices) {
-//            if (inputPassword == userDataList[i].password && inputEmail == userDataList[i].email) {
-//                Toast.makeText(requireContext(), "Berhasil login", Toast.LENGTH_SHORT).show()
-//                //bundling all information about user
-//                navigationBundlingSf(userDataList[i])
-//                break
-//            } else if (i == userDataList.lastIndex && inputPassword != userDataList[i].password && inputEmail != userDataList[i].email) {
-//                binding.etPassword.error = "Password Tidak Sesuai"
-//                binding.etEmail.error = "Email Tidak Sesuai"
+        } else{
+            Toast.makeText(context, "Login Failed", Toast.LENGTH_SHORT).show()
+        }
+//        userVm.responselogin.observe(viewLifecycleOwner, Observer {
+////            listuserlogin = it
+////            loginAuth(listuserlogin)
+//            if(it.status == true){
+//                findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
+//                Toast.makeText(context,"User Berhasil Login", Toast.LENGTH_SHORT).show()
+//            }else{
+//                Toast.makeText(context, "Login Failed", Toast.LENGTH_SHORT).show()
 //            }
-//        }
+//            val sharedPref = pref.edit()
+//            sharedPref.putString("token", it.accessToken)
+//            sharedPref.apply()
+//
+//        })
+//        userVm.postlogin(LoginBody(email, password))
+
+
     }
 
-//    private fun navigationBundlingSf(currentUser: Data) {
-//        userVm = ViewModelProvider(this).get(UserViewModel::class.java)
-//        pref = requireActivity().getSharedPreferences("Regist", Context.MODE_PRIVATE)
-//        //shared pref to save log in history
-//        val sharedPref = pref.edit()
-//        sharedPref.putString("email", currentUser.email)
-//        sharedPref.putString("password", currentUser.password)
-//        sharedPref.putString("token", currentUser.)
-//        userVm.responselogin.observe(viewLifecycleOwner){
-//            it.
-//        }
-//        sharedPref.putString("status", currentUser.status.toString())
-//        sharedPref.apply()
-//        Navigation.findNavController(binding.root).navigate(R.id.action_loginFragment_to_checkoutBioPemesanFragment)
-//
-//
-//
-//    }
+
 
 
 }

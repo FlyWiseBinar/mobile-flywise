@@ -119,6 +119,9 @@
         <action
             android:id="@+id/action_checkBioPenumpangFragment_to_detailBiodataPenumpangFragment"
             app:destination="@id/detailBiodataPenumpangFragment" />
+        <action
+            android:id="@+id/action_checkBioPenumpangFragment_to_succeesFragment"
+            app:destination="@id/succeesFragment" />
     </fragment>
     <fragment
         android:id="@+id/checkoutFragment"
@@ -128,6 +131,9 @@
         <action
             android:id="@+id/action_checkoutFragment_to_paymentFragment"
             app:destination="@id/paymentFragment" />
+        <action
+            android:id="@+id/action_checkoutFragment_to_succeesFragment"
+            app:destination="@id/succeesFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"

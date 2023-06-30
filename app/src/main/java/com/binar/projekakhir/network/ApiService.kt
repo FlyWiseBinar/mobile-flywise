@@ -135,6 +135,14 @@ interface ApiService {
        @Header("Authorization") token:String
    ) : Call<GetHistoryResponse>
 
+   @POST("order/payment")
+   fun postpayment(
+       @Header("Authorization") token:String,
+       @Query("paymentCode") paymentCode : String,
+       @Query("paymentTypeId") paymentTypeId : Int
+
+   )
+
 
 
 

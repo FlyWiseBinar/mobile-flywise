@@ -62,6 +62,7 @@
         </LinearLayout>
 
         <RelativeLayout
+            android:id="@+id/layout_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/layoutFlightDestination"
@@ -179,6 +180,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/planeNclass"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppinsbold"
@@ -188,6 +190,7 @@
                         android:textSize="14sp" />
 
                     <TextView
+                        android:id="@+id/nomorseri"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppinsbold"
@@ -319,46 +322,14 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="410dp"
-        android:layout_height="106dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="#FFFFFF"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp">
 
-            <TextView
-                android:id="@+id/tvTotal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:fontFamily="@font/poppinsbold"
-                android:lineHeight="24dp"
-                android:text="Total"
-                android:textColor="@color/NEUTRAL05"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/tvPriceTicket"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_toEndOf="@id/tvTotal"
-                android:fontFamily="@font/poppinsbold"
-                android:lineHeight="26dp"
-                android:text="IDR 9.850.000"
-                android:textAlignment="textEnd"
-                android:textColor="#7126B5"
-                android:textSize="18sp" />
-        </RelativeLayout>
 
         <Button
             android:id="@+id/btnSelectFlight"
@@ -371,18 +342,20 @@
             android:backgroundTint="#4B1979"
             android:fontFamily="@font/poppinsmedium"
             android:lineHeight="24dp"
+            android:minHeight="48dp"
             android:text="Beranda"
             android:textAlignment="center"
             android:textColor="@color/NEUTRAL01"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvPriceTicket" />
+            app:layout_constraintTop_toBottomOf="parent" />
+
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/rincian1"
         android:layout_width="171dp"
-        android:layout_height="96dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
@@ -400,6 +373,7 @@
             android:textSize="14sp" />
 
         <TextView
+            android:id="@+id/txtAdult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsregular"
@@ -409,15 +383,27 @@
             android:textSize="14sp" />
 
         <TextView
+            android:id="@+id/txtKids"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsregular"
             android:lineHeight="20dp"
-            android:text="1 Baby"
+            android:text="x Kids"
             android:textColor="#000000"
             android:textSize="14sp" />
 
         <TextView
+            android:id="@+id/txtBaby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsregular"
+            android:lineHeight="20dp"
+            android:text="x Baby"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/txtTax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsregular"
@@ -425,11 +411,21 @@
             android:text="Tax"
             android:textColor="#000000"
             android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsbold"
+            android:lineHeight="20dp"
+            android:text="Total"
+            android:textColor="#000000"
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="123dp"
-        android:layout_height="72dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="272dp"
         android:layout_marginTop="24dp"
         android:orientation="vertical"
@@ -440,6 +436,7 @@
 
 
         <TextView
+            android:id="@+id/priceadult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsregular"
@@ -449,6 +446,7 @@
             android:textSize="14sp" />
 
         <TextView
+            android:id="@+id/pricekids"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsregular"
@@ -458,11 +456,32 @@
             android:textSize="14sp" />
 
         <TextView
+            android:id="@+id/pricebaby"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsregular"
             android:lineHeight="20dp"
             android:text="IDR 300.000"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/priceTax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsregular"
+            android:lineHeight="20dp"
+            android:text="IDR 300.000"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvPriceTicket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppinsbold"
+            android:lineHeight="20dp"
+            android:text="IDR 9.850.000"
             android:textColor="#000000"
             android:textSize="14sp" />
     </LinearLayout>
