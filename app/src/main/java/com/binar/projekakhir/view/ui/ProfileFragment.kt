@@ -48,6 +48,7 @@ class ProfileFragment : Fragment() {
             pref.edit().clear().apply()
             Log.d("DataToken", pref.getString("token", "").toString())
             findNavController().navigate(R.id.action_profileFragment2_to_homeFragment2)
+            Toast.makeText(context, "Update Berhasil Logout", Toast.LENGTH_SHORT).show()
 
         }
 
@@ -74,7 +75,7 @@ class ProfileFragment : Fragment() {
         navigationBundlingSf(dataUser)
         userVm.getlivedataupdateprofile().observe(viewLifecycleOwner) {
             if (it != null) {
-                Toast.makeText(context, "Update Profile Berhasil", Toast.LENGTH_SHORT)
+                Toast.makeText(context, "Update Profile Berhasil", Toast.LENGTH_SHORT).show()
             }
         }
 

@@ -1,26 +1,23 @@
-package com.binar.projekakhir.model.checkout.request
+package com.binar.projekakhir.model.checkoutrequest
 
 
-import android.os.Parcel
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
 data class Passenger(
     @SerializedName("ageType")
-    var ageType: String?,
+    val ageType: String,
     @SerializedName("birthdate")
-    var birthdate: String?,
+    val birthdate: String,
     @SerializedName("expiredAt")
-    var expiredAt: String?,
+    val expiredAt: String,
     @SerializedName("issuingCountry")
-    var issuingCountry: String?,
+    val issuingCountry: String,
     @SerializedName("ktp")
-    var ktp: String?,
+    val ktp: String,
     @SerializedName("name")
-    var name: String?,
+    val name: String,
     @SerializedName("nationality")
-    var nationality: String?,
+    val nationality: String,
     @SerializedName("passport")
-    var passport: String?
+    val passport: String
 )
-

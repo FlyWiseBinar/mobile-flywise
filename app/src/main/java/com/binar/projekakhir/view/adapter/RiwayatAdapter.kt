@@ -1,8 +1,11 @@
 package com.binar.projekakhir.view.adapter
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.binar.projekakhir.R
 import com.binar.projekakhir.databinding.ItemRiwayatBinding
 import com.binar.projekakhir.model.history.Order
 import com.binar.projekakhir.model.searchtiket.Data
@@ -27,6 +30,14 @@ class RiwayatAdapter(private val listhistory: List<Order>) : RecyclerView.Adapte
         holder.binding.codeBooking.text = listhistory[position].order.orderCode
         holder.binding.classPlane.text = listhistory[position].schedule.classX.name
         holder.binding.tvPriceFlightRiwayat.text = listhistory[position].schedule.provTotalPrice.toString()
+
+        holder.binding.detailriwayat.setOnClickListener {
+            val id = listhistory[position].id
+            val bundle = Bundle()
+            bundle.putInt("id",id)
+            Navigation.findNavController(it).navigate(R.id.action_riwayatFragment2_to_detailNonLoginFragment,bundle)
+
+        }
 
     }
 

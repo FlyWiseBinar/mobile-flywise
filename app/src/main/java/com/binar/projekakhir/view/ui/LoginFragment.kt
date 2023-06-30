@@ -53,13 +53,20 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.action_loginFragment_to_resetPassFragment)
         }
 
+        binding.btnCrash.setOnClickListener {
+            throw RuntimeException("Test Crash") // Force a crash
+        }
+
         binding.btnSignin.setOnClickListener {
 
             if (binding.etEmail.text.toString().isEmpty()) {
                 binding.etEmail.setError("Isi Username")
             } else if (binding.etPassword.text.toString().isEmpty()) {
                 binding.etPassword.setError("Isi Password")
-            } else {
+            } else if (binding.etPassword.text.toString().length < 6) {
+                Toast.makeText(context, "Password kurang dari 6 karakter", Toast.LENGTH_SHORT).show()
+           }
+            else {
                 login()
 
 
@@ -81,9 +88,9 @@ class LoginFragment : Fragment() {
 //            loginAuth(listuserlogin)
             if(it.status == true){
                 findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
-                Toast.makeText(context,"User Berhasil Login", Toast.LENGTH_SHORT)
+                Toast.makeText(context,"User Berhasil Login", Toast.LENGTH_SHORT).show()
             }else{
-                Toast.makeText(context, "Maaf Cek Lagi Email dan Password", Toast.LENGTH_LONG)
+                Toast.makeText(context, "Login Failed", Toast.LENGTH_SHORT).show()
             }
             val sharedPref = pref.edit()
             sharedPref.putString("token", it.accessToken)

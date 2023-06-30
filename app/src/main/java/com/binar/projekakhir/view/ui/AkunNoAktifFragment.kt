@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.binar.projekakhir.R
 import com.binar.projekakhir.databinding.FragmentAkunNoAktifBinding
@@ -59,6 +60,7 @@ class AkunNoAktifFragment : Fragment() {
             pref.edit().clear().apply()
             Log.d("DataToken", pref.getString("token", "").toString())
             findNavController().navigate(R.id.action_akunNoAktifFragment_to_homeFragment2)
+            Toast.makeText(context,"User Berhasil Logout", Toast.LENGTH_SHORT).show()
         }
 
 

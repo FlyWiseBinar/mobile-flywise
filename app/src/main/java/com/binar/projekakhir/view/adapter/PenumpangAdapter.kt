@@ -17,9 +17,8 @@ import com.binar.projekakhir.R
 import com.binar.projekakhir.databinding.ItemBioPenumpangBinding
 import com.binar.projekakhir.databinding.ItemJenisPenumpangBinding
 import com.binar.projekakhir.databinding.ItemRiwayatBinding
+import com.binar.projekakhir.model.checkout.Passenger
 import com.binar.projekakhir.model.checkout.Penumpang
-import com.binar.projekakhir.model.checkout.request.BiodataPassenger
-import com.binar.projekakhir.model.checkout.request.Passenger
 import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.util.*

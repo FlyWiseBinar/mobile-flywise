@@ -15,8 +15,6 @@ import com.binar.projekakhir.databinding.FragmentCheckBioPenumpangBinding
 import com.binar.projekakhir.databinding.FragmentCheckoutBinding
 import com.binar.projekakhir.databinding.FragmentCheckoutBioPemesananBinding
 import com.binar.projekakhir.model.auth.resetpassword.UpdateProfilePost
-import com.binar.projekakhir.model.checkout.request.Passenger
-import com.binar.projekakhir.model.checkout.request.PostCheckoutPemesananResponse
 import com.binar.projekakhir.viewmodel.CheckoutViewModel
 import com.binar.projekakhir.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -80,7 +78,7 @@ class CheckoutBioPemesanFragment : Fragment() {
 
             if (it.status) {
                 findNavController().navigate(R.id.action_checkoutBioPemesanFragment_to_checkBioPenumpangFragment)
-                Toast.makeText(context, "Update Profile Berhasil", Toast.LENGTH_SHORT)
+                Toast.makeText(context, "Berhasil Isi Data Pemesan", Toast.LENGTH_SHORT).show()
             }
 
 

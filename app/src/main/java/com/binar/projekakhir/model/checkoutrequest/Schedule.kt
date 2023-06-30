@@ -1,4 +1,4 @@
-package com.binar.projekakhir.model.checkout.request
+package com.binar.projekakhir.model.checkoutrequest
 
 
 import com.google.gson.annotations.SerializedName

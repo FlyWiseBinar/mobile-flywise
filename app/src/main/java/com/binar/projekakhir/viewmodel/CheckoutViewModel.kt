@@ -8,7 +8,7 @@ import com.binar.projekakhir.model.checkout.Data
 import com.binar.projekakhir.model.checkout.Passenger
 import com.binar.projekakhir.model.checkout.PenumpangRequest
 import com.binar.projekakhir.model.checkout.PostCheckoutResponse
-import com.binar.projekakhir.model.checkout.request.PostCheckoutPemesananResponse
+import com.binar.projekakhir.model.checkoutrequest.GetCheckoutRequest
 import com.binar.projekakhir.network.ApiService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
@@ -30,10 +30,10 @@ class CheckoutViewModel @Inject constructor(var api : ApiService) : ViewModel() 
                 call: Call<PostCheckoutResponse>,
                 response: Response<PostCheckoutResponse>
             ) {
-                if (response.isSuccessful) {
-                   _biopemesanan.postValue(response.body())
+                if (response.isSuccessful){
+                    _biopemesanan.value = response.body()
                 } else {
-                    Log.e("CheckoutViewModel", "Cannot get data1")
+                    Log.e("BiodataViewModel","${response.errorBody()?.string()}")
                 }
 
             }

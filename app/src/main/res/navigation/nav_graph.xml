@@ -104,6 +104,9 @@
         <action
             android:id="@+id/action_riwayatFragment2_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_riwayatFragment2_to_detailNonLoginFragment"
+            app:destination="@id/detailNonLoginFragment" />
     </fragment>
     <fragment
         android:id="@+id/checkBioPenumpangFragment"
@@ -223,6 +226,9 @@
         <action
             android:id="@+id/action_checkoutBioPemesanFragment_to_checkBioPenumpangFragment"
             app:destination="@id/checkBioPenumpangFragment" />
+        <action
+            android:id="@+id/action_checkoutBioPemesanFragment_to_bioPenumpangFragment"
+            app:destination="@id/bioPenumpangFragment" />
     </fragment>
     <fragment
         android:id="@+id/akunFragment2"
@@ -330,6 +336,14 @@
         <action
             android:id="@+id/action_detailBiodataPenumpangFragment_to_checkBioPenumpangFragment"
             app:destination="@id/checkBioPenumpangFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bioPenumpangFragment"
+        android:name="com.binar.projekakhir.view.ui.BioPenumpangFragment"
+        android:label="BioPenumpangFragment" >
+        <action
+            android:id="@+id/action_bioPenumpangFragment_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
     </fragment>
     <!--    <fragment-->
     <!--        android:id="@+id/hasilPencarianFragmentTodialogFilter"-->

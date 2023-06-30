@@ -6,9 +6,10 @@ import com.binar.projekakhir.model.auth.otp.SendOtpResponse
 import com.binar.projekakhir.model.auth.otp.VerifyOtpResponse
 import com.binar.projekakhir.model.auth.resetpassword.ResetPassPost
 import com.binar.projekakhir.model.auth.resetpassword.UpdateProfilePost
+import com.binar.projekakhir.model.checkout.Passenger
 import com.binar.projekakhir.model.checkout.PenumpangRequest
 import com.binar.projekakhir.model.checkout.PostCheckoutResponse
-import com.binar.projekakhir.model.checkout.request.PostCheckoutPemesananResponse
+import com.binar.projekakhir.model.checkoutrequest.GetCheckoutRequest
 import com.binar.projekakhir.model.detail.GetResponseFindSchedulebyId
 import com.binar.projekakhir.model.favorite.GetFavoriteResponse
 import com.binar.projekakhir.model.filterprice.GetFilterPriceResponse

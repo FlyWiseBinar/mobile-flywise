@@ -18,7 +18,7 @@ import com.binar.projekakhir.R
 import com.binar.projekakhir.databinding.FragmentCheckBioPenumpangBinding
 import com.binar.projekakhir.model.auth.resetpassword.UpdateProfilePost
 import com.binar.projekakhir.model.checkout.*
-import com.binar.projekakhir.model.checkout.request.BiodataPassenger
+import com.binar.projekakhir.model.checkoutrequest.GetCheckoutRequest
 import com.binar.projekakhir.view.adapter.PenumpangAdapter
 import com.binar.projekakhir.viewmodel.CheckViewModel
 import com.binar.projekakhir.viewmodel.CheckoutViewModel
@@ -57,6 +57,7 @@ class CheckBioPenumpangFragment : Fragment() {
 
         binding.btnLanjut.setOnClickListener {
             val idTicket = HomeVm.getIdTicket()
+            val id = arguments?.getInt("id")
             val dewasa = HomeVm.getPenumpangDewasa()
             val anak = HomeVm.getPenumpangAnak()
             val bayi = HomeVm.getPenumpangBayi()
@@ -65,7 +66,11 @@ class CheckBioPenumpangFragment : Fragment() {
             val dataList = CheckVm.getDataList()
             Log.d("Hasil Pencarian", "$dataList")
 
-            val penumpangData = PenumpangRequest(idTicket!!.toString(), dataList, total)
+            val passenger : ArrayList<ticket> = ArrayList()
+
+            passenger.add(ticket(idTicket!!))
+
+            val penumpangData = PenumpangRequest(passenger,dataList)
 
             val token = pref.getString("token", "").toString()
             CheckoutVm.postbiopemesan(token,penumpangData)

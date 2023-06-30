@@ -54,12 +54,12 @@ class DetailBiodataPenumpangFragment : Fragment() {
                 Log.d("Data","${dataList.indices}")
                 Log.d("Data","${dataList[0]}")
                 val itemPenumpang = dataList[indexPenumpang!!]
-                binding.edtTitle.setText(itemPenumpang.title)
+//                binding.edtTitle.setText(itemPenumpang.title)
                 binding.edtNamaLengkap.setText(itemPenumpang.name)
 //                binding.edtNamaKeluargaPemesan.setText(itemPenumpang.familyName)
                 binding.edtDateOfBirth.setText(itemPenumpang.dateofbirth)
-                binding.edtKewarganegaraan.setText(itemPenumpang.citizenship)
-                binding.edtKtp.setText(itemPenumpang.ktppaspor)
+                binding.edtKewarganegaraan.setText(itemPenumpang.nationality)
+                binding.edtKtp.setText(itemPenumpang.ktp)
                 editData(dataList, indexPenumpang)
             } else {
                 sumbitData()
@@ -116,14 +116,14 @@ class DetailBiodataPenumpangFragment : Fragment() {
             val kewarganegaraan = binding.edtKewarganegaraan.text.toString()
             val ktp = binding.edtKtp.text.toString()
 
-            Log.d("detail biodata", "$title")
+//            Log.d("detail biodata", "$title")
 
-            dataList[indexPenumpang!!].title = title
-            dataList[indexPenumpang].name = name
+//            dataList[indexPenumpang!!].title = title
+            dataList[indexPenumpang!!].name = name
 //            dataList[indexPenumpang].familyName = namaKeluarga
             dataList[indexPenumpang].dateofbirth = tanggalLahir
-            dataList[indexPenumpang].citizenship = kewarganegaraan
-            dataList[indexPenumpang].ktppaspor = ktp
+            dataList[indexPenumpang].nationality = kewarganegaraan
+            dataList[indexPenumpang].ktp = ktp
 
             findNavController().navigate(R.id.action_detailBiodataPenumpangFragment_to_checkBioPenumpangFragment)
         }
@@ -142,7 +142,7 @@ class DetailBiodataPenumpangFragment : Fragment() {
             val ktp = binding.edtKtp.text.toString()
 
             val dataPenumpang =
-                PenumpangPost(ktp, tanggalLahir, kewarganegaraan, name, titleAd!!)
+                PenumpangPost("adult", tanggalLahir, "2023-12-12", "Indonesia",ktp,name,kewarganegaraan,"05467891876" )
             CheckVM.addData(dataPenumpang)
             findNavController().navigate(R.id.action_detailBiodataPenumpangFragment_to_checkBioPenumpangFragment)
 
