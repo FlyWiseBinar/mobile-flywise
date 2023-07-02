@@ -9,7 +9,7 @@ data class Passenger(
     @SerializedName("birthdate")
     val birthdate: String,
     @SerializedName("createdAt")
-    val createdAt: String ,
+    val createdAt: String,
     @SerializedName("expiredAt")
     val expiredAt: String,
     @SerializedName("id")

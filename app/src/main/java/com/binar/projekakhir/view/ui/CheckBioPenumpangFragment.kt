@@ -57,6 +57,10 @@ class CheckBioPenumpangFragment : Fragment() {
 
         binding.btnLanjut.setOnClickListener {
             val idTicket = HomeVm.getIdTicket()
+            val idDeparture = HomeVm.getIdDep()
+            val idReturn = HomeVm.getIdReturn()
+            val saveidDeparture = HomeVm.saveIdTicket(idDeparture!!)
+            val saveidReturn = HomeVm.saveIdTicket(idReturn!!)
             val id = arguments?.getInt("id")
             val dewasa = HomeVm.getPenumpangDewasa()
             val anak = HomeVm.getPenumpangAnak()
@@ -66,11 +70,13 @@ class CheckBioPenumpangFragment : Fragment() {
             val dataList = CheckVm.getDataList()
             Log.d("Hasil Pencarian", "$dataList")
 
-            val passenger : ArrayList<ticket> = ArrayList()
+//            val passenger : ArrayList<ticket> = ArrayList()
+//
+//            passenger.add(ticket(idTicket!!))
 
-            passenger.add(ticket(idTicket!!))
 
-            val penumpangData = PenumpangRequest(passenger,dataList)
+
+            val penumpangData = PenumpangRoundTripRequest(idDeparture!!,idReturn!! ,dataList)
 
             val token = pref.getString("token", "").toString()
             CheckoutVm.postbiopemesan(token,penumpangData)

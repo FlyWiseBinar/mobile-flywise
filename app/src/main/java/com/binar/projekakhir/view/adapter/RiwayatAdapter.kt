@@ -10,7 +10,7 @@ import com.binar.projekakhir.databinding.ItemRiwayatBinding
 import com.binar.projekakhir.model.history.Order
 import com.binar.projekakhir.model.searchtiket.Data
 
-class RiwayatAdapter(private val listhistory: List<Order>) : RecyclerView.Adapter<RiwayatAdapter.ViewHolder>() {
+class RiwayatAdapter(private val listhistory: List<Order>, private val onSelect:(Order) -> Unit) : RecyclerView.Adapter<RiwayatAdapter.ViewHolder>() {
     class ViewHolder (val binding : ItemRiwayatBinding ) : RecyclerView.ViewHolder(binding.root){
 
     }
@@ -32,10 +32,7 @@ class RiwayatAdapter(private val listhistory: List<Order>) : RecyclerView.Adapte
         holder.binding.tvPriceFlightRiwayat.text = listhistory[position].schedule.provTotalPrice.toString()
 
         holder.binding.detailriwayat.setOnClickListener {
-            val id = listhistory[position].id
-            val bundle = Bundle()
-            bundle.putInt("id",id)
-            Navigation.findNavController(it).navigate(R.id.action_riwayatFragment2_to_detailNonLoginFragment,bundle)
+            onSelect(listhistory[position])
 
         }
 

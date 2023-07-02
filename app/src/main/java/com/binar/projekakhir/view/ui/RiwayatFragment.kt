@@ -16,9 +16,11 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.binar.projekakhir.R
 import com.binar.projekakhir.databinding.FragmentRiwayatBinding
 import com.binar.projekakhir.view.adapter.RiwayatAdapter
+import com.binar.projekakhir.view.adapter.TicketAdapter
 import com.binar.projekakhir.viewmodel.HistoryViewModel
 import com.binar.projekakhir.viewmodel.HomeViewModel
 import com.binar.projekakhir.viewmodel.UserViewModel
@@ -30,7 +32,9 @@ import kotlin.math.log
 class RiwayatFragment : Fragment() {
     private lateinit var binding : FragmentRiwayatBinding
     private lateinit var pref : SharedPreferences
+    private lateinit var riwayatAdapter: RiwayatAdapter
     private val HistoryVm : HistoryViewModel by viewModels()
+    private val homeVm : HomeViewModel by viewModels()
 
 
 
@@ -87,12 +91,18 @@ class RiwayatFragment : Fragment() {
         val token = pref.getString("token", "").toString()
         HistoryVm.gethistory(token)
         Log.d("historytoken", token)
-        HistoryVm.livehistory.observe(viewLifecycleOwner, Observer {
-            binding.rvRiwayat.layoutManager = LinearLayoutManager(
-                context,LinearLayoutManager.VERTICAL,false)
-            binding.rvRiwayat.adapter = RiwayatAdapter(it)
-
-        })
+        HistoryVm.livehistory.observe(viewLifecycleOwner){
+            binding.rvRiwayat.apply {
+                layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL,false)
+                 riwayatAdapter= RiwayatAdapter(it){ itemTicket ->
+                    val id = homeVm.getIdTicket()
+                    val bundle = Bundle()
+                    bundle.putInt("id",id!!)
+                    findNavController().navigate(R.id.action_riwayatFragment2_to_checkoutFragment,bundle)
+                }
+                adapter  = riwayatAdapter
+            }
+        }
     }
 
 

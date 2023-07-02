@@ -4,11 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.binar.projekakhir.model.checkout.Data
-import com.binar.projekakhir.model.checkout.Passenger
-import com.binar.projekakhir.model.checkout.PenumpangRequest
+import com.binar.projekakhir.model.checkout.PenumpangRoundTripRequest
 import com.binar.projekakhir.model.checkout.PostCheckoutResponse
-import com.binar.projekakhir.model.checkoutrequest.GetCheckoutRequest
 import com.binar.projekakhir.model.paymentcreate.GetPaymentCreateResponse
 import com.binar.projekakhir.network.ApiService
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -25,7 +22,7 @@ class CheckoutViewModel @Inject constructor(var api : ApiService) : ViewModel() 
     val livebiopemesanan : LiveData<PostCheckoutResponse> = _biopemesanan
 
 
-    fun postbiopemesan(token : String, data : PenumpangRequest){
+    fun postbiopemesan(token : String, data : PenumpangRoundTripRequest){
         api.postcheckout("Bearer $token", data).enqueue(object : Callback<PostCheckoutResponse>{
             override fun onResponse(
                 call: Call<PostCheckoutResponse>,
@@ -48,9 +45,9 @@ class CheckoutViewModel @Inject constructor(var api : ApiService) : ViewModel() 
     }
 
 
-//    val _payment : MutableLiveData<GetPaymentCreateResponse> = MutableLiveData()
-//
-//    val livepemesan : LiveData<GetPaymentCreateResponse> =
+
+
+
 
 
 }

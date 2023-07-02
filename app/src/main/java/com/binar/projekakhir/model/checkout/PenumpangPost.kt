@@ -12,14 +12,21 @@ var nationality : String,
 var passport : String
 )
 
-data class ticket(
-    var id : Int
-)
 
-data class PenumpangRequest(
-    val schedule : List<ticket>,
+
+//data class ticket(
+//    var id : Int
+//)
+//
+//data class PenumpangRequest(
+//    val schedule : List<ticket>,
+//    val passenger:List<PenumpangPost>,
+//)
+
+data class PenumpangRoundTripRequest(
+    val departTicketId:Int,
+    val returnTicketId : Int,
     val passenger:List<PenumpangPost>,
-
 )
 
 

@@ -6,14 +6,13 @@ import com.binar.projekakhir.model.auth.otp.SendOtpResponse
 import com.binar.projekakhir.model.auth.otp.VerifyOtpResponse
 import com.binar.projekakhir.model.auth.resetpassword.ResetPassPost
 import com.binar.projekakhir.model.auth.resetpassword.UpdateProfilePost
-import com.binar.projekakhir.model.checkout.Passenger
-import com.binar.projekakhir.model.checkout.PenumpangRequest
+import com.binar.projekakhir.model.checkout.PenumpangRoundTripRequest
 import com.binar.projekakhir.model.checkout.PostCheckoutResponse
-import com.binar.projekakhir.model.checkoutrequest.GetCheckoutRequest
 import com.binar.projekakhir.model.detail.GetResponseFindSchedulebyId
 import com.binar.projekakhir.model.favorite.GetFavoriteResponse
 import com.binar.projekakhir.model.filterprice.GetFilterPriceResponse
 import com.binar.projekakhir.model.history.GetHistoryResponse
+import com.binar.projekakhir.model.paymentcreate.GetPaymentCreateResponse
 import com.binar.projekakhir.model.searchairport.GetSearchAirportResponse
 import com.binar.projekakhir.model.searchtiket.GetSearchTicketResponse
 import retrofit2.Call
@@ -127,7 +126,7 @@ interface ApiService {
    @POST("order/checkout")
    fun postcheckout(
        @Header("Authorization") token:String,
-       @Body data : PenumpangRequest
+       @Body data : PenumpangRoundTripRequest
    ) : Call<PostCheckoutResponse>
 
    @GET("order/history")
@@ -141,7 +140,7 @@ interface ApiService {
        @Query("paymentCode") paymentCode : String,
        @Query("paymentTypeId") paymentTypeId : Int
 
-   )
+   ) : Call<GetPaymentCreateResponse>
 
 
 
