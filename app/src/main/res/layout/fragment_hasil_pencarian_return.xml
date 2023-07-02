@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:id="@+id/toolbar"
             android:padding="10dp"
-            android:background="@color/DARKBLUE05"
+            android:background="@color/Orange"
             android:minHeight="?attr/actionBarSize">
 
             <LinearLayout
@@ -155,7 +155,7 @@
         android:paddingHorizontal="16dp"
         android:paddingVertical="10dp"
         android:layout_below="@id/layout_toolbar"
-        android:background="@color/DARKBLUE02"
+        android:background="@color/LIMEGREEN03"
         >
 
         <LinearLayout
@@ -310,6 +310,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ganti"
+            android:backgroundTint="@color/Orange"
             app:layout_constraintTop_toBottomOf="@id/grid_line"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="20dp"

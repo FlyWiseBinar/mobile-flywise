@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/toolbar"
             android:paddingVertical="10dp"
-            android:background="@color/DARKBLUE05"
+            android:background="@color/Orange"
             android:minHeight="?attr/actionBarSize">
 
             <ImageView
@@ -115,7 +115,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:backgroundTint="@color/DARKBLUE04"
+            android:backgroundTint="@color/Orange"
             android:text="Pilih" />
 
     </LinearLayout>

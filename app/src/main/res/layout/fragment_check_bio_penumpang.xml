@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/toolbar"
             android:paddingVertical="10dp"
-            android:background="@color/DARKBLUE05   "
+            android:background="@color/Orange"
             android:minHeight="?attr/actionBarSize">
 
             <ImageView
@@ -76,7 +76,7 @@
                         android:text="Data Diri Pemesan"
                         android:textColor="@color/white"
                         android:padding="10dp"
-                        android:background="@color/DARKBLUE03" />
+                        android:background="#D1A266" />
 
                     <LinearLayout
                         android:layout_width="match_parent"

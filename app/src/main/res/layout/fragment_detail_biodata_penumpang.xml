@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/toolbar"
             android:paddingVertical="10dp"
-            android:background="@color/DARKBLUE05"
+            android:background="@color/Orange"
             android:minHeight="?attr/actionBarSize">
 
             <ImageView
@@ -227,7 +227,7 @@
 
             <Button
                 android:id="@+id/btn_simpan"
-                android:backgroundTint="@color/DARKBLUE04"
+                android:backgroundTint="@color/Orange"
                 android:text="Simpan"
                 android:layout_marginTop="24dp"
                 android:layout_width="match_parent"

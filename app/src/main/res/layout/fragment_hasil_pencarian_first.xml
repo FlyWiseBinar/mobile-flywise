@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:id="@+id/toolbar"
             android:padding="10dp"
-            android:background="@color/DARKBLUE05"
+            android:background="@color/Orange"
             android:minHeight="?attr/actionBarSize">
 
             <LinearLayout

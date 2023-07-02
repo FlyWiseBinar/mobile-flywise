@@ -101,7 +101,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         style="@style/Widget.Material3.Button"
-        android:backgroundTint="#7126B5"
+        android:backgroundTint="@color/Orange"
         app:layout_constraintTop_toBottomOf="@id/dateFlight"
         app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

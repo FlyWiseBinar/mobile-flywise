@@ -10,7 +10,7 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
-        android:background="#4B1979"
+        android:background="@color/Orange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
