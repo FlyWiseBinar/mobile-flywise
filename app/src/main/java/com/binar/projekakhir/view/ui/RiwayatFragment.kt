@@ -95,14 +95,16 @@ class RiwayatFragment : Fragment() {
             binding.rvRiwayat.apply {
                 layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL,false)
                  riwayatAdapter= RiwayatAdapter(it){ itemTicket ->
+                     val orderCode = itemTicket.order.orderCode
                     val id = homeVm.getIdTicket()
                     val bundle = Bundle()
-                    bundle.putInt("id",id!!)
-                    findNavController().navigate(R.id.action_riwayatFragment2_to_succeesFragment,bundle)
+                    bundle.putString("orderCode",orderCode)
+                    findNavController().navigate(R.id.action_riwayatFragment2_to_detailRiwayatPesananFragment,bundle)
                 }
                 adapter  = riwayatAdapter
             }
         }
+
     }
 
 

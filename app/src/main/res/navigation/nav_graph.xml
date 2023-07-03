@@ -113,6 +113,9 @@
         <action
             android:id="@+id/action_riwayatFragment2_to_succeesFragment"
             app:destination="@id/succeesFragment" />
+        <action
+            android:id="@+id/action_riwayatFragment2_to_detailRiwayatPesananFragment"
+            app:destination="@id/detailRiwayatPesananFragment" />
     </fragment>
     <fragment
         android:id="@+id/checkBioPenumpangFragment"
@@ -362,6 +365,10 @@
             android:id="@+id/action_bioPenumpangFragment_to_checkoutFragment"
             app:destination="@id/checkoutFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/detailRiwayatPesananFragment"
+        android:name="com.binar.projekakhir.view.ui.DetailRiwayatPesananFragment"
+        android:label="DetailRiwayatPesananFragment" />
     <!--    <fragment-->
     <!--        android:id="@+id/hasilPencarianFragmentTodialogFilter"-->
     <!--        android:name="com.binar.projekakhir.view.ui.PilihDestinasiToFragment"-->

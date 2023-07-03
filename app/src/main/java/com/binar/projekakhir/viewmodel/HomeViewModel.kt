@@ -254,6 +254,7 @@ class HomeViewModel @Inject constructor(var api:ApiService,
         return sharedPreferences.getInt("idTicket",0)
     }
 
+
     fun getArrivedDate(): String? {
         val nameMonth = ArrayList<String>()
         nameMonth.add("Januari")

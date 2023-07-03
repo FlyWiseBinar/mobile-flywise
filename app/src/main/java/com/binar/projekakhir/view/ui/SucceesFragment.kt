@@ -14,6 +14,7 @@ import com.binar.projekakhir.R
 import com.binar.projekakhir.databinding.FragmentSucceesBinding
 import com.binar.projekakhir.util.Utill
 import com.binar.projekakhir.viewmodel.DetailViewModel
+import com.binar.projekakhir.viewmodel.HistoryViewModel
 import com.binar.projekakhir.viewmodel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,6 +25,8 @@ class SucceesFragment : Fragment() {
     private val DetailVm: DetailViewModel by viewModels()
     private lateinit var pref : SharedPreferences
     private val homeVm : HomeViewModel by viewModels()
+    private val histoVm : HistoryViewModel by viewModels()
+
 
 
     override fun onCreateView(
@@ -137,6 +140,8 @@ class SucceesFragment : Fragment() {
                     val totalHarga = totalHargaDewasa + totalHargaAnak + totalHargaBayi + jumlahTax
                     val zprice = Utill.getPriceIdFormat(totalHarga)
                     tvPriceTicket.text = zprice
+
+
                 }
             } else {
                 Log.e("DetailPenerbangan", "detailTicket is null")

@@ -42,6 +42,7 @@ class CheckoutFragment : Fragment() {
 
 //        val sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
          val id = homeVm.getIdTicket()
+
         val dewasa = homeVm.getPenumpangDewasa()
         val anak = homeVm.getPenumpangAnak()
         val bayi = homeVm.getPenumpangBayi()

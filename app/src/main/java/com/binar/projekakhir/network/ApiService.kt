@@ -12,6 +12,7 @@ import com.binar.projekakhir.model.detail.GetResponseFindSchedulebyId
 import com.binar.projekakhir.model.favorite.GetFavoriteResponse
 import com.binar.projekakhir.model.filterprice.GetFilterPriceResponse
 import com.binar.projekakhir.model.history.GetHistoryResponse
+import com.binar.projekakhir.model.historybyorder.ResponseHistoryByCode
 import com.binar.projekakhir.model.paymentcreate.GetPaymentCreateResponse
 import com.binar.projekakhir.model.searchairport.GetSearchAirportResponse
 import com.binar.projekakhir.model.searchtiket.GetSearchTicketResponse
@@ -133,6 +134,12 @@ interface ApiService {
    fun gethistory(
        @Header("Authorization") token:String
    ) : Call<GetHistoryResponse>
+
+    @GET("order/historysearch")
+    fun getdetailhistory(
+        @Header("Authorization") token:String,
+        @Query("orderCode") orderCode:String
+    ):Call<ResponseHistoryByCode>
 
    @POST("order/payment")
    fun postpayment(
