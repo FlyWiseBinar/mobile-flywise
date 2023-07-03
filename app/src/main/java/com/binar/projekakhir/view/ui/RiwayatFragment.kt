@@ -98,7 +98,7 @@ class RiwayatFragment : Fragment() {
                     val id = homeVm.getIdTicket()
                     val bundle = Bundle()
                     bundle.putInt("id",id!!)
-                    findNavController().navigate(R.id.action_riwayatFragment2_to_checkoutFragment,bundle)
+                    findNavController().navigate(R.id.action_riwayatFragment2_to_succeesFragment,bundle)
                 }
                 adapter  = riwayatAdapter
             }

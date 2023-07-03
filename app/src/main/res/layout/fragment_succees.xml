@@ -46,7 +46,7 @@
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintTop_toBottomOf="@id/appBar"
         tools:layout_editor_absoluteX="0dp">
 
@@ -210,13 +210,15 @@
                         android:textSize="14sp" />
 
                     <TextView
+                        android:id="@+id/namepenumpang1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppinsregular"
                         android:lineHeight="20dp"
-                        android:text="Penumpang 1: Mr. Harry Potter"
+                        android:text="Mr. Harry Potter"
                         android:textColor="#A06ECE"
                         android:textSize="14sp" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -227,11 +229,12 @@
                         android:textSize="14sp" />
 
                     <TextView
+                        android:id="@+id/namepenumpang2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppinsregular"
                         android:lineHeight="20dp"
-                        android:text="Penumpang 2: Miss Hermione"
+                        android:text="Miss Hermione"
                         android:textColor="#A06ECE"
                         android:textSize="14sp" />
 
@@ -338,7 +341,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="60dp"
             android:backgroundTint="@color/Orange"
             android:fontFamily="@font/poppinsmedium"
             android:lineHeight="24dp"

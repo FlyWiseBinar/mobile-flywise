@@ -22,7 +22,7 @@ class PaymentFragment : Fragment() {
     private val detailVm: DetailViewModel by viewModels()
     private lateinit var pref : SharedPreferences
     private val homeVm : HomeViewModel by viewModels()
-    private val navArgs : PaymentFragmentArgs by navArgs()
+//    private val navArgs : PaymentFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,12 +34,12 @@ class PaymentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val id = navArgs.idData?.toInt()
+//        val id = navArgs.idData?.toInt()
 
-        detailVm.getdetailticket(id!!)
-        detailVm._detail.observe(viewLifecycleOwner) {
-
-        }
+//        detailVm.getdetailticket(id!!)
+//        detailVm._detail.observe(viewLifecycleOwner) {
+//
+//        }
     }
 
 

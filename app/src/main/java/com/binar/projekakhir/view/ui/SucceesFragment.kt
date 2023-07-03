@@ -52,6 +52,12 @@ class SucceesFragment : Fragment() {
         val anak = homeVm.getPenumpangAnak()
         val bayi = homeVm.getPenumpangBayi()
 
+        val nama = homeVm.getnama()
+
+        binding.namepenumpang1.text = nama
+        binding.namepenumpang2.text = nama
+
+
         DetailVm.getdetailticket(id!!)
         DetailVm.livedetailticket.observe(viewLifecycleOwner) { detailTicket ->
 

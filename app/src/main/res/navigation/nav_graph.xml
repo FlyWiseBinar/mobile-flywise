@@ -110,6 +110,9 @@
         <action
             android:id="@+id/action_riwayatFragment2_to_checkoutFragment"
             app:destination="@id/checkoutFragment" />
+        <action
+            android:id="@+id/action_riwayatFragment2_to_succeesFragment"
+            app:destination="@id/succeesFragment" />
     </fragment>
     <fragment
         android:id="@+id/checkBioPenumpangFragment"

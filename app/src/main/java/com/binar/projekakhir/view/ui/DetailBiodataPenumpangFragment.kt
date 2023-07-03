@@ -12,20 +12,24 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.binar.projekakhir.R
 import com.binar.projekakhir.databinding.FragmentDetailBiodataPenumpangBinding
 import com.binar.projekakhir.model.checkout.PenumpangPost
 import com.binar.projekakhir.viewmodel.CheckViewModel
+import com.binar.projekakhir.viewmodel.HomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
-
+@AndroidEntryPoint
 class DetailBiodataPenumpangFragment : Fragment() {
 
     private lateinit var binding : FragmentDetailBiodataPenumpangBinding
     private lateinit var pref: SharedPreferences
     private val CheckVM:CheckViewModel by activityViewModels()
     private var titleAd:String? = null
+    private val homeVm : HomeViewModel by viewModels()
 
 
     override fun onCreateView(
@@ -116,6 +120,9 @@ class DetailBiodataPenumpangFragment : Fragment() {
             val kewarganegaraan = binding.edtKewarganegaraan.text.toString()
             val ktp = binding.edtKtp.text.toString()
 
+
+
+
 //            Log.d("detail biodata", "$title")
 
 //            dataList[indexPenumpang!!].title = title
@@ -124,6 +131,8 @@ class DetailBiodataPenumpangFragment : Fragment() {
             dataList[indexPenumpang].dateofbirth = tanggalLahir
             dataList[indexPenumpang].nationality = kewarganegaraan
             dataList[indexPenumpang].ktp = ktp
+
+            homeVm.savenama(name)
 
             findNavController().navigate(R.id.action_detailBiodataPenumpangFragment_to_checkBioPenumpangFragment)
         }
@@ -141,10 +150,14 @@ class DetailBiodataPenumpangFragment : Fragment() {
             val kewarganegaraan = binding.edtKewarganegaraan.text.toString()
             val ktp = binding.edtKtp.text.toString()
 
+//            homeVm.savenama(name)
+
             val dataPenumpang =
                 PenumpangPost("adult", tanggalLahir, "2023-12-12", "Indonesia",ktp,name,kewarganegaraan,"05467891876" )
             CheckVM.addData(dataPenumpang)
             findNavController().navigate(R.id.action_detailBiodataPenumpangFragment_to_checkBioPenumpangFragment)
+
+
 
         }
     }

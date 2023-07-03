@@ -206,6 +206,12 @@ class HomeViewModel @Inject constructor(var api:ApiService,
         editor.apply()
     }
 
+    fun savenama(savenama : String){
+        val editor = sharedPreferences.edit()
+        editor.putString("name", savenama)
+        editor.apply()
+    }
+
     fun getPenumpangDewasa():Int{
         return sharedPreferences.getInt("dewasa",1)
     }
@@ -228,6 +234,10 @@ class HomeViewModel @Inject constructor(var api:ApiService,
 
     fun getIdReturn(): Int?{
         return sharedPreferences.getInt("idReturn",0)
+    }
+
+    fun getnama() : String?{
+        return sharedPreferences.getString("name", "")
     }
 
 
