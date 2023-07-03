@@ -53,6 +53,8 @@ class CheckBioPenumpangFragment : Fragment() {
         UserVm = ViewModelProvider(this).get(UserViewModel::class.java)
         pref = requireContext().getSharedPreferences("Regist", Context.MODE_PRIVATE)
 
+        getdatauser()
+
         initDewasaAdapter()
 
         binding.btnLanjut.setOnClickListener {
@@ -152,5 +154,18 @@ class CheckBioPenumpangFragment : Fragment() {
             isNestedScrollingEnabled = false
             setHasFixedSize(true)
         }
+    }
+
+
+    fun getdatauser(){
+        val token = pref.getString("token", "").toString()
+        UserVm.userprofile(token)
+        UserVm.getProfile.observe(viewLifecycleOwner){
+            Log.d("Profile","email : ${it.email}")
+            binding.tvEmailPemesan.setText(it.email)
+            binding.tvNoTelfonPemesan.setText(it.telephone)
+            binding.tvNamaLengkapPemesan.setText(it.fullName)
+        }
+
     }
 }

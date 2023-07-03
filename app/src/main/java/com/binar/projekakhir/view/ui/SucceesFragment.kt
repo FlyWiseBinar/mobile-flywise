@@ -48,7 +48,6 @@ class SucceesFragment : Fragment() {
             findNavController().navigate(R.id.action_succeesFragment_to_homeFragment2)
         }
 
-        pref = requireContext().getSharedPreferences("Regist", Context.MODE_PRIVATE)
 
         val id = homeVm.getIdTicket()
         val dewasa = homeVm.getPenumpangDewasa()
