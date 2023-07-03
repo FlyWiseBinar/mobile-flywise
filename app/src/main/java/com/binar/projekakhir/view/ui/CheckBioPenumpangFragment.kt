@@ -72,6 +72,9 @@ class CheckBioPenumpangFragment : Fragment() {
             val dataList = CheckVm.getDataList()
             Log.d("Hasil Pencarian", "$dataList")
 
+
+
+
 //            val passenger : ArrayList<ticket> = ArrayList()
 //
 //            passenger.add(ticket(idTicket!!))

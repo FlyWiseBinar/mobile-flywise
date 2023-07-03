@@ -150,7 +150,7 @@ class DetailBiodataPenumpangFragment : Fragment() {
             val kewarganegaraan = binding.edtKewarganegaraan.text.toString()
             val ktp = binding.edtKtp.text.toString()
 
-//            homeVm.savenama(name)
+            homeVm.savenama(name)
 
             val dataPenumpang =
                 PenumpangPost("adult", tanggalLahir, "2023-12-12", "Indonesia",ktp,name,kewarganegaraan,"05467891876" )

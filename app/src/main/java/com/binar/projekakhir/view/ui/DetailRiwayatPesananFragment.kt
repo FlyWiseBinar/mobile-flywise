@@ -116,11 +116,12 @@ class DetailRiwayatPesananFragment : Fragment() {
                     tvDateArrive.text = getdetail.schedule.arrivedDate
                     tvArriveAirport.text = getdetail.schedule.destinationAirport.name
 
-                    val saveNama = getdetail.order.user.fullName
-                    namepassenger1.text = saveNama
-                    namepassenger2.text = saveNama
+                    val getnama = homeVm.getnama()
+//                    val saveNama = getdetail.order.user.fullName
+                    namepassenger1.text = getnama
+                    namepassenger2.text = getnama
 
-                    homeVm.savenama(saveNama)
+
 
 
 
