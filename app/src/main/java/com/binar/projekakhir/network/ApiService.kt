@@ -149,11 +149,7 @@ interface ApiService {
 
    ) : Call<GetPaymentCreateResponse>
 
-//    @GET("order/historysearch")
-//    fun getdetailhistory(
-//        @Header("Authorization") token:String,
-//        @Query("orderCode") orderCode:String
-//    ):Call<ResponseHistoryByCode>
+
 
 
 

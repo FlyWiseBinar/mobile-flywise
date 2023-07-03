@@ -22,7 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class DetailRiwayatPesananFragment : Fragment() {
     lateinit var binding : FragmentDetailRiwayatPesananBinding
     private lateinit var pref : SharedPreferences
-//    private val homeVm : HomeViewModel by viewModels()
+    private val homeVm : HomeViewModel by viewModels()
     private val histoVm : HistoryViewModel by viewModels()
 
 
@@ -54,9 +54,9 @@ class DetailRiwayatPesananFragment : Fragment() {
 
         val token = pref.getString("token", "").toString()
 
-//        val dewasa = homeVm.getPenumpangDewasa()
-//        val anak = homeVm.getPenumpangAnak()
-//        val bayi = homeVm.getPenumpangBayi()
+        val dewasa = homeVm.getPenumpangDewasa()
+        val anak = homeVm.getPenumpangAnak()
+        val bayi = homeVm.getPenumpangBayi()
 
 //        val orderCode = histoVm.getOrderCode()
 
@@ -116,36 +116,39 @@ class DetailRiwayatPesananFragment : Fragment() {
                     tvDateArrive.text = getdetail.schedule.arrivedDate
                     tvArriveAirport.text = getdetail.schedule.destinationAirport.name
 
-//                    binding.txtAdult.text = "$dewasa Adults"
-//                    binding.txtKids.text = "$anak Kids"
-//                    binding.txtBaby.text = "$bayi Baby"
+                    namepassenger1.text = getdetail.order.user.fullName
+                    namepassenger2.text = getdetail.order.user.fullName
 
-//                    //Jumlah Dewasa
-//                    val jumlahDewasa: Int = dewasa
-//                    val harga = getdetail.schedule.adultPrice
-//                    val totalHargaDewasa = jumlahDewasa * harga
-//                    priceadult.text = totalHargaDewasa.toString()
-//
-//                    //Jumlah Anak
-//                    val jumlahAnak: Int = anak
-//                    val hargaAnak = getdetail.schedule.kidsPrice
-//                    val totalHargaAnak = jumlahAnak * hargaAnak
-//                    pricekids.text = totalHargaAnak.toString()
-//
-//                    //Jumlah Bayi
-//                    val jumlahBayi: Int = bayi
-//                    val hargaBayi = getdetail.schedule.babyPrice
-//                    val totalHargaBayi = jumlahBayi * hargaBayi
-//                    pricebaby.text = totalHargaBayi.toString()
+                    binding.txtAdult.text = "$dewasa Adults"
+                    binding.txtKids.text = "$anak Kids"
+                    binding.txtBaby.text = "$bayi Baby"
+
+                    //Jumlah Dewasa
+                    val jumlahDewasa: Int = dewasa
+                    val harga = getdetail.schedule.adultPrice
+                    val totalHargaDewasa = jumlahDewasa * harga
+                    priceadult.text = totalHargaDewasa.toString()
+
+                    //Jumlah Anak
+                    val jumlahAnak: Int = anak
+                    val hargaAnak = getdetail.schedule.kidsPrice
+                    val totalHargaAnak = jumlahAnak * hargaAnak
+                    pricekids.text = totalHargaAnak.toString()
+
+                    //Jumlah Bayi
+                    val jumlahBayi: Int = bayi
+                    val hargaBayi = getdetail.schedule.babyPrice
+                    val totalHargaBayi = jumlahBayi * hargaBayi
+                    pricebaby.text = totalHargaBayi.toString()
 
                     //Tax
                     priceTax.text = getdetail.schedule.taxPrice.toString()
 
-//                    //Total
-//                    val jumlahTax = getdetail.schedule.taxPrice
-//                    val totalHarga = totalHargaDewasa + totalHargaAnak + totalHargaBayi + jumlahTax
-//                    val zprice = Utill.getPriceIdFormat(totalHarga)
-//                    tvPriceTicket.text = zprice
+                    //Total
+                    val jumlahTax = getdetail.schedule.taxPrice
+                    val totalHarga = totalHargaDewasa + totalHargaAnak + totalHargaBayi + jumlahTax
+                    val zprice = Utill.getPriceIdFormat(totalHarga)
+                    tvPriceTicket.text = zprice
 
 
                 }

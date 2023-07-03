@@ -223,7 +223,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppinsregular"
                         android:lineHeight="20dp"
-                        android:text="ID: NULL"
+                        android:text="ID: 7532"
                         android:textColor="#000000"
                         android:textSize="14sp" />
 
@@ -242,7 +242,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppinsregular"
                         android:lineHeight="20dp"
-                        android:text="ID: NULL"
+                        android:text="ID: 8534"
                         android:textColor="#000000"
                         android:textSize="14sp" />
                 </LinearLayout>
