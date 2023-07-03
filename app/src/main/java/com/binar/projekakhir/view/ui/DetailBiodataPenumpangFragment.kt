@@ -132,7 +132,7 @@ class DetailBiodataPenumpangFragment : Fragment() {
             dataList[indexPenumpang].nationality = kewarganegaraan
             dataList[indexPenumpang].ktp = ktp
 
-            homeVm.savenama(name)
+
 
             findNavController().navigate(R.id.action_detailBiodataPenumpangFragment_to_checkBioPenumpangFragment)
         }

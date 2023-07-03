@@ -116,8 +116,13 @@ class DetailRiwayatPesananFragment : Fragment() {
                     tvDateArrive.text = getdetail.schedule.arrivedDate
                     tvArriveAirport.text = getdetail.schedule.destinationAirport.name
 
-                    namepassenger1.text = getdetail.order.user.fullName
-                    namepassenger2.text = getdetail.order.user.fullName
+                    val saveNama = getdetail.order.user.fullName
+                    namepassenger1.text = saveNama
+                    namepassenger2.text = saveNama
+
+                    homeVm.savenama(saveNama)
+
+
 
                     binding.txtAdult.text = "$dewasa Adults"
                     binding.txtKids.text = "$anak Kids"

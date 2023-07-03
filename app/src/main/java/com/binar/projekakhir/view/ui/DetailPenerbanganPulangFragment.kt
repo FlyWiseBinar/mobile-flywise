@@ -68,10 +68,12 @@ class DetailPenerbanganPulangFragment : Fragment() {
 
                     txtLamaPerjalanan.text = "(${hourDiff}h ${minuteDiff}m)"
                     tvAirplaneCode.visibility = View.GONE
-                    txtBandaraAwal.text = getDetail!!.originAirport.name
-                    txtBandaraTujuan.text = getDetail.destinationAirport.name
-                    txtKeberangkatan.text = getDetail.originAirport.city
-                    txtTujuan.text = getDetail.destinationAirport.city
+                    txtBandaraAwal.text = getDetail!!.destinationAirport.name
+                    txtBandaraTujuan.text = getDetail.originAirport.name
+
+                    txtKeberangkatan.text = getDetail.destinationAirport.city
+                    txtTujuan.text = getDetail.originAirport.city
+
                     txtJamBerangkat.text = getDetail.departureTime
                     tvPesawat.text = getDetail.plane.airline.airlineName
                     txtTanggalBerangkat.text = getDetail.departureDate
