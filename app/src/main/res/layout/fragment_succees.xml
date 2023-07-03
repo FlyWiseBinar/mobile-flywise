@@ -325,14 +325,150 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/layoutrincianharga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/relativeLayout2"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rincian Harga"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/txtAdult"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2 Adults"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/priceadult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IDR 9.550.000"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/txtBaby"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1 Baby"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/pricebaby"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IDR 0"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/txtKids"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Kids"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/pricekids"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IDR 300.000"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Tax"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/priceTax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IDR 0"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/txtPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Total"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPriceTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="IDR 9.550.000"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints">
-
-
+        app:layout_constraintTop_toBottomOf="@id/layoutrincianharga">
 
         <Button
             android:id="@+id/btnSelectFlight"
@@ -354,141 +490,4 @@
             app:layout_constraintTop_toBottomOf="parent" />
 
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/rincian1"
-        android:layout_width="171dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:fontFamily="@font/poppinsbold"
-            android:lineHeight="20dp"
-            android:text="Rincian Harga"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/txtAdult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppinsregular"
-            android:lineHeight="20dp"
-            android:text="2 Adults"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/txtKids"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppinsregular"
-            android:lineHeight="20dp"
-            android:text="x Kids"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/txtBaby"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppinsregular"
-            android:lineHeight="20dp"
-            android:text="x Baby"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/txtTax"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppinsregular"
-            android:lineHeight="20dp"
-            android:text="Tax"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/tvTotal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppinsbold"
-            android:lineHeight="20dp"
-            android:text="Total"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="123dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="272dp"
-        android:layout_marginTop="24dp"
-        android:orientation="vertical"
-        app:layout_constraintRight_toRightOf="@+id/rincian1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
-        tools:ignore="MissingConstraints">
-
-
-        <TextView
-            android:id="@+id/priceadult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppinsregular"
-            android:lineHeight="20dp"
-            android:text="IDR 9.550.000"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/pricekids"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppinsregular"
-            android:lineHeight="20dp"
-            android:text="IDR 0"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/pricebaby"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppinsregular"
-            android:lineHeight="20dp"
-            android:text="IDR 300.000"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/priceTax"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppinsregular"
-            android:lineHeight="20dp"
-            android:text="IDR 300.000"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/tvPriceTicket"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppinsbold"
-            android:lineHeight="20dp"
-            android:text="IDR 9.850.000"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

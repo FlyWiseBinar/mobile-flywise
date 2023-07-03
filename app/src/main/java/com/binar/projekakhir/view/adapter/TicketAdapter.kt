@@ -18,10 +18,16 @@ class TicketAdapter(private val listticket: List<Data>, private val onSelect:(Da
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.tvJamberangkat.text = listticket[position].departureTime
+        val departureTime = listticket[position].departureTime
+        val formattedTime = departureTime.substring(0, 5)
+        holder.binding.tvJamberangkat.text = formattedTime
+
+        val arriveTime = listticket[position].arrivedTime
+        val formattedTimeArr = arriveTime.substring(0, 5)
+        holder.binding.tvJamkedatangan.text = formattedTimeArr
+
         holder.binding.lokasiberangkat.text = listticket[position].originAirport.airportCode
         holder.binding.durasikeberangkatan.text = listticket[position].durationInSecond.toString()
-        holder.binding.tvJamkedatangan.text = listticket[position].arrivedTime
         holder.binding.lokasikedatangan.text = listticket[position].destinationAirport.airportCode
         holder.binding.namapesawat.text = listticket[position].plane.airline.airlineName
         val price = Utill.getPriceIdFormat(listticket[position].provTotalPrice)

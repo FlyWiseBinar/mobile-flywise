@@ -105,7 +105,10 @@ class SucceesFragment : Fragment() {
                     val planeNclassText = "$airlineName - $className"
                     planeNclass.setText(planeNclassText)
 
-                    tvTimeArrive.text = getdetail.arrivedTime
+                    val arriveTime = getdetail.arrivedTime
+                    val formattedTimeArr = arriveTime.substring(0, 5)
+                    tvTimeArrive.text = formattedTimeArr
+
                     tvDateArrive.text = getdetail.arrivedDate
                     tvArriveAirport.text = getdetail.destinationAirport.name
 

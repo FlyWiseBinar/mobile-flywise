@@ -83,7 +83,6 @@ class CheckoutFragment : Fragment() {
                     nomorseri.text = getdetail.plane.airline.airlineCode
                     tvDepartureAirport.text = getdetail.originAirport.name
                     tvDateDeparture.text = getdetail.departureDate
-                    tvTimeDeparture.text = getdetail.departureTime
                     tvFlightAsal.text = getdetail.originAirport.city
                     tvFlightDestination.text = getdetail.destinationAirport.city
 
@@ -104,6 +103,19 @@ class CheckoutFragment : Fragment() {
 
                     tvTimeArrive.text = getdetail.arrivedTime
                     tvDateArrive.text = getdetail.arrivedDate
+
+
+                    val departureTime = getdetail.departureTime
+                    val formattedTime = departureTime.substring(0, 5)
+                    tvTimeDeparture.text = formattedTime
+
+                    val arriveTime = getdetail.arrivedTime
+                    val formattedTimeArr = arriveTime.substring(0, 5)
+                    tvTimeArrive.text = formattedTimeArr
+
+
+
+
                     tvArriveAirport.text = getdetail.destinationAirport.name
 
 
