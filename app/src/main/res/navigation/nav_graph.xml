@@ -169,6 +169,11 @@
         <action
             android:id="@+id/action_paymentFragment_to_succeesFragment"
             app:destination="@id/succeesFragment" />
+        <argument
+            android:name="idData"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="idData" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment2"

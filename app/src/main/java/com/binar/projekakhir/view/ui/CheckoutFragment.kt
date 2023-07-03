@@ -26,6 +26,7 @@ class CheckoutFragment : Fragment() {
     private val homeVm : HomeViewModel by viewModels()
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -145,8 +146,9 @@ class CheckoutFragment : Fragment() {
             homeVm.saveIdTicket(id)
             if (pref.getString("token", "").toString().isNotEmpty()) {
                 if (findNavController().currentDestination!!.id == R.id.checkoutFragment) {
-
-                    findNavController().navigate(R.id.action_checkoutFragment_to_succeesFragment)
+                    val stringID = id.toString()
+                    val action = CheckoutFragmentDirections.actionCheckoutFragmentToPaymentFragment(stringID)
+                    findNavController().navigate(action)
                 }
 
             } else {
