@@ -145,10 +145,9 @@ class CheckoutFragment : Fragment() {
         binding.btnSelectFlight.setOnClickListener {
             homeVm.saveIdTicket(id)
             if (pref.getString("token", "").toString().isNotEmpty()) {
-                if (findNavController().currentDestination!!.id == R.id.checkoutFragment) {
-                    val stringID = id.toString()
-                    val action = CheckoutFragmentDirections.actionCheckoutFragmentToPaymentFragment(stringID)
-                    findNavController().navigate(action)
+                if (findNavController().currentDestination!!.id == R.id.checkout_rincianFragment) {
+
+                    findNavController().navigate(R.id.action_checkoutFragment_to_succeesFragment)
                 }
 
             } else {
