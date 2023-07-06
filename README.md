@@ -13,7 +13,7 @@
 </div>
 
 # Android C4 Nama Anggota Kelompok
-1. Ilham Okta Apriansyah
+1. Ilham Okta Alpriansyah
 2. Husni Nabil Fareno
 3. Pricilia Yusoko Putri
   
