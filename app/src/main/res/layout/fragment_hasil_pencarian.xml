@@ -61,7 +61,8 @@
                 android:minHeight="48dp"
                 app:hintEnabled="false"
                 app:hintAnimationEnabled="false"
-                app:boxBackgroundMode="outline">
+                app:boxBackgroundMode="outline"
+                android:layout_marginBottom="15dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etDate"
@@ -78,6 +79,7 @@
                     android:minHeight="48dp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
+
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -87,6 +89,7 @@
 
 
     </com.google.android.material.appbar.AppBarLayout>
+
 
 
     <androidx.recyclerview.widget.RecyclerView

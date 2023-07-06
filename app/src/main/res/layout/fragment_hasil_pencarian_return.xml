@@ -169,7 +169,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <TextView
-                android:id="@+id/tv_jam_keberangkatan"
+                android:id="@+id/timedeparture"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="07:00"
@@ -177,7 +177,7 @@
                 />
 
             <TextView
-                android:id="@+id/tv_kota_keberangkatan"
+                android:id="@+id/kotaasal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="JKT"
@@ -196,7 +196,7 @@
             app:layout_constraintLeft_toRightOf="@id/layout_keberangkatan">
 
             <TextView
-                android:id="@+id/tv_durasi"
+                android:id="@+id/durasiperjalanan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4h 0m"
@@ -231,7 +231,7 @@
             app:layout_constraintLeft_toRightOf="@id/layout_duration">
 
             <TextView
-                android:id="@+id/tv_jam_sampai"
+                android:id="@+id/timearrived"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="11:00"
@@ -239,7 +239,7 @@
                 />
 
             <TextView
-                android:id="@+id/tv_kota_sampai"
+                android:id="@+id/kotatujuan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="MLB"
@@ -290,7 +290,7 @@
             app:layout_constraintLeft_toRightOf="@id/iv_maskapain">
 
             <TextView
-                android:id="@+id/tv_pesawat"
+                android:id="@+id/namapesawat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Jet Air - Economy"

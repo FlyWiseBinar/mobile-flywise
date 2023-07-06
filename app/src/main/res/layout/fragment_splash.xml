@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:background="@color/black"
-        android:padding="50dp"
-        android:src="@drawable/flywise" />
+        android:background="@drawable/color_splash"
+        android:padding="40dp"
+        android:src="@drawable/logo" />
 </RelativeLayout>

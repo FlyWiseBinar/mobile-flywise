@@ -14,7 +14,8 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="52dp"
         android:text="@string/masuk"
-        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -48,6 +49,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_email"
+            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email / Nomor telepon" />
@@ -72,6 +74,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_password"
+            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="password"
@@ -83,13 +86,14 @@
         android:id="@+id/btn_signin"
         style="@style/Widget.Material3.Button"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="48dp"
+        android:fontFamily="@font/poppinsmedium"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="72dp"
         android:layout_marginRight="30dp"
         android:backgroundTint="@color/Orange"
-        android:text="masuk"
-        android:textSize="25sp"
+        android:text="Masuk"
+        android:textSize="18sp"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,7 +105,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="Belum punya akun?"
-        android:textSize="20sp"
+        style="@style/TextBody10Regular"
+        android:textSize="18sp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -113,8 +119,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="Sign here!"
+        style="@style/TextBody10Regular"
         android:textColor="@color/blue"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -122,27 +129,30 @@
 
     <TextView
         android:id="@+id/email_nomor"
-        android:layout_width="137dp"
-        android:layout_height="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextBody10Regular"
         android:layout_marginStart="28dp"
         android:layout_marginTop="20dp"
         android:gravity="top"
         android:lineSpacingExtra="0sp"
         android:text="Email / Nomor Telepon"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_signin"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="137dp"
-        android:layout_height="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextBody10Regular"
         android:layout_marginStart="28dp"
         android:layout_marginTop="16dp"
         android:text="Password"
+        android:textSize="18sp"
         android:textColor="@color/black"
-        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/til_email" />
 

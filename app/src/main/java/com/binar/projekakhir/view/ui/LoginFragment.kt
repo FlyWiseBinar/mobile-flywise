@@ -75,6 +75,14 @@ class LoginFragment : Fragment() {
 
         }
 
+        userVm.setDataMessage()
+
+            userVm.toastMessage.observe(viewLifecycleOwner){
+            if(it != null){
+                Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+            }
+        }
+
 
     }
 
@@ -86,8 +94,12 @@ class LoginFragment : Fragment() {
 //            listuserlogin = it
 //            loginAuth(listuserlogin)
                 if(it.status == true){
-                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
-                    Toast.makeText(context,"User Berhasil Login", Toast.LENGTH_SHORT).show()
+                    val currentDestination = findNavController().currentDestination
+                    if (currentDestination?.id == R.id.loginFragment) {
+                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
+                        Toast.makeText(context, "User Berhasil Login", Toast.LENGTH_SHORT).show()
+                    }
+
                 }else{
                     Toast.makeText(context, "Login Failed", Toast.LENGTH_SHORT).show()
                 }

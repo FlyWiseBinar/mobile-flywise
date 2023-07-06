@@ -55,10 +55,10 @@ class HasilPencarianReturnFragment : Fragment() {
 
         val idDeparture = arguments?.getInt("idDep")
 
-        dateToolbarDeparture(dateDeparture)
-        dateToolbarReturn(dateRetun)
-        returnOnly(cityTo, cityFrom, dateDeparture,dateRetun)
-        getDepartureTicket(idDeparture)
+        kalenderdeparture(dateDeparture)
+        kalenderreturn(dateRetun)
+        getTicketTujuan(cityTo, cityFrom, dateDeparture,dateRetun)
+        getTicketKeberangkatan(idDeparture)
 
 
 
@@ -76,22 +76,22 @@ class HasilPencarianReturnFragment : Fragment() {
 
     }
 
-    private fun getDepartureTicket(idDeparture: Int?) {
+    private fun getTicketKeberangkatan(idDeparture: Int?) {
         detailViewModel.getdetailticket(idDeparture!!)
         detailViewModel.livedetailticket.observe(viewLifecycleOwner){it ->
             val dataItemTicket = it.data
 
-            val timeTakeoff = dataItemTicket?.departureTime
-            val timeLanding = dataItemTicket?.arrivedTime
+            val timedeparture = dataItemTicket?.departureTime
+            val timearrived = dataItemTicket?.arrivedTime
 
-            val takeOffSplit = timeTakeoff?.split(":")
-            val landingSplit = timeLanding?.split(":")
+            val timedepartureSplit = timedeparture?.split(":")
+            val timearrivedSplit = timearrived?.split(":")
 
-            val takeOffHour = takeOffSplit!![0].toInt()
-            val takeOffMinute = takeOffSplit!![1].toInt()
+            val takeOffHour = timedepartureSplit!![0].toInt()
+            val takeOffMinute = timedepartureSplit!![1].toInt()
 
-            val landingHour = landingSplit!![0].toInt()
-            val landingMinute = landingSplit!![1].toInt()
+            val landingHour = timearrivedSplit!![0].toInt()
+            val landingMinute = timearrivedSplit!![1].toInt()
 
             var hourDiff = landingHour - takeOffHour
             var minuteDiff = landingMinute - takeOffMinute
@@ -105,20 +105,20 @@ class HasilPencarianReturnFragment : Fragment() {
                 hourDiff += 24
             }
 
-            binding.tvDurasi.text = "${hourDiff}h ${minuteDiff}m"
-            binding.tvJamKeberangkatan.text = dataItemTicket.departureTime
-            binding.tvJamSampai.text = dataItemTicket.arrivedTime
-            binding.tvKotaKeberangkatan.text = dataItemTicket.originAirport.city
-            binding.tvKotaSampai.text = dataItemTicket.destinationAirport.city
+            binding.durasiperjalanan.text = "${hourDiff}h ${minuteDiff}m"
+            binding.timedeparture.text = dataItemTicket.departureTime
+            binding.timearrived.text = dataItemTicket.arrivedTime
+            binding.kotaasal.text = dataItemTicket.originAirport.city
+            binding.kotatujuan.text = dataItemTicket.destinationAirport.city
             val getPrice = arguments?.getInt("pricePergi")
             val price = Utill.getPriceIdFormat(getPrice!!)
             binding.tvHarga.text = price
-            binding.tvPesawat.text = dataItemTicket.plane.airline.airlineName
+            binding.namapesawat.text = dataItemTicket.plane.airline.airlineName
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
-    private fun dateToolbarDeparture(dateDeparture: String?) {
+    private fun kalenderdeparture(dateDeparture: String?) {
         if (dateDeparture != null) {
             binding.etDate.setText(dateDeparture)
             binding.etDate.setOnClickListener {
@@ -153,7 +153,7 @@ class HasilPencarianReturnFragment : Fragment() {
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
-    private fun dateToolbarReturn(dateReturn: String?) {
+    private fun kalenderreturn(dateReturn: String?) {
         if (dateReturn != null) {
             binding.etDateReturn.setText(dateReturn)
             binding.etDateReturn.setOnClickListener {
@@ -189,7 +189,7 @@ class HasilPencarianReturnFragment : Fragment() {
     }
 
 
-    private fun returnOnly(
+    private fun getTicketTujuan(
         cityFrom: String?,
         cityTo: String?,
         seatClass: String?,

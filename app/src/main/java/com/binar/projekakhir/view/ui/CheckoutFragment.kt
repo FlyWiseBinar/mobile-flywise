@@ -114,10 +114,7 @@ class CheckoutFragment : Fragment() {
                     tvTimeArrive.text = formattedTimeArr
 
 
-
-
                     tvArriveAirport.text = getdetail.destinationAirport.name
-
 
                     binding.txtAdult.text = "$dewasa Adults"
                     binding.txtKids.text = "$anak Kids"

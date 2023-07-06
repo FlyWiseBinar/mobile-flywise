@@ -130,16 +130,12 @@
         android:paddingHorizontal="25dp"
         android:paddingTop="18dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Akun"
-            android:textColor="@color/black" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            style="@style/TextBody14Regular"
             android:layout_marginTop="107dp"
             android:text="Maaf, Anda harus login terlebih dahulu"
             android:textColor="@color/black" />
@@ -153,6 +149,8 @@
 
         <Button
             android:id="@+id/btn_login"
+            style="@style/Btn"
+            android:fontFamily="@font/poppinsmedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"

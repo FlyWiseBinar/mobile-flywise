@@ -42,4 +42,7 @@
     <color name="primaryPurple">#7126B5</color>
     <color name="blue">#2196F3</color>
     <color name="neutral_01">#FFFFFF</color>
+
+    <color name="purple_800">#9c27b0</color>
+    <color name="cyan_500">#C1A962</color>
 </resources>

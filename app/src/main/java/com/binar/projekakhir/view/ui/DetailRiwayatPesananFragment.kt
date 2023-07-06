@@ -47,7 +47,7 @@ class DetailRiwayatPesananFragment : Fragment() {
         }
 
         binding.btnSelectFlight.setOnClickListener{
-            findNavController().navigate(R.id.action_succeesFragment_to_homeFragment2)
+            findNavController().navigate(R.id.action_detailRiwayatPesananFragment_to_homeFragment2)
         }
 
         pref = requireContext().getSharedPreferences("Regist", Context.MODE_PRIVATE)

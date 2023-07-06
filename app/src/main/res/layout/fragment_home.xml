@@ -20,385 +20,401 @@
             android:orientation="vertical">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/TopLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="12dp"
-        android:background="@drawable/background_home"
-        app:layout_constraintTop_toTopOf="parent">
-        <TextView
-            android:id="@+id/Title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hei, Mau kemana?"
-            android:textSize="24dp"
-            android:textStyle="bold"
-            android:layout_marginTop="32dp"
-            android:layout_marginStart="12dp"
-            android:textColor="#151515"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="12dp"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintTop_toBottomOf="@id/Title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            >
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/TopLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <!--       departure and arrival-->
-                <RelativeLayout
+                android:paddingBottom="12dp"
+                android:background="@drawable/background_home"
+                app:layout_constraintTop_toTopOf="parent">
+                <TextView
+                    android:id="@+id/Title"
+                    style="@style/TextHeading24Bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hei, Mau kemana?"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginStart="12dp"
+                    android:textColor="#151515"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginEnd="24dp"
-                    android:background="@color/white">
-
-                    <LinearLayout
-                        android:id="@+id/layoutDeparture"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/plane" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="12dp"
-                            android:text="from"
-                            android:textColor="#8A8A8A"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/from"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:lineHeight="24dp"
-                            android:text="Jakarta (JKTA)"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-                    </LinearLayout>
-                    <View
-                        android:id="@+id/gridTop1"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="14dp"
-                        android:layout_marginBottom="14dp"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginEnd="32dp"
-                        android:background="#D0D0D0"
-                        android:layout_below="@id/layoutDeparture"/>
-
-                    <LinearLayout
-                        android:id="@+id/layoutArrival"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/gridTop1"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/plane" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="12dp"
-                            android:text="to"
-                            android:textColor="#8A8A8A"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/to"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:gravity="center"
-                            android:lineHeight="24dp"
-                            android:text="Melbourne (MLB)"
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-                    </LinearLayout>
-
-                    <ImageButton
-                        android:id="@+id/btn_flip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:background="@color/white"
-                        android:src="@drawable/panah"
-                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-                </RelativeLayout>
-                <!--       pulang pergi-->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintTop_toBottomOf="@id/Title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Pulang-pergi?"
-                        android:textColor="#000000"
-                        android:textSize="14sp"
-                        android:layout_alignParentStart="true"
-                        android:layout_centerVertical="true"/>
-
-                    <com.google.android.material.switchmaterial.SwitchMaterial
-                        android:id="@+id/sw_pp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:checked="false"
-                        app:thumbTint="#FFFFFF"
-                        app:trackTint="#4B1979" />
-                </RelativeLayout>
-                <!--       set tanggal -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
-                    android:layout_marginTop="12dp">
-                    <RelativeLayout
-                        android:id="@+id/LayoutdateDeparture"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-                        <ImageView
-                            android:id="@+id/imgDateDeparture"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/date" />
-
-                        <LinearLayout
+                        android:orientation="vertical">
+                        <!--       departure and arrival-->
+                        <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
-                            android:layout_toEndOf="@id/imgDateDeparture"
-                            android:orientation="vertical">
+                            android:layout_marginTop="24dp"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginEnd="24dp"
+                            android:background="@color/white">
 
+                            <LinearLayout
+                                android:id="@+id/layoutDeparture"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/plane" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    style="@style/TextBody12Regular"
+                                    android:layout_marginLeft="12dp"
+                                    android:text="from"
+                                    android:textColor="#8A8A8A"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/from"
+                                    style="@style/TextTitle16Medium"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="20dp"
+                                    android:lineHeight="24dp"
+                                    android:text="Jakarta (JKTA)"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                            <View
+                                android:id="@+id/gridTop1"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginBottom="14dp"
+                                android:layout_marginStart="32dp"
+                                android:layout_marginEnd="32dp"
+                                android:background="#D0D0D0"
+                                android:layout_below="@id/layoutDeparture"/>
+
+                            <LinearLayout
+                                android:id="@+id/layoutArrival"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/gridTop1"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/plane" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    style="@style/TextBody12Regular"
+                                    android:layout_marginLeft="15dp"
+                                    android:paddingRight="12dp"
+                                    android:text="to"
+                                    android:textColor="#8A8A8A"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/to"
+                                    style="@style/TextTitle16Medium"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="20dp"
+                                    android:gravity="center"
+                                    android:lineHeight="24dp"
+                                    android:text="Melbourne (MLB)"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+                            <ImageButton
+                                android:id="@+id/btn_flip"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:background="@color/white"
+                                android:src="@drawable/panah"
+                                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                        </RelativeLayout>
+                        <!--       pulang pergi-->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_marginTop="12dp"
+                            >
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Departure"
-                                android:textColor="#8A8A8A"
-                                android:textSize="14sp" />
-                            <!--                   tanggal menggunakan poppins medium-->
-                            <TextView
-                                android:id="@+id/tanggaldeparture"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="6dp"
-                                android:text="1 Maret 2023"
+                                style="@style/TextBody14Regular"
+                                android:text="Pulang-pergi?"
                                 android:textColor="#000000"
-                                android:textSize="14sp" />
+                                android:textSize="14sp"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"/>
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginTop="10dp"
-                                android:background="#D0D0D0" />
-                        </LinearLayout>
-                    </RelativeLayout>
-                    <!--           pick tanggal kembali-->
-
-                    <RelativeLayout
-                        android:id="@+id/layoutDateReturn"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_weight="1">
-
-                        <ImageView
-                            android:id="@+id/imgDateReturn"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/date" />
-
-                        <LinearLayout
-                            android:id="@+id/returndate"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
-                            android:layout_toEndOf="@id/imgDateReturn"
-                            android:visibility="gone"
-                            android:orientation="vertical">
-
-                            <TextView
+                            <com.google.android.material.switchmaterial.SwitchMaterial
+                                android:id="@+id/sw_pp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Return"
-                                android:textColor="#8A8A8A"
-                                android:textSize="14sp" />
-                            <!--                   tanggal menggunakan poppins medium-->
-                            <TextView
-                                android:id="@+id/tanggalreturn"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="6dp"
-                                android:text="pilih tanggal"
-                                android:textColor="#7126B5"
-                                android:textSize="14sp" />
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginTop="10dp"
-                                android:background="#D0D0D0" />
-                        </LinearLayout>
-                    </RelativeLayout>
-
-
-
-                </LinearLayout>
-                <!--       set passanger and seat class -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
-                    android:layout_marginTop="16dp">
-                    <RelativeLayout
-                        android:id="@+id/LayoutPassangers"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-                        <ImageView
-                            android:id="@+id/imgPassangers"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_passenger"
-                            android:layout_alignParentStart="true"
-                            android:layout_centerVertical="true"/>
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:checked="false"
+                                app:thumbTint="#FFFFFF"
+                                app:trackTint="#4B1979" />
+                        </RelativeLayout>
+                        <!--       set tanggal -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginStart="12dp"
-                            android:layout_toEndOf="@id/imgPassangers">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Passengers"
-                                android:textSize="14sp"
-                                android:textColor="#8A8A8A"/>
-                            <!--                   tanggal menggunakan poppins medium-->
-                            <TextView
-                                android:id="@+id/passenger"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="2 Penumpang"
-                                android:layout_marginTop="6dp"
-                                android:textSize="14sp"
-                                android:textColor="#000000"/>
-                            <View
+                            android:orientation="horizontal"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_marginTop="12dp">
+                            <RelativeLayout
+                                android:id="@+id/LayoutdateDeparture"
                                 android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginTop="10dp"
-                                android:background="#D0D0D0"/>
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:id="@+id/imgDateDeparture"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_centerVertical="true"
+                                    android:src="@drawable/date" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="12dp"
+                                    android:layout_toEndOf="@id/imgDateDeparture"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        style="@style/TextBody14Regular"
+                                        android:text="Departure"
+                                        android:textColor="#8A8A8A"
+                                        android:textSize="14sp" />
+                                    <!--                   tanggal menggunakan poppins medium-->
+                                    <TextView
+                                        android:id="@+id/tanggaldeparture"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        style="@style/TextBody14Medium"
+                                        android:layout_marginTop="6dp"
+                                        android:text="1 Maret 2023"
+                                        android:textColor="#000000"
+                                        android:textSize="14sp" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:layout_marginTop="10dp"
+                                        android:background="#D0D0D0" />
+                                </LinearLayout>
+                            </RelativeLayout>
+                            <!--           pick tanggal kembali-->
+
+                            <RelativeLayout
+                                android:id="@+id/layoutDateReturn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:id="@+id/imgDateReturn"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_centerVertical="true"
+                                    android:src="@drawable/date" />
+
+                                <LinearLayout
+                                    android:id="@+id/returndate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="12dp"
+                                    android:layout_toEndOf="@id/imgDateReturn"
+                                    android:visibility="gone"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        style="@style/TextBody14Regular"
+                                        android:text="Return"
+                                        android:textColor="#8A8A8A"
+                                        android:textSize="14sp" />
+                                    <!--                   tanggal menggunakan poppins medium-->
+                                    <TextView
+                                        android:id="@+id/tanggalreturn"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="6dp"
+                                        android:text="pilih tanggal"
+                                        style="@style/TextBody14Medium"
+                                        android:textColor="#7126B5" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:layout_marginTop="10dp"
+                                        android:background="#D0D0D0" />
+                                </LinearLayout>
+                            </RelativeLayout>
+
+
+
                         </LinearLayout>
-                    </RelativeLayout>
-                    <!--           pick seat class-->
-                    <RelativeLayout
-                        android:id="@+id/layoutSeatClass"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_weight="1">
-                        <ImageView
-                            android:id="@+id/imgSeatClass"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/seat_class"
-                            android:layout_alignParentStart="true"
-                            android:layout_centerVertical="true"/>
+                        <!--       set passanger and seat class -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginStart="12dp"
-                            android:layout_toEndOf="@id/imgSeatClass">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Seat Class"
-                                android:textSize="14sp"
-                                android:textColor="#8A8A8A"/>
-                            <!--                   tanggal menggunakan poppins medium-->
-                            <TextView
-                                android:id="@+id/setclass"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="6dp"
-                                android:text="Business"
-                                android:textColor="#000000"
-                                android:textSize="14sp" />
-
-                            <View
+                            android:orientation="horizontal"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_marginTop="16dp">
+                            <RelativeLayout
+                                android:id="@+id/LayoutPassangers"
                                 android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginTop="10dp"
-                                android:background="#D0D0D0"/>
-                        </LinearLayout>
-                    </RelativeLayout>
-                </LinearLayout>
-                <Button
-                    android:id="@+id/btnCariPenerbangan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Cari Penerbangan"
-                    android:textAllCaps="false"
-                    android:textSize="16sp"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:layout_marginBottom="25dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginEnd="25dp"
-                    android:lineHeight="20dp"
-                    style="@style/Widget.Material3.Button"
-                    android:backgroundTint="@color/Orange"
-                    app:layout_constraintTop_toBottomOf="@id/LayoutPassangers"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-            </LinearLayout>
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+                                <ImageView
+                                    android:id="@+id/imgPassangers"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_passenger"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_centerVertical="true"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_marginStart="12dp"
+                                    android:layout_toEndOf="@id/imgPassangers">
+                                    <TextView
+                                        style="@style/TextBody14Regular"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Passengers"
+                                        android:textSize="14sp"
+                                        android:textColor="#8A8A8A"/>
+                                    <!--                   tanggal menggunakan poppins medium-->
+                                    <TextView
+                                        style="@style/TextBody14Medium"
+                                        android:id="@+id/passenger"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="2 Penumpang"
+                                        android:layout_marginTop="6dp"
+                                        android:textSize="14sp"
+                                        android:textColor="#000000"/>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:layout_marginTop="10dp"
+                                        android:background="#D0D0D0"/>
+                                </LinearLayout>
+                            </RelativeLayout>
+                            <!--           pick seat class-->
+                            <RelativeLayout
+                                android:id="@+id/layoutSeatClass"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="1">
+                                <ImageView
+                                    android:id="@+id/imgSeatClass"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/seat_class"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_centerVertical="true"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_marginStart="12dp"
+                                    android:layout_toEndOf="@id/imgSeatClass">
+                                    <TextView
+                                        style="@style/TextBody14Regular"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Seat Class"
+                                        android:textSize="14sp"
+                                        android:textColor="#8A8A8A"/>
+                                    <!--                   tanggal menggunakan poppins medium-->
+                                    <TextView
+                                        style="@style/TextBody14Medium"
+                                        android:id="@+id/setclass"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="6dp"
+                                        android:text="Business"
+                                        android:textColor="#000000"
+                                        android:textSize="14sp" />
 
-        </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:layout_marginTop="10dp"
+                                        android:background="#D0D0D0"/>
+                                </LinearLayout>
+                            </RelativeLayout>
+                        </LinearLayout>
+                        <Button
+                            android:fontFamily="@font/poppinsmedium"
+                            android:id="@+id/btnCariPenerbangan"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="CARI PENERBANGAN"
+                            android:textAllCaps="false"
+                            android:textSize="16sp"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:layout_marginBottom="25dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginStart="25dp"
+                            android:layout_marginEnd="25dp"
+                            android:lineHeight="20dp"
+                            style="@style/Widget.Material3.Button"
+                            android:backgroundTint="@color/Orange"
+                            app:layout_constraintTop_toBottomOf="@id/LayoutPassangers"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             <TextView
                 android:id="@+id/TitleDestinationFavorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/TextTitle16Medium"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="12dp"
                 android:text="Destination Favorite"
@@ -414,11 +430,12 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="50dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:listitem="@layout/item_favourite"
                 app:layout_constraintTop_toBottomOf="@id/TitleDestinationFavorite"/>
-    <!--add scrollview-->
+            <!--add scrollview-->
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

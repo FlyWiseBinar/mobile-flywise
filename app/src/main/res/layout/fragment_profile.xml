@@ -131,11 +131,13 @@
 
     <Button
         android:id="@+id/btn_update"
-        android:layout_width="391dp"
-        android:layout_height="54dp"
+        style="@style/Btn"
+        android:fontFamily="@font/poppinsmedium"
+        android:backgroundTint="@color/Orange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/shape_button_primary"
         android:text="Update"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -147,11 +149,13 @@
 
     <Button
         android:id="@+id/btn_logout"
-        android:layout_width="382dp"
-        android:layout_height="53dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Btn"
+        android:fontFamily="@font/poppinsmedium"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/shape_button_primary"
+        android:backgroundTint="@color/Orange"
         android:text="Logout"
         android:textAllCaps="false"
         android:textColor="@color/white"

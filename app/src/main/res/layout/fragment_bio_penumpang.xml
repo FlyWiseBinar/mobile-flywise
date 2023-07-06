@@ -98,8 +98,9 @@
                                     android:layout_gravity="center"
                                     android:textAlignment="center"
                                     android:text="Passenger 1 - Adult"
+                                    style="@style/TextBody12Medium"
                                     android:textColor="@android:color/white"
-                                    android:textSize="20sp"
+                                    android:textSize="17sp"
                                     android:paddingStart="15dp"
                                     android:paddingTop="5dp"/>
                             </FrameLayout>
@@ -110,6 +111,7 @@
                                 android:layout_height="wrap_content">
                                 <!--title Section-->
                                 <TextView
+                                    style="@style/TextBody10Regular"
                                     android:id="@+id/tv_Passengers"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -117,8 +119,7 @@
                                     android:layout_marginTop="50dp"
                                     android:text="Title"
                                     android:textColor="@color/DARKBLUE05"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="18sp" />
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/et_title"
@@ -127,7 +128,6 @@
                                     android:layout_height="wrap_content"
                                     android:layout_below="@id/tv_Passengers"
                                     android:layout_marginStart="21dp"
-                                    android:layout_marginTop="4dp"
                                     android:layout_marginEnd="21dp"
                                     app:boxCornerRadiusBottomEnd="4dp"
                                     app:boxCornerRadiusBottomStart="4dp"
@@ -152,9 +152,9 @@
                                     android:layout_marginStart="20dp"
                                     android:layout_marginTop="20dp"
                                     android:text="Nama Lengkap"
+                                    style="@style/TextBody10Regular"
                                     android:textColor="@color/DARKBLUE05"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="18sp" />
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/et_nama"
@@ -163,7 +163,6 @@
                                     android:layout_height="wrap_content"
                                     android:layout_below="@id/tv_nama"
                                     android:layout_marginStart="21dp"
-                                    android:layout_marginTop="4dp"
                                     android:layout_marginEnd="21dp"
                                     app:boxCornerRadiusBottomEnd="4dp"
                                     app:boxCornerRadiusBottomStart="4dp"
@@ -216,9 +215,9 @@
                                     android:layout_marginStart="20dp"
                                     android:layout_marginTop="60dp"
                                     android:text="Nama Keluarga"
+                                    style="@style/TextBody10Regular"
                                     android:textColor="@color/DARKBLUE05"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="18sp" />
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/et_nama_keluarga"
@@ -252,9 +251,9 @@
                                     android:layout_marginStart="20dp"
                                     android:layout_marginTop="20dp"
                                     android:text="Tanggal Lahir"
+                                    style="@style/TextBody10Regular"
                                     android:textColor="@color/DARKBLUE05"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="18sp" />
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/et_birth_day"
@@ -263,7 +262,6 @@
                                     android:layout_height="wrap_content"
                                     android:layout_below="@id/tv_birth_day"
                                     android:layout_marginStart="21dp"
-                                    android:layout_marginTop="4dp"
                                     android:layout_marginEnd="21dp"
                                     app:boxCornerRadiusBottomEnd="4dp"
                                     app:boxCornerRadiusBottomStart="4dp"
@@ -288,9 +286,9 @@
                                     android:layout_marginStart="20dp"
                                     android:layout_marginTop="20dp"
                                     android:text="Kewarganegaraan"
+                                    style="@style/TextBody10Regular"
                                     android:textColor="@color/DARKBLUE05"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="18sp" />
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/et_kewarga"
@@ -299,7 +297,6 @@
                                     android:layout_height="wrap_content"
                                     android:layout_below="@id/tv_kewarga"
                                     android:layout_marginStart="21dp"
-                                    android:layout_marginTop="4dp"
                                     android:layout_marginEnd="21dp"
                                     app:boxCornerRadiusBottomEnd="4dp"
                                     app:boxCornerRadiusBottomStart="4dp"
@@ -324,9 +321,9 @@
                                     android:layout_marginStart="20dp"
                                     android:layout_marginTop="20dp"
                                     android:text="KTP/Paspor"
+                                    style="@style/TextBody10Regular"
                                     android:textColor="@color/DARKBLUE05"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="18sp" />
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/et_ktp_paspor"
@@ -335,7 +332,6 @@
                                     android:layout_height="wrap_content"
                                     android:layout_below="@id/tv_ktp_paspor"
                                     android:layout_marginStart="21dp"
-                                    android:layout_marginTop="4dp"
                                     android:layout_marginEnd="21dp"
                                     app:boxCornerRadiusBottomEnd="4dp"
                                     app:boxCornerRadiusBottomStart="4dp"
@@ -361,9 +357,9 @@
                                     android:layout_marginStart="20dp"
                                     android:layout_marginTop="20dp"
                                     android:text="Negara Penerbit"
+                                    style="@style/TextBody10Regular"
                                     android:textColor="@color/DARKBLUE05"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold" />
+                                    android:textSize="18sp" />
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     android:id="@+id/et_neg_penerb"
@@ -372,7 +368,6 @@
                                     android:layout_height="wrap_content"
                                     android:layout_below="@id/tv_neg_penerb"
                                     android:layout_marginStart="21dp"
-                                    android:layout_marginTop="4dp"
                                     android:layout_marginEnd="21dp"
                                     android:layout_marginBottom="20dp"
                                     app:boxCornerRadiusBottomEnd="4dp"

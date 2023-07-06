@@ -35,6 +35,7 @@
         android:id="@+id/tv_nama"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/TextBody10Regular"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
         android:text="Nama"
@@ -62,6 +63,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txt_input_layout_nama"
+            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nama Lengkap"
@@ -72,6 +74,7 @@
         android:id="@+id/tv_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/TextBody10Regular"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:text="Email"
@@ -99,6 +102,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txt_input_layout_email"
+            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Contoh : johndoe@gmail.com"
@@ -111,6 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
+        style="@style/TextBody10Regular"
         android:text="Nomor Telepon"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -138,6 +143,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txt_input_no_telp"
+            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
@@ -152,6 +158,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
+        style="@style/TextBody10Regular"
         android:text="Buat Password"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -186,12 +193,14 @@
 
     <Button
         android:id="@+id/btn_daftar"
+        style="@style/Widget.Material3.Button"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/Orange"
         android:text="Daftar"
+        android:fontFamily="@font/poppinsmedium"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp"
@@ -228,7 +237,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="0dp"
             android:text="Masuk Disini"
-            android:textColor="@color/purple_700"
+            android:textColor="@color/blue"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"

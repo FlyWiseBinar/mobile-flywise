@@ -60,9 +60,9 @@ class HasilPencarianFragment : Fragment() {
         val seatClass = HomeVm.getNamaKelas()
         binding.tvToolbar.text = "$cityFrom < > $cityTo - $totalPassengers Penumpang - $seatClass"
 
-        departureOnly(cityFrom, cityTo, departure,arrived)
+        onlydeparture(cityFrom, cityTo, departure,arrived)
 
-        dateToolbar(departure)
+        kalenderdeparture(departure)
 
 //        HomeVm.searchallticket(cityFrom!!, cityTo!!,departure!!,arrived!!)
 
@@ -99,7 +99,7 @@ class HasilPencarianFragment : Fragment() {
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
-    private fun dateToolbar(dateDeparture: String?) {
+    private fun kalenderdeparture(dateDeparture: String?) {
         if (dateDeparture != null) {
             binding.etDate.setText(dateDeparture)
             binding.etDate.setOnClickListener {
@@ -134,7 +134,7 @@ class HasilPencarianFragment : Fragment() {
         }
     }
 
-    private fun departureOnly(
+    private fun onlydeparture(
         cityFrom: String?,
         cityTo: String?,
         dateDeparture: String?,

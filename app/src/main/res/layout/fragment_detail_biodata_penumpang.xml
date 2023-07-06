@@ -54,6 +54,7 @@
             app:layout_constraintTop_toBottomOf="@id/layout_toolbar">
 
             <TextView
+                style="@style/TextBody10Regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Title"
@@ -66,8 +67,7 @@
                 android:id="@+id/form_title"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_height="wrap_content">
 
                 <AutoCompleteTextView
                     android:id="@+id/edt_title"
@@ -79,6 +79,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
+                style="@style/TextBody10Regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -91,7 +92,6 @@
                 android:id="@+id/edt_nama_lengkap"
                 android:hint="Harry"
                 android:textColorHint="@color/NEUTRAL02"
-                android:layout_marginTop="10dp"
                 android:textSize="18dp"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -104,6 +104,7 @@
                 >
 
                 <TextView
+                    style="@style/TextBody10Regular"
                     android:id="@+id/tvPulangPergi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -147,6 +148,7 @@
                 android:background="@drawable/rectangle"/>
 
             <TextView
+                style="@style/TextBody10Regular"
                 android:layout_width="wrap_content"
                 android:id="@+id/tv_tanggal_lahir"
                 android:layout_height="wrap_content"
@@ -159,7 +161,6 @@
                 android:id="@+id/inputdateReturn"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_marginTop="10dp"
                 android:minHeight="48dp"
                 app:hintEnabled="false"
                 app:hintAnimationEnabled="false"
@@ -187,6 +188,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
+                style="@style/TextBody10Regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -197,15 +199,15 @@
             <EditText
                 android:paddingLeft="15dp"
                 android:id="@+id/edt_kewarganegaraan"
-                android:hint="Indonesia"
+                android:hint="Masukkan Kewarganegaraan"
                 android:textColorHint="@color/NEUTRAL02"
                 android:textSize="18dp"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/rectangle"/>
 
             <TextView
+                style="@style/TextBody10Regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -216,27 +218,31 @@
             <EditText
                 android:paddingLeft="15dp"
                 android:id="@+id/edt_ktp"
-                android:hint="Indonesia"
+                android:hint="Masukkan Nomor KTP/Paspor"
                 android:textColorHint="@color/NEUTRAL02"
                 android:textSize="18dp"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/rectangle"/>
 
-
-            <Button
-                android:id="@+id/btn_simpan"
-                android:backgroundTint="@color/Orange"
-                android:text="Simpan"
-                android:layout_marginTop="24dp"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="170dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+                <Button
+                    android:id="@+id/btn_simpan"
+                    style="@style/Btn"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:backgroundTint="@color/Orange"
+                    android:text="Simpan"
+                    android:layout_marginTop="24dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
 
         </LinearLayout>
-
-
-
     </androidx.core.widget.NestedScrollView>
 
 

@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="Dewasa 1"
+            style="@style/TextBody12Medium"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_penumpang"

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="180dp"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="9dp"
     android:layout_marginVertical="10dp"
@@ -30,6 +30,7 @@
                 android:layout_gravity="center" />
 
             <TextView
+                style="@style/TextBody12Medium"
                 android:id="@+id/tv_info"
                 android:layout_width="72dp"
                 android:layout_height="24dp"
@@ -46,12 +47,13 @@
         </FrameLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <TextView
+                style="@style/TextBody12Medium"
                 android:id="@+id/tv_departure"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,6 +62,7 @@
                 />
 
             <TextView
+                style="@style/TextBody12Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="- >"
@@ -68,6 +71,7 @@
                 />
 
             <TextView
+                style="@style/TextBody12Medium"
                 android:id="@+id/tv_destination"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -78,6 +82,7 @@
         </LinearLayout>
 
         <TextView
+            style="@style/TextBody12Bold"
             android:id="@+id/tv_maskapai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -86,6 +91,7 @@
             />
 
         <TextView
+            style="@style/TextBody12Medium"
             android:id="@+id/tv_tanggal_favorit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,6 +105,7 @@
             >
 
             <TextView
+                style="@style/TextBody12Medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mulai dari"
@@ -106,6 +113,7 @@
                 />
 
             <TextView
+                style="@style/TextBody12Medium"
                 android:id="@+id/tv_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -117,12 +125,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
-
-
-
-
-
-
 
 </com.google.android.material.card.MaterialCardView>

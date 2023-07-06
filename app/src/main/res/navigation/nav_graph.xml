@@ -157,7 +157,9 @@
             app:destination="@id/resetPassFragment" />
         <action
             android:id="@+id/action_loginFragment_to_homeFragment2"
-            app:destination="@id/homeFragment2" />
+            app:destination="@id/homeFragment2"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/loginFragment"/>
         <action
             android:id="@+id/action_loginFragment_to_checkoutBioPemesanFragment"
             app:destination="@id/checkoutBioPemesanFragment" />
@@ -368,7 +370,11 @@
     <fragment
         android:id="@+id/detailRiwayatPesananFragment"
         android:name="com.binar.projekakhir.view.ui.DetailRiwayatPesananFragment"
-        android:label="DetailRiwayatPesananFragment" />
+        android:label="DetailRiwayatPesananFragment" >
+        <action
+            android:id="@+id/action_detailRiwayatPesananFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
     <!--    <fragment-->
     <!--        android:id="@+id/hasilPencarianFragmentTodialogFilter"-->
     <!--        android:name="com.binar.projekakhir.view.ui.PilihDestinasiToFragment"-->

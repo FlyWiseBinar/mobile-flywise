@@ -20,6 +20,10 @@ import javax.inject.Inject
 @HiltViewModel
 class UserViewModel @Inject constructor(private val api : ApiService) : ViewModel() {
 
+    //for toast
+    private val _toastLogin = MutableLiveData<String?>()
+    val toastMessage: LiveData<String?> = _toastLogin
+
     private val _responselogin : MutableLiveData<LoginResponse> = MutableLiveData()
     val responselogin : LiveData<LoginResponse> = _responselogin
 
@@ -52,7 +56,15 @@ class UserViewModel @Inject constructor(private val api : ApiService) : ViewMode
                if (response.isSuccessful) {
                    _responselogin.value = response.body()
 
-               } else {
+               }
+               else {
+//                   _responselogin.value = LoginResponse(
+//                       "",
+//                       "",
+//                       false
+//                   )
+//
+                   _toastLogin.value="Login Failed"
                    Log.e("UserViewModel", "Cannot get data")
                }
            }
@@ -64,6 +76,10 @@ class UserViewModel @Inject constructor(private val api : ApiService) : ViewMode
        })
 
 
+    }
+
+    fun setDataMessage(){
+        _toastLogin.value=null
     }
 
 

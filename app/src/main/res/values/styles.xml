@@ -20,4 +20,140 @@
         <item name="colorPrimaryContainer">@color/DARKBLUE05</item>
         <item name="colorPrimary">@color/white</item>
     </style>
+
+    <!--    Body-->
+    <style name="TextBody10Regular">
+        <item name="fontFamily">@font/poppinsregular</item>
+        <item name="android:textSize">10sp</item>
+        <item name="lineHeight">14sp</item>
+    </style>
+
+    <style name="TextBody10Medium">
+        <item name="fontFamily">@font/poppinsmedium</item>
+        <item name="android:textSize">10sp</item>
+        <item name="lineHeight">14sp</item>
+    </style>
+
+    <style name="TextBody10Bold">
+        <item name="fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">10sp</item>
+        <item name="lineHeight">14sp</item>
+    </style>
+
+    <style name="TextBody9Bold">
+        <item name="fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">8sp</item>
+        <item name="lineHeight">12sp</item>
+    </style>
+
+    <style name="TextBody12Regular">
+        <item name="fontFamily">@font/poppinsregular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">18sp</item>
+    </style>
+
+    <style name="TextBody12Medium">
+        <item name="fontFamily">@font/poppinsmedium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">18sp</item>
+    </style>
+
+    <style name="TextBody12Bold">
+        <item name="fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">18sp</item>
+    </style>
+
+    <style name="TextBody14Regular">
+        <item name="fontFamily">@font/poppinsregular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20sp</item>
+    </style>
+
+    <style name="TextBody14Medium">
+        <item name="fontFamily">@font/poppinsmedium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20sp</item>
+    </style>
+
+    <style name="TextBody14Bold">
+        <item name="fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20sp</item>
+    </style>
+
+    <!--    Title-->
+    <style name="TextTitle16Regular">
+        <item name="fontFamily">@font/poppinsregular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="TextTitle16Medium">
+        <item name="fontFamily">@font/poppinsmedium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="TextTitle16Bold">
+        <item name="fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="TextTitle18Regular">
+        <item name="fontFamily">@font/poppinsregular</item>
+        <item name="android:textSize">18sp</item>
+        <item name="lineHeight">26sp</item>
+    </style>
+
+    <style name="TextTitle18Medium">
+        <item name="fontFamily">@font/poppinsmedium</item>
+        <item name="android:textSize">18sp</item>
+        <item name="lineHeight">26sp</item>
+    </style>
+
+    <style name="TextTitle18Bold">
+        <item name="fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="lineHeight">26sp</item>
+    </style>
+
+    <!--    Heading-->
+    <style name="TextHeading20Regular">
+        <item name="fontFamily">@font/poppinsregular</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">30sp</item>
+    </style>
+
+    <style name="TextHeading20Medium">
+        <item name="fontFamily">@font/poppinsmedium</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">30sp</item>
+    </style>
+
+    <style name="TextHeading20Bold">
+        <item name="fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">30sp</item>
+    </style>
+
+    <style name="TextHeading24Regular">
+        <item name="fontFamily">@font/poppinsregular</item>
+        <item name="android:textSize">24sp</item>
+        <item name="lineHeight">36sp</item>
+    </style>
+
+    <style name="TextHeading24Medium">
+        <item name="fontFamily">@font/poppinsmedium</item>
+        <item name="android:textSize">24sp</item>
+        <item name="lineHeight">36sp</item>
+    </style>
+
+    <style name="TextHeading24Bold">
+        <item name="fontFamily">@font/poppinsbold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="lineHeight">36sp</item>
+    </style>
+
 </resources>
