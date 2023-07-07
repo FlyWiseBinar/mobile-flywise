@@ -165,7 +165,7 @@
                                     android:textSize="16sp" />
 
                                 <Switch
-                                    android:id="@+id/switch1"
+                                    android:id="@+id/switched"
                                     android:layout_width="wrap_content"
                                     android:layout_height="48dp"
                                     android:layout_marginEnd="20dp"

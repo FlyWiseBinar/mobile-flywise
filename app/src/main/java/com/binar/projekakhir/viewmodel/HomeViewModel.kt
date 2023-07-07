@@ -212,15 +212,15 @@ class HomeViewModel @Inject constructor(var api:ApiService,
         editor.apply()
     }
 
-    fun getPenumpangDewasa():Int{
+    fun getPassengerDewasa():Int{
         return sharedPreferences.getInt("dewasa",1)
     }
 
-    fun getPenumpangAnak():Int{
+    fun getPassengerAnak():Int{
         return sharedPreferences.getInt("anak",0)
     }
 
-    fun getPenumpangBayi():Int{
+    fun getPassengerBayi():Int{
         return sharedPreferences.getInt("bayi",0)
     }
 
@@ -250,7 +250,7 @@ class HomeViewModel @Inject constructor(var api:ApiService,
         return sharedPreferences.getString("order","price")
     }
 
-    fun getIdTicket():Int?{
+    fun getTicketId():Int?{
         return sharedPreferences.getInt("idTicket",0)
     }
 

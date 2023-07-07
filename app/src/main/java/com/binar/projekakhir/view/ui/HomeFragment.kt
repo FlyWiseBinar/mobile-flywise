@@ -286,9 +286,9 @@ class HomeFragment : Fragment() {
 
 
     private fun getSetPenumpang(){
-        val dewasa = HomeVm.getPenumpangDewasa()
-        val anak = HomeVm.getPenumpangAnak()
-        val bayi = HomeVm.getPenumpangBayi()
+        val dewasa = HomeVm.getPassengerDewasa()
+        val anak = HomeVm.getPassengerAnak()
+        val bayi = HomeVm.getPassengerBayi()
         val total = dewasa + anak + bayi
         binding.passenger.text = "$total Penumpang"
     }

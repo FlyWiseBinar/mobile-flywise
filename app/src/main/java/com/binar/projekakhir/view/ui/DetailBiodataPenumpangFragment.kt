@@ -59,11 +59,11 @@ class DetailBiodataPenumpangFragment : Fragment() {
                 Log.d("Data","${dataList[0]}")
                 val itemPenumpang = dataList[indexPenumpang!!]
 //                binding.edtTitle.setText(itemPenumpang.title)
-                binding.edtNamaLengkap.setText(itemPenumpang.name)
+                binding.txtNamaLengkap.setText(itemPenumpang.name)
 //                binding.edtNamaKeluargaPemesan.setText(itemPenumpang.familyName)
-                binding.edtDateOfBirth.setText(itemPenumpang.dateofbirth)
-                binding.edtKewarganegaraan.setText(itemPenumpang.nationality)
-                binding.edtKtp.setText(itemPenumpang.ktp)
+                binding.txtDateOfBirth.setText(itemPenumpang.dateofbirth)
+                binding.txtKewarganegaraan.setText(itemPenumpang.nationality)
+                binding.txtKtp.setText(itemPenumpang.ktp)
                 editData(dataList, indexPenumpang)
             } else {
                 sumbitData()
@@ -75,17 +75,17 @@ class DetailBiodataPenumpangFragment : Fragment() {
         binding.btnSwitch.setOnCheckedChangeListener { p0, isChecked ->
 
             if (isChecked) {
+                binding.txtNamaKeluargaPemesan.visibility = View.VISIBLE
                 binding.tvNamaKeluargaPemesan.visibility = View.VISIBLE
-                binding.edtNamaKeluargaPemesan.visibility = View.VISIBLE
 
             } else {
+                binding.txtNamaKeluargaPemesan.visibility = View.GONE
                 binding.tvNamaKeluargaPemesan.visibility = View.GONE
-                binding.edtNamaKeluargaPemesan.visibility = View.GONE
 
             }
         }
 
-        binding.edtDateOfBirth.setOnClickListener {
+        binding.txtDateOfBirth.setOnClickListener {
             val calendar = Calendar.getInstance()
             val year = calendar.get(Calendar.YEAR)
             val month = calendar.get(Calendar.MONTH)
@@ -95,7 +95,7 @@ class DetailBiodataPenumpangFragment : Fragment() {
                 requireContext(),
                 { _, year, month, dayOfMonth ->
                     val tanggalLahir = "$year-${month+1}-$dayOfMonth"
-                    binding.edtDateOfBirth.setText(tanggalLahir)
+                    binding.txtDateOfBirth.setText(tanggalLahir)
                 },
                 year, month, day,
             )
@@ -114,11 +114,11 @@ class DetailBiodataPenumpangFragment : Fragment() {
         binding.btnSimpan.setOnClickListener {
             Log.d("Detail Biodat", "On Clicckkk")
             val title = binding.edtTitle.text.toString()
-            val name = binding.edtNamaLengkap.text.toString()
-            val namaKeluarga = binding.edtNamaKeluargaPemesan.text.toString()
-            val tanggalLahir = binding.edtDateOfBirth.text.toString()
-            val kewarganegaraan = binding.edtKewarganegaraan.text.toString()
-            val ktp = binding.edtKtp.text.toString()
+            val name = binding.txtNamaLengkap.text.toString()
+            val namaKeluarga = binding.tvNamaKeluargaPemesan.text.toString()
+            val tanggalLahir = binding.txtDateOfBirth.text.toString()
+            val kewarganegaraan = binding.txtKewarganegaraan.text.toString()
+            val ktp = binding.txtKtp.text.toString()
 
 
 
@@ -144,11 +144,11 @@ class DetailBiodataPenumpangFragment : Fragment() {
             Log.d("Detail Biodat", "On Clicckkk Submit Data")
 
 //            val title = binding.edtTitle.text.toString()
-            val name = binding.edtNamaLengkap.text.toString()
-            val namaKeluarga = binding.edtNamaKeluargaPemesan.text.toString()
-            val tanggalLahir = binding.edtDateOfBirth.text.toString()
-            val kewarganegaraan = binding.edtKewarganegaraan.text.toString()
-            val ktp = binding.edtKtp.text.toString()
+            val name = binding.txtNamaLengkap.text.toString()
+            val namaKeluarga = binding.tvNamaKeluargaPemesan.text.toString()
+            val tanggalLahir = binding.txtDateOfBirth.text.toString()
+            val kewarganegaraan = binding.txtKewarganegaraan.text.toString()
+            val ktp = binding.txtKtp.text.toString()
 
             homeVm.savenama(name)
 

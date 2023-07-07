@@ -45,9 +45,9 @@ class SetPenumpangFragment : BottomSheetDialogFragment() {
         setClose()
         Log.d("Sheet set Penumpang", "onViewCreated")
 
-        val jmlDewasa = HomeVm.getPenumpangDewasa()
-        val jmlAnak = HomeVm.getPenumpangAnak()
-        val jmlBayi = HomeVm.getPenumpangBayi()
+        val jmlDewasa = HomeVm.getPassengerDewasa()
+        val jmlAnak = HomeVm.getPassengerAnak()
+        val jmlBayi = HomeVm.getPassengerBayi()
 
         val dewasa = setDewasa(jmlDewasa)
         val anak = setAnak(jmlAnak)
@@ -132,9 +132,9 @@ class SetPenumpangFragment : BottomSheetDialogFragment() {
     override fun onResume() {
         super.onResume()
 
-        val jmlDewasa = HomeVm.getPenumpangDewasa()
-        val jmlAnak = HomeVm.getPenumpangAnak()
-        val jmlBayi = HomeVm.getPenumpangBayi()
+        val jmlDewasa = HomeVm.getPassengerDewasa()
+        val jmlAnak = HomeVm.getPassengerAnak()
+        val jmlBayi = HomeVm.getPassengerBayi()
 
         val dewasa = setDewasa(jmlDewasa)
         val anak = setAnak(jmlAnak)

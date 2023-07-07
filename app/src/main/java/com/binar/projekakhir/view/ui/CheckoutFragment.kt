@@ -41,11 +41,11 @@ class CheckoutFragment : Fragment() {
         pref = requireContext().getSharedPreferences("Regist", Context.MODE_PRIVATE)
 
 //        val sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
-         val id = homeVm.getIdTicket()
+         val id = homeVm.getTicketId()
 
-        val dewasa = homeVm.getPenumpangDewasa()
-        val anak = homeVm.getPenumpangAnak()
-        val bayi = homeVm.getPenumpangBayi()
+        val dewasa = homeVm.getPassengerDewasa()
+        val anak = homeVm.getPassengerAnak()
+        val bayi = homeVm.getPassengerBayi()
 
 
         DetailVm.getdetailticket(id!!)

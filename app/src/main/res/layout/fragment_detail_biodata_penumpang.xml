@@ -89,7 +89,7 @@
 
             <EditText
                 android:paddingLeft="15dp"
-                android:id="@+id/edt_nama_lengkap"
+                android:id="@+id/txt_nama_lengkap"
                 android:hint="Harry"
                 android:textColorHint="@color/NEUTRAL02"
                 android:textSize="18dp"
@@ -128,7 +128,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:id="@+id/tv_namaKeluargaPemesan"
+                android:id="@+id/txt_namaKeluargaPemesan"
                 android:layout_height="wrap_content"
                 android:text="Nama Keluarga"
                 android:visibility="gone"
@@ -137,7 +137,7 @@
 
             <EditText
                 android:paddingLeft="15dp"
-                android:id="@+id/edt_NamaKeluargaPemesan"
+                android:id="@+id/tv_NamaKeluargaPemesan"
                 android:hint="Potter"
                 android:visibility="gone"
                 android:textColorHint="@color/NEUTRAL02"
@@ -169,7 +169,7 @@
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edt_date_of_birth"
+                    android:id="@+id/txt_date_of_birth"
                     android:layout_width="match_parent"
                     android:hint="Masukan Tanggal"
                     android:padding="2dp"
@@ -198,7 +198,7 @@
 
             <EditText
                 android:paddingLeft="15dp"
-                android:id="@+id/edt_kewarganegaraan"
+                android:id="@+id/txt_kewarganegaraan"
                 android:hint="Masukkan Kewarganegaraan"
                 android:textColorHint="@color/NEUTRAL02"
                 android:textSize="18dp"
@@ -217,7 +217,7 @@
 
             <EditText
                 android:paddingLeft="15dp"
-                android:id="@+id/edt_ktp"
+                android:id="@+id/txt_ktp"
                 android:hint="Masukkan Nomor KTP/Paspor"
                 android:textColorHint="@color/NEUTRAL02"
                 android:textSize="18dp"

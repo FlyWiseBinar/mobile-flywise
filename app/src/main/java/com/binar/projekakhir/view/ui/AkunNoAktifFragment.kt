@@ -60,7 +60,7 @@ class AkunNoAktifFragment : Fragment() {
             pref.edit().clear().apply()
             Log.d("DataToken", pref.getString("token", "").toString())
             findNavController().navigate(R.id.action_akunNoAktifFragment_to_homeFragment2)
-            Toast.makeText(context,"User Berhasil Logout", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context,"Berhasil Logout", Toast.LENGTH_SHORT).show()
         }
 
 

@@ -55,30 +55,20 @@ class CheckBioPenumpangFragment : Fragment() {
 
         getdatauser()
 
-        initDewasaAdapter()
+        initPenumpangAdapter()
 
         binding.btnLanjut.setOnClickListener {
-            val idTicket = HomeVm.getIdTicket()
             val idDeparture = HomeVm.getIdDep()
             val idReturn = HomeVm.getIdReturn()
             val saveidDeparture = HomeVm.saveIdTicket(idDeparture!!)
             val saveidReturn = HomeVm.saveIdTicket(idReturn!!)
-            val id = arguments?.getInt("id")
-            val dewasa = HomeVm.getPenumpangDewasa()
-            val anak = HomeVm.getPenumpangAnak()
-            val bayi = HomeVm.getPenumpangBayi()
-            val total = dewasa + anak + bayi
+            val adult = HomeVm.getPassengerDewasa()
+            val child = HomeVm.getPassengerAnak()
+            val baby = HomeVm.getPassengerBayi()
+            val total = adult + child + baby
 
             val dataList = CheckVm.getDataList()
             Log.d("Hasil Pencarian", "$dataList")
-
-
-
-
-//            val passenger : ArrayList<ticket> = ArrayList()
-//
-//            passenger.add(ticket(idTicket!!))
-
 
 
             val penumpangData = PenumpangRoundTripRequest(idDeparture!!,idReturn!! ,dataList)
@@ -89,7 +79,7 @@ class CheckBioPenumpangFragment : Fragment() {
                 if (it.status == true) {
                     Toast.makeText(
                         requireContext(),
-                        "Berhasil Menambahkan data penumpang",
+                        "Successfully Added Passenger Data",
                         Toast.LENGTH_SHORT
                     ).show()
 
@@ -99,15 +89,15 @@ class CheckBioPenumpangFragment : Fragment() {
             }
         }
 
-        binding.switchh.setOnCheckedChangeListener { p0, isChecked ->
+        binding.switched.setOnCheckedChangeListener { p0, isChecked ->
 
             if (isChecked) {
-                binding.tvNamaKeluargaPemesan.visibility = View.VISIBLE
-                binding.edtNamaKeluargaPemesan.visibility = View.VISIBLE
+                binding.tvNamaKeluarga.visibility = View.VISIBLE
+                binding.txtNamaKeluarga.visibility = View.VISIBLE
 
             } else {
-                binding.tvNamaKeluargaPemesan.visibility = View.GONE
-                binding.edtNamaKeluargaPemesan.visibility = View.GONE
+                binding.tvNamaKeluarga.visibility = View.GONE
+                binding.txtNamaKeluarga.visibility = View.GONE
 
             }
         }
@@ -116,39 +106,39 @@ class CheckBioPenumpangFragment : Fragment() {
 
     }
 
-    private fun initDewasaAdapter() {
-        val dewasa = HomeVm.getPenumpangDewasa()
-        val anak = HomeVm.getPenumpangAnak()
-        val bayi = HomeVm.getPenumpangBayi()
+    private fun initPenumpangAdapter() {
+        val dewasa = HomeVm.getPassengerDewasa()
+        val anak = HomeVm.getPassengerAnak()
+        val bayi = HomeVm.getPassengerBayi()
         val total = dewasa + anak + bayi
-        val jumlahDewasa = HomeVm.getPenumpangDewasa()
+        val jumlahDewasa = HomeVm.getPassengerDewasa()
 
-        val listDewasa: ArrayList<Penumpang> = ArrayList()
+        val Listpenumpang: ArrayList<Penumpang> = ArrayList()
         //get Penumpang Dewasa
         for (i in 1..dewasa) {
-            listDewasa.add(Penumpang("Dewasa $i"))
+            Listpenumpang.add(Penumpang("Dewasa $i"))
         }
         //get Penumpang Anak
         for (i in 1..anak){
-            listDewasa.add(Penumpang("Anak $i"))
+            Listpenumpang.add(Penumpang("Anak $i"))
         }
         //get Penumpang Bayi
         for(i in 1..bayi){
-            listDewasa.add(Penumpang("Bayi $i"))
+            Listpenumpang.add(Penumpang("Bayi $i"))
         }
 
 
 
-        binding.rvDewasa.apply {
+        binding.rvPenumpang.apply {
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-            penumpangAdapter = PenumpangAdapter(listDewasa)
+            penumpangAdapter = PenumpangAdapter(Listpenumpang)
             adapter = penumpangAdapter
             penumpangAdapter.setOnItemClickListener(object : PenumpangAdapter.OnItemClickListener{
                 override fun onItemClick(position: Int) {
                     Toast.makeText(requireContext(), "posisi card ini $position", Toast.LENGTH_SHORT).show()
                     val bundle = Bundle()
-                    val name = listDewasa[position].penumpang
+                    val name = Listpenumpang[position].penumpang
                     bundle.putInt("index",position)
                     bundle.putString("penumpang",name)
                     findNavController().navigate(R.id.action_checkBioPenumpangFragment_to_detailBiodataPenumpangFragment,bundle)

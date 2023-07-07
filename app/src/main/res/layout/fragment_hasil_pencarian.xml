@@ -91,7 +91,6 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_list_hari"
         android:layout_width="wrap_content"

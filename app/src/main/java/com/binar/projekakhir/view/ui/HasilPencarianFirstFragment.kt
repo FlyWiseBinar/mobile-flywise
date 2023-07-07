@@ -15,7 +15,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.binar.projekakhir.R
-import com.binar.projekakhir.databinding.FragmentHasilPencarianBinding
 import com.binar.projekakhir.databinding.FragmentHasilPencarianFirstBinding
 import com.binar.projekakhir.view.adapter.TicketAdapter
 import com.binar.projekakhir.viewmodel.HomeViewModel
@@ -46,41 +45,41 @@ class HasilPencarianFirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         HomeVm = ViewModelProvider(this).get(HomeViewModel::class.java)
-        val cityFrom = HomeVm.getCityFrom()
-        val cityTo = HomeVm.getCityTo()
-        val dewasa = HomeVm.getPenumpangDewasa()
-        val anak = HomeVm.getPenumpangAnak()
-        val bayi = HomeVm.getPenumpangBayi()
-        val dateDeparture = HomeVm.getDepartureDate()
-        val dateRetun = HomeVm.getArrivedDate()
+        val kotaawal = HomeVm.getCityFrom()
+        val kotatujuan = HomeVm.getCityTo()
+        val dewasa = HomeVm.getPassengerDewasa()
+        val anak = HomeVm.getPassengerAnak()
+        val bayi = HomeVm.getPassengerBayi()
+        val tanggalkeberangkatan = HomeVm.getDepartureDate()
+        val tanggalsampai = HomeVm.getArrivedDate()
         val totalPassengers = dewasa + anak + bayi
         val seatClass = HomeVm.getNamaKelas()
 
-        binding.tvToolbar.text = "$cityFrom <> $cityTo - $totalPassengers Penumpang - $seatClass"
+        binding.tvToolbar.text = "$kotaawal <> $kotatujuan - $totalPassengers Penumpang - $seatClass"
 
-        dateToolbarDeparture(dateDeparture)
-        dateToolbarReturn(dateRetun)
-        departureOnly(cityFrom, cityTo, dateDeparture,dateRetun)
+        dateToolbarDeparture(tanggalkeberangkatan)
+        dateToolbarReturn(tanggalsampai)
+        departureOnly(kotaawal, kotatujuan, tanggalkeberangkatan,tanggalsampai)
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
     private fun dateToolbarDeparture(dateDeparture: String?) {
         if (dateDeparture != null) {
-            binding.etDate.setText(dateDeparture)
-            binding.etDate.setOnClickListener {
+            binding.etTanggalDeparture.setText(dateDeparture)
+            binding.etTanggalDeparture.setOnClickListener {
                 val calendar = Calendar.getInstance()
-                val year = calendar.get(Calendar.YEAR)
-                val month = calendar.get(Calendar.MONTH)
-                val day = calendar.get(Calendar.DAY_OF_MONTH)
+                val tahun = calendar.get(Calendar.YEAR)
+                val bulan = calendar.get(Calendar.MONTH)
+                val hari = calendar.get(Calendar.DAY_OF_MONTH)
 
                 val datePickerDialog = DatePickerDialog(
                     requireContext(),
                     { _, year, month, dayOfMonth ->
 
                         val tanggalPergi = "$year-${month + 1}-$dayOfMonth"
-                        binding.etDate.setText(tanggalPergi)
+                        binding.etTanggalDeparture.setText(tanggalPergi)
                     },
-                    year, month, day,
+                    tahun, bulan, hari,
                 )
                 datePickerDialog.show()
                 datePickerDialog.setOnDateSetListener { datePicker, _, _, _ ->
@@ -89,7 +88,7 @@ class HasilPencarianFirstFragment : Fragment() {
                     val hariDeparture = datePicker.dayOfMonth
                     val tanggalDeparture = "$tahunDeparture-${month + 1}-$hariDeparture"
                     HomeVm.saveDepartureDate(tanggalDeparture)
-                    binding.etDate.setText(tanggalDeparture)
+                    binding.etTanggalDeparture.setText(tanggalDeparture)
                     val fragId = findNavController().currentDestination?.id
                     findNavController().popBackStack(fragId!!,true)
                     findNavController().navigate(fragId)
@@ -102,29 +101,29 @@ class HasilPencarianFirstFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.N)
     private fun dateToolbarReturn(dateReturn: String?) {
         if (dateReturn != null) {
-            binding.etDateReturn.setText(dateReturn)
-            binding.etDateReturn.setOnClickListener {
+            binding.etTanggalReturn.setText(dateReturn)
+            binding.etTanggalReturn.setOnClickListener {
                 val calendar = Calendar.getInstance()
-                val year = calendar.get(Calendar.YEAR)
-                val month = calendar.get(Calendar.MONTH)
-                val day = calendar.get(Calendar.DAY_OF_MONTH)
+                val tahun = calendar.get(Calendar.YEAR)
+                val bulan = calendar.get(Calendar.MONTH)
+                val hari = calendar.get(Calendar.DAY_OF_MONTH)
 
                 val datePickerDialog = DatePickerDialog(
                     requireContext(),
                     { _, year, month, dayOfMonth ->
 
                         val tanggalKembali = "$year-${month + 1}-$dayOfMonth"
-                        binding.etDateReturn.setText(tanggalKembali)
+                        binding.etTanggalReturn.setText(tanggalKembali)
                     },
-                    year, month, day,
+                    tahun, bulan, hari,
                 )
                 datePickerDialog.show()
                 datePickerDialog.setOnDateSetListener { datePicker, _, _, _ ->
                     val month = datePicker.month
-                    val tahunDeparture = datePicker.year
-                    val hariDeparture = datePicker.dayOfMonth
-                    val tanggalReturn = "$tahunDeparture-${month + 1}-$hariDeparture"
-                    binding.etDateReturn.setText(tanggalReturn)
+                    val tahunReturn = datePicker.year
+                    val hariReturn = datePicker.dayOfMonth
+                    val tanggalReturn = "$tahunReturn-${month + 1}-$hariReturn"
+                    binding.etTanggalReturn.setText(tanggalReturn)
                     HomeVm.saveDatePref(tanggalReturn)
 //                    val dataPenumpang = PenumpangData("darman4","mr4","darman4@gmail.com")
 //                    testViewModel.addData(dataPenumpang)

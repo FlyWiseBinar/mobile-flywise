@@ -66,22 +66,29 @@ class RegisterFragment : Fragment() {
         } else {
 //            userVm.postregist("ilham","ilham@gmail.com", "123456","0821233423121")
             userVm.postregist(fullName, email, password, telephone)
-
             userVm.responseRegister.observe(viewLifecycleOwner) {
                 if (it.status == true) {
                     userVm.sendOtpRequest(email)
                     userVm.responseOtp.observe(viewLifecycleOwner) {
-                        Toast.makeText(requireContext(), "${it.message}", Toast.LENGTH_SHORT).show()
-                        val sharedPref = pref.edit()
-                        sharedPref.putString("email", email)
-                        sharedPref.putString("telephone", telephone)
-                        sharedPref.putString("fullname", fullName)
-                        sharedPref.apply()
-                        findNavController().navigate(R.id.action_registerFragment_to_sendOtpFragment)
-                        Toast.makeText(context, "Berhasil Registrasi", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireContext(), "${it.message}", Toast.LENGTH_SHORT)
+                                .show()
+                            val sharedPref = pref.edit()
+                            sharedPref.putString("email", email)
+                            sharedPref.putString("telephone", telephone)
+                            sharedPref.putString("fullname", fullName)
+                            sharedPref.apply()
+
+                            findNavController().navigate(R.id.action_registerFragment_to_sendOtpFragment)
+                            Toast.makeText(context, "Berhasil Registrasi", Toast.LENGTH_SHORT)
+                                .show()
+
+
+
                     }
 
 
+                }else{
+                    Toast.makeText(context, "Regis tidak berhasil", Toast.LENGTH_SHORT).show()
                 }
 
             }

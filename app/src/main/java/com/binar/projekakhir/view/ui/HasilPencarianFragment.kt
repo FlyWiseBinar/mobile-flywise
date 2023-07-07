@@ -50,12 +50,12 @@ class HasilPencarianFragment : Fragment() {
 
         val cityFrom = HomeVm.getCityFrom()
         val cityTo = HomeVm.getCityTo()
-        val dewasa = HomeVm.getPenumpangDewasa()
+        val dewasa = HomeVm.getPassengerDewasa()
         val departure = HomeVm.getDepartureDate()
         val arrived = HomeVm.getArrivedDate()
         val order = HomeVm.getorder()
-        val anak = HomeVm.getPenumpangAnak()
-        val bayi = HomeVm.getPenumpangBayi()
+        val anak = HomeVm.getPassengerAnak()
+        val bayi = HomeVm.getPassengerBayi()
         val totalPassengers = dewasa + anak + bayi
         val seatClass = HomeVm.getNamaKelas()
         binding.tvToolbar.text = "$cityFrom < > $cityTo - $totalPassengers Penumpang - $seatClass"

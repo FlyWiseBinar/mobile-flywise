@@ -43,7 +43,7 @@ class BioPenumpangFragment : Fragment() {
     }
 
     fun getInputPassenger() {
-        val idTicket = HomeVm.getIdTicket()
+        val idTicket = HomeVm.getTicketId()
         val id = arguments?.getInt("id")
         val token = pref.getString("token", "").toString()
         val name = binding.txtInputLayoutNama.text.toString()

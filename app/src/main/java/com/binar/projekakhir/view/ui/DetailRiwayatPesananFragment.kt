@@ -54,9 +54,9 @@ class DetailRiwayatPesananFragment : Fragment() {
 
         val token = pref.getString("token", "").toString()
 
-        val dewasa = homeVm.getPenumpangDewasa()
-        val anak = homeVm.getPenumpangAnak()
-        val bayi = homeVm.getPenumpangBayi()
+        val dewasa = homeVm.getPassengerDewasa()
+        val anak = homeVm.getPassengerAnak()
+        val bayi = homeVm.getPassengerBayi()
 
 //        val orderCode = histoVm.getOrderCode()
 
@@ -120,9 +120,6 @@ class DetailRiwayatPesananFragment : Fragment() {
 //                    val saveNama = getdetail.order.user.fullName
                     namepassenger1.text = getnama
                     namepassenger2.text = getnama
-
-
-
 
 
                     binding.txtAdult.text = "$dewasa Adults"

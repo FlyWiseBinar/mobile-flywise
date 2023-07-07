@@ -96,7 +96,7 @@ class RiwayatFragment : Fragment() {
                 layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL,false)
                  riwayatAdapter= RiwayatAdapter(it){ itemTicket ->
                      val orderCode = itemTicket.order.orderCode
-                    val id = homeVm.getIdTicket()
+                    val id = homeVm.getTicketId()
                     val bundle = Bundle()
                     bundle.putString("orderCode",orderCode)
                     findNavController().navigate(R.id.action_riwayatFragment2_to_detailRiwayatPesananFragment,bundle)

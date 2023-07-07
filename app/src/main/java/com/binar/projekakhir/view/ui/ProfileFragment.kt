@@ -48,7 +48,7 @@ class ProfileFragment : Fragment() {
             pref.edit().clear().apply()
             Log.d("DataToken", pref.getString("token", "").toString())
             findNavController().navigate(R.id.action_profileFragment2_to_homeFragment2)
-            Toast.makeText(context, "Update Berhasil Logout", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Berhasil Logout", Toast.LENGTH_SHORT).show()
 
         }
 

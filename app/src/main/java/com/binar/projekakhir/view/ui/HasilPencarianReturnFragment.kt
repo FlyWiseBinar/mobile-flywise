@@ -24,7 +24,7 @@ import java.util.*
 @AndroidEntryPoint
 class HasilPencarianReturnFragment : Fragment() {
     private lateinit var binding : FragmentHasilPencarianReturnBinding
-    private val berandaViewModel: HomeViewModel by viewModels()
+    private val HomeVm: HomeViewModel by viewModels()
     private val detailViewModel: DetailViewModel by viewModels()
     private lateinit var ticketAdapter: TicketAdapter
 
@@ -41,31 +41,28 @@ class HasilPencarianReturnFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val cityFrom = berandaViewModel.getCityFrom()
-        val cityTo = berandaViewModel.getCityTo()
-        val dewasa = berandaViewModel.getPenumpangDewasa()
-        val anak = berandaViewModel.getPenumpangAnak()
-        val bayi = berandaViewModel.getPenumpangBayi()
-        val dateDeparture = berandaViewModel.getDepartureDate()
-        val dateRetun = berandaViewModel.getArrivedDate()
+        val kotaawal = HomeVm.getCityFrom()
+        val kotatujuan = HomeVm.getCityTo()
+        val dewasa = HomeVm.getPassengerDewasa()
+        val anak = HomeVm.getPassengerAnak()
+        val bayi = HomeVm.getPassengerBayi()
+        val tanggalkeberangkatan = HomeVm.getDepartureDate()
+        val tanggalpulang = HomeVm.getArrivedDate()
         val totalPassengers = dewasa + anak + bayi
-        val seatClass = berandaViewModel.getNamaKelas()
+        val seatClass = HomeVm.getNamaKelas()
 
-        binding.tvToolbar.text = "$cityFrom <> $cityTo - $totalPassengers Penumpang - $seatClass"
+        binding.tvToolbar.text = "$kotaawal <> $kotatujuan - $totalPassengers Penumpang - $seatClass"
 
         val idDeparture = arguments?.getInt("idDep")
 
-        kalenderdeparture(dateDeparture)
-        kalenderreturn(dateRetun)
-        getTicketTujuan(cityTo, cityFrom, dateDeparture,dateRetun)
+        kalenderdeparture(tanggalkeberangkatan)
+        kalenderreturn(tanggalpulang)
+        getTicketTujuan(kotatujuan, kotaawal, tanggalkeberangkatan, tanggalpulang)
         getTicketKeberangkatan(idDeparture)
 
 
 
-
-
-
-        binding.btnGanti.setOnClickListener {
+        binding.btnGantiticket.setOnClickListener {
             if (findNavController().currentDestination?.id == R.id.hasilPencarianReturnFragment) {
 //                val fragId = findNavController().currentDestination?.id
 //                findNavController().popBackStack(fragId!!,true)
@@ -143,7 +140,7 @@ class HasilPencarianReturnFragment : Fragment() {
                     val hariDeparture = datePicker.dayOfMonth
                     val tanggalDeparture = "$tahunDeparture-${month + 1}-$hariDeparture"
 
-                    berandaViewModel.saveDepartureDate(tanggalDeparture)
+                    HomeVm.saveDepartureDate(tanggalDeparture)
                     binding.etDate.setText(tanggalDeparture)
                     findNavController().navigate(R.id.action_hasilPencarianReturnFragment_to_hasilPencarianFirstFragment)
                 }
@@ -178,7 +175,7 @@ class HasilPencarianReturnFragment : Fragment() {
                     val hariDeparture = datePicker.dayOfMonth
                     val tanggalReturn = "$tahunDeparture-${month + 1}-$hariDeparture"
                     binding.etDateReturn.setText(tanggalReturn)
-                    berandaViewModel.saveDatePref(tanggalReturn)
+                    HomeVm.saveDatePref(tanggalReturn)
                     val fragId = findNavController().currentDestination?.id
                     findNavController().popBackStack(fragId!!,true)
                     findNavController().navigate(fragId)
@@ -197,8 +194,8 @@ class HasilPencarianReturnFragment : Fragment() {
     ) {
         val cityFromReturn = cityTo
         val cityToReturn = cityFrom
-        berandaViewModel.searchallticket(cityFromReturn!!, cityToReturn!!, seatClass!!, dateReturn!!)
-        berandaViewModel.livedatasearchallticket.observe(viewLifecycleOwner) {
+        HomeVm.searchallticket(cityFromReturn!!, cityToReturn!!, seatClass!!, dateReturn!!)
+        HomeVm.livedatasearchallticket.observe(viewLifecycleOwner) {
             binding.rvDeparture.apply {
                 layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
                 ticketAdapter = TicketAdapter(it) { itemTicket ->
@@ -207,7 +204,7 @@ class HasilPencarianReturnFragment : Fragment() {
                     val idDeparture = arguments?.getInt("idDep")
                     val hargaPergi = arguments?.getInt("pricePergi")
                     val bundle = Bundle()
-                    berandaViewModel.saveIdReturn(idReturn)
+                    HomeVm.saveIdReturn(idReturn)
                     bundle.putInt("idReturn", idReturn)
                     bundle.putInt("idDeparture", idDeparture!!)
                     if (hargaPergi != null) {

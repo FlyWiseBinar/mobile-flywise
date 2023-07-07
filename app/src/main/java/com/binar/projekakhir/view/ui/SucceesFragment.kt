@@ -49,10 +49,10 @@ class SucceesFragment : Fragment() {
         }
 
 
-        val id = homeVm.getIdTicket()
-        val dewasa = homeVm.getPenumpangDewasa()
-        val anak = homeVm.getPenumpangAnak()
-        val bayi = homeVm.getPenumpangBayi()
+        val id = homeVm.getTicketId()
+        val dewasa = homeVm.getPassengerDewasa()
+        val anak = homeVm.getPassengerAnak()
+        val bayi = homeVm.getPassengerBayi()
 
         val nama = homeVm.getnama()
 

@@ -94,11 +94,9 @@ class LoginFragment : Fragment() {
 //            listuserlogin = it
 //            loginAuth(listuserlogin)
                 if(it.status == true){
-                    val currentDestination = findNavController().currentDestination
-                    if (currentDestination?.id == R.id.loginFragment) {
                         findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
                         Toast.makeText(context, "User Berhasil Login", Toast.LENGTH_SHORT).show()
-                    }
+
 
                 }else{
                     Toast.makeText(context, "Login Failed", Toast.LENGTH_SHORT).show()
