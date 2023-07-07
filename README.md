@@ -8,9 +8,9 @@
 
 <h2 align="center">Berikut Merupakan Mockup Aplikasi yang telah dibuat</h2>
 <div align="center">
-   <img src="dotfiles/ivSplash.png" width="20%">
-   <img src="dotfiles/ivHomepage.png" width="20%">
-   <img src="dotfiles/ivDetail.png" width="20%">
+   <img src="dotfiles/ivSplash.png" width="20%"> &nbsp; &nbsp; &nbsp;
+   <img src="dotfiles/ivHomepage.png" width="20%"> &nbsp; &nbsp; &nbsp;
+   <img src="dotfiles/ivDetail.png" width="20%"> &nbsp; &nbsp; &nbsp;
 </div>
 
 # Android C4 Nama Anggota Kelompok
