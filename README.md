@@ -10,7 +10,7 @@
 <div align="center">
    <img src="dotfiles/ivSplash.png" width="20%"> &nbsp; &nbsp; &nbsp;
    <img src="dotfiles/ivHomepage.png" width="20%"> &nbsp; &nbsp; &nbsp;
-   <img src="dotfiles/ivDetail.png" width="20%"> &nbsp; &nbsp; &nbsp;
+   <img src="dotfiles/ivDetail.png" width="20%">
 </div>
 
 # Android C4 Nama Anggota Kelompok
