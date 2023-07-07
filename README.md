@@ -8,6 +8,7 @@
 
 <h2 align="center">Berikut Merupakan Mockup Aplikasi yang telah dibuat</h2>
 <div align="center">
+   <img src="dotfiles/ivSplash.png" width="20%">
    <img src="dotfiles/ivHomepage.png" width="20%">
    <img src="dotfiles/ivDetail.png" width="20%">
 </div>
@@ -16,6 +17,10 @@
 1. Ilham Okta Alpriansyah
 2. Husni Nabil Fareno
 3. Pricilia Yusoko Putri
+
+# Link Drive Build .apk dan demo
+https://bit.ly/FlyWiseMobile
+
   
 # Fitur Aplikasi yang telah Tersedia 
 1. Authentikasi
@@ -58,7 +63,3 @@
 5. Restful API Include Retrofit2, OkHttp, Gson, Hilt Dagger
 6. Kotlin Coroutines
 7. Firebase
-
-Link Drive Build .apk dan demo
-https://bit.ly/FlyWiseMobile
-
